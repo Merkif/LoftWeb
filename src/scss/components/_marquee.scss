@@ -1,0 +1,29 @@
+.marquee {
+  font-size: clamp-calc(375px, 1920px, 24px, 56px);
+  font-weight: 400;
+  color:var(--gold);
+  height: 100vh;
+  overflow: hidden;
+
+  &__item {
+    background-color:#fff;
+    padding-block: 24px;
+
+    &--light {
+      z-index: 1;
+      position: relative;
+      transform: rotate(-72.481deg) translateY(61px);
+      border-block: 1px solid var(--black);
+    }
+    &--dark {
+      background-color:var(--black);
+      color:#fff;
+      border-block: 1px solid rgba(255, 255, 255, 0.20);
+      transform: rotate(-90deg);
+    }
+  }
+
+  &__track {
+    white-space: nowrap;
+  }
+}

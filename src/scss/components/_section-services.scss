@@ -1,0 +1,14 @@
+.section-services {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-block: 40px;
+  padding-inline: var(--container);
+  max-width: 100vw;
+
+  &__desc {
+    margin-block-end: 80px;
+    text-wrap: balance;
+  }
+}

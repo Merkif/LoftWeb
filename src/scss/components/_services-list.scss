@@ -1,0 +1,84 @@
+.services-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--item-width, 200px), 1fr));
+  row-gap: 80px;
+  column-gap: 12px;
+
+  &__item {
+    position: relative;
+    &:not(:first-child):not(:last-child) {
+      &::before,
+      &::after {
+        content:'';
+        height: var(--lines-height);
+        width: 1px;
+        background-color:var(--light-gray);
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom:0;
+        margin-block:auto;
+      }
+      &::after {
+        right: 0;
+        left: revert;
+      }
+    }
+  }
+  .service {
+    height: 100%;
+  }
+}
+
+.service {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items:center;
+  text-align: center;
+
+  &--web {
+    --title-max-width:200px;
+    --desc-max-width:285px;
+  }
+
+  &--automation {
+    --desc-max-width:362px;
+  }
+
+  &__title {
+    $offsetCalc:clamp-calc(470px, 1920px, 32px, 48px);
+    --offset:#{$offsetCalc};
+    font-weight: 400;
+    margin-block: 0 var(--offset);
+    color:var(--light-theme, var(--black)) var(--dark-theme, var(--gray));
+    position: relative;
+    text-wrap: balance;
+    width: 80%;
+    letter-spacing: -0.64px;
+    line-height: 1.37;
+    font-size: clamp-calc(470px, 1920px, 22px, 32px);
+    max-width: var(--title-max-width, revert);
+
+    &::after {
+      --line-height:1px;
+      content:'';
+      position: absolute;
+      width: 80px;
+      height: var(--line-height);
+      background-color: var(--gold);
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      bottom: calc((var(--offset) / -2) - (var(--line-height) / 2));
+
+    }
+  }
+
+  &__desc {
+    text-wrap: pretty;
+    font-weight: 400;
+    line-height: 1.63;
+    max-width: var(--desc-max-width, revert);
+  }
+}

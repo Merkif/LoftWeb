@@ -1,0 +1,63 @@
+.cases-list {
+  display: flex;
+  height: 100%;
+
+  &__item {
+    flex: 0 0 960px;
+    padding-inline: 13.56vw;
+    box-sizing: content-box;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.case {
+  $titleFs: clamp-calc(375px, 1920px, 32px, 96px);
+  --title-fs:#{$titleFs};
+  &__tags {
+    display: flex;
+  }
+
+  &__figure {
+    margin: 0;
+    position: relative;
+    transform: scale(var(--scale, .875));
+    transition: transform .875s linear;
+    transition: transform .875s linear, filter .6s cubic-bezier(.25, .1, .25, 1) 0s;
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+    filter:brightness(var(--filter, .5));
+    will-change: transform, filter;
+    transform-origin: 50% 64%;
+  }
+
+  &__img {
+    display: block;
+  }
+  &__title {
+    font-size: var(--title-fs);
+    font-weight: 500;
+    margin-block: 0 24px;
+  }
+  &__desc {
+    margin-block: 0 16px;
+  }
+  &__content {
+    margin-top: calc(-16px - var(--title-fs));
+    position: relative;
+  }
+
+  &:hover {
+    --filter:.4;
+  }
+
+  &--active {
+    --filter:1;
+    --scale:1;
+
+    &:hover {
+      --filter:.7;
+    }
+  }
+}

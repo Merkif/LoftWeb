@@ -1,5 +1,26 @@
 <header class="header">
   <a class="header__logo logo">
-    
+    <svg class="logo__img" aria-hidden="true" width="188" height="40">
+      <use xlink:href="img/sprite.svg#logo"></use>
+    </svg>
   </a>
+  <nav class="header__menu menu" aria-label="Основное меню" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    <ul class="menu__list" role="list" id="menu__list">
+      <li class="menu__item" itemprop="name">
+        <a class="menu__link" itemprop="url" href="/agency/">Агентство</a>
+      </li>
+      <li class="menu__item" itemprop="name">
+        <a class="menu__link" itemprop="url" href="/projects/">
+          <span>Проекты</span>
+          <span class="menu__link-count">24</span>
+        </a>
+      </li>
+      <li class="menu__item" itemprop="name">
+        <a class="menu__link" itemprop="url" href="/contacts/">Контакты</a>
+      </li>
+      <li class="menu__item" itemprop="name">
+        <a class="menu__link" itemprop="url" href="/discuss/">Обсудить проект</a>
+      </li>
+    </ul>
+  </nav>
 </header>

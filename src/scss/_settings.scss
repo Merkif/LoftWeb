@@ -16,13 +16,18 @@ html {
   height: 100%;
   font-family: var(--font-family, sans-serif);
   -webkit-text-size-adjust: 100%;
-  scroll-padding-top: calc(var(--header-height) + 25px)
+  scroll-padding-top: calc(var(--header-height) + 25px);
 }
 
 .page__body {
+  --body-dur:0.6s;
   margin: 0;
   font-size: 18px;
-  color: #fff;
+  color:var(--dark-theme, #fff) var(--light-theme, var(--gray));
+  background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
+  transition-property: background-color, color;
+  transition-timing-function: linear;
+  transition-duration: var(--body-dur);
   font-weight: 400;
 }
 
@@ -34,6 +39,7 @@ img {
 
 a {
   text-decoration: none;
+  color:inherit;
 }
 
 [role='list'] {

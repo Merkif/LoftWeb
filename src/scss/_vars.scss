@@ -1,4 +1,8 @@
 :root {
+  --ON: initial;
+  --OFF: ;
+  --light-theme: var(--OFF);
+  --dark-theme: var(--ON);
   // base
   --font-family: "Gotham Pro", sans-serif;
   --content-width: 1520px;
@@ -8,5 +12,12 @@
   --container-half:max(var(--container-offset), calc(100% - var(--content-width) / 2));
   --light-color: #fff;
 
-  //color
+  //colors
+  --black:#191919;
+  --gold:#C6964D;
+  --dark-gray:#474747;
+  --light-gray:#D1D1D1;
+  --gray:#757575;
+  --extra-dark-gray:#303030;
+  --graphite:#BABABA;
 }

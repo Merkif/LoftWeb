@@ -1,0 +1,7 @@
+.main {
+  &__section {
+    &--offset {
+      padding-block: 120px clamp-calc(470px, 1920px, 160px, 240px);
+    }
+  }
+}

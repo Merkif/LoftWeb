@@ -1,0 +1,10 @@
+.horizontal-scroll__container {
+  display: flex;
+  height: 100vh;
+}
+
+.horizontal-scroll__sections {
+  flex-shrink: 0;
+  flex-grow: 1;
+  min-width: 100vw;
+}

@@ -7,7 +7,248 @@
 })
 
 <body class="page__body">
-
+  @include('partials/header.html')
+  <div class="viewport">
+    <div class="scroll-container">
+      <main class="main">
+        <div class="horizontal-scroll">
+          <div class="horizontal-scroll__container">
+            <section class="horizontal-scroll__sections section-hero">
+              <h1 class="sr-only">LoftWeb Digital Agency | Автоматизация Бизнеса | Москва</h1>
+              <p class="section-hero__title headline">
+                <span>Делаем</span>
+                <img class="section-hero__img section-hero__img--round " src="https://placehold.co/214x96/B4B5AF/31343C" alt="" width="214" height="96">
+                <span class="color-gold">удобные</span> <span>продукты</span>
+                <img class="section-hero__img- section-hero__img--circle " src="https://placehold.co/96x96/C6964D/31343C" width="96" height="96">
+                <span>для людей</span>
+              </p>
+              <svg class="section-hero__scroll-sticker scroll-sticker" aria-hidden="true" width="120" height="120">
+                <use xlink:href="img/sprite.svg#scroll-right"></use>
+              </svg>
+            </section>
+            <div class="horizontal-scroll__sections section-marquee">
+              <div class="marquee" aria-hidden="true">
+                <div class="marquee__item marquee__item--light">
+                  <div class="marquee__track">Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы </div>
+                </div>
+                <div class="marquee__item marquee__item--dark">
+                  <div class="marquee__track">Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы </div>
+                </div>
+              </div>
+            </div>
+            <section class="horizontal-scroll__sections section-cases">
+              <h2 class="sr-only">Наши кейсы</h2>
+              <ul class="section-hero__cases-list cases-list" role="list">
+                <li class="cases-list__item">
+                  <article class="case">
+                    <figure class="case__figure">
+                      <picture>
+                        <source data-srcset="img/case-1.webp" type="image/webp">
+                        <img class="case__img lazy" data-src="img/case-1.jpg" width="960" height="640" alt="">
+                      </picture>
+                    </figure>
+                    <div class="case__content">
+                      <h2 class="case__title headline headline--2">Парадайс</h2>
+                      <p class="case__desc">Сайт для агентства недвижимости</p>
+                      <ul class="case__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ui</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ux</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">web</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">dev</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+                <li class="cases-list__item">
+                  <article class="case">
+                    <figure class="case__figure">
+                      <picture>
+                        <source data-srcset="img/case-1.webp" type="image/webp">
+                        <img class="case__img lazy" data-src="img/case-1.jpg" width="960" height="640" alt="">
+                      </picture>
+                    </figure>
+                    <div class="case__content">
+                      <h2 class="case__title headline headline--2">Мариллион</h2>
+                      <p class="case__desc">Сайт для агентства недвижимости</p>
+                      <ul class="case__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ui</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ux</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">web</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">dev</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+                <li class="cases-list__item">
+                  <article class="case">
+                    <figure class="case__figure">
+                      <picture>
+                        <source data-srcset="img/case-1.webp" type="image/webp">
+                        <img class="case__img lazy" data-src="img/case-1.jpg" width="960" height="640" alt="">
+                      </picture>
+                    </figure>
+                    <div class="case__content">
+                      <h2 class="case__title headline headline--2">FutureWords</h2>
+                      <p class="case__desc">Сайт для агентства недвижимости</p>
+                      <ul class="case__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ui</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ux</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">web</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">dev</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+                <li class="cases-list__item">
+                  <article class="case">
+                    <figure class="case__figure">
+                      <picture>
+                        <source data-srcset="img/case-1.webp" type="image/webp">
+                        <img class="case__img lazy" data-src="img/case-1.jpg" width="960" height="640" alt="">
+                      </picture>
+                    </figure>
+                    <div class="case__content">
+                      <h2 class="case__title headline headline--2">Positive changes</h2>
+                      <p class="case__desc">Сайт для агентства недвижимости</p>
+                      <ul class="case__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ui</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">ux</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">web</a>
+                        </li>
+                        <li class="case__tags-item">
+                          <a class="case__tags-link" href="#">dev</a>
+                        </li>
+                      </ul>
+                    </div>
+                  </article>
+                </li>
+              </ul>
+            </section>
+            <div class="horizontal-scroll__sections section-marquee">
+              <div class="marquee" aria-hidden="true">
+                <div class="marquee__item marquee__item--light">
+                  <div class="marquee__track">Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы </div>
+                </div>
+                <div class="marquee__item marquee__item--dark">
+                  <div class="marquee__track">Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы </div>
+                </div>
+              </div>
+            </div>
+            <section class="horizontal-scroll__sections section-services">
+              <header class="c-header">
+                <h2 class="section-services__title c-header__title headline headline--1">Услуги</h2>
+                <img class="c-header__img section-services__img lazy" data-src="img/services-img.png" alt="" width="392" height="551">
+              </header>
+            </section>
+          </div>
+        </div>
+        <section class="main__section main__section--offset section-services" data-theme="light">
+          <h2 class="sr-only">Услуги</h2>
+          <p class="section-services__desc desc desc--lg desc--center" data-lag="0.6">Совмещаем оперативность и качество, чтобы работать с нами было максимально удобно</p>
+          <ul class="section-services__list services-list" role="list">
+            <li class="services-list__item" data-lag="0.1">
+              <div class="service service--web">
+                <h3 class="service__title">Веб продакшн</h3>
+                <p class="service__desc desc desc--md desc--center">Мы разрабатываем сайты, которые решают задачи разной сложности</p>
+              </div>
+            </li>
+            <li class="services-list__item" data-lag="0.3">
+              <div class="service service--automation">
+                <h3 class="service__title">CRM и бизнес автоматизация</h3>
+                <p class="service__desc desc desc--md desc--center">Мы обновим структуру, поправим SEO и зальём свежий контент, чтобы сайт был <br> как с иголочки.</p>
+              </div>
+            </li>
+            <li class="services-list__item" data-lag="0.5">
+              <div class="service service--communications">
+                <h3 class="service__title">Маркетинговые коммуникации</h3>
+                <p class="service__desc desc desc--md desc--center">В зависимости от задач, маркетингового бюджета и KPI, продвигаем сайты в рамках медиа-микс, или используя точечные каналы</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="main__section main__section--offset section-clients" data-theme="dark">
+          <header class="section-clients__header c-header">
+            <h2 class="section-services__title c-header__title headline headline--1">Клиенты</h2>
+            <!-- <img class="c-header__img section-services__img lazy" data-src="img/services-img.png" alt="" width="392" height="551"> -->
+          </header>
+          <p class="section-clients____desc desc desc--lg desc--center" data-lag="0.6">Опыт работы с клиентами — наш секрет успеха!</p>
+          <ul class="section-clients__list clients-list" role="list">
+            <li class="clients-list__item" data-lag="0.1">
+              <div class="client client--web">
+                <h3 class="client__title">Веб продакшн</h3>
+                <p class="client__desc desc desc--md desc--center">Мы разрабатываем сайты, которые решают задачи разной сложности</p>
+              </div>
+            </li>
+            <li class="clients-list__item" data-lag="0.3">
+              <div class="client client--automation">
+                <h3 class="client__title">CRM и бизнес автоматизация</h3>
+                <p class="client__desc desc desc--md desc--center">Мы обновим структуру, поправим SEO и зальём свежий контент, чтобы сайт был <br> как с иголочки.</p>
+              </div>
+            </li>
+            <li class="clients-list__item" data-lag="0.5">
+              <div class="client client--communications">
+                <h3 class="client__title">Маркетинговые коммуникации</h3>
+                <p class="client__desc desc desc--md desc--center">В зависимости от задач, маркетингового бюджета и KPI, продвигаем сайты в рамках медиа-микс, или используя точечные каналы</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+        <section class="main__section main__section--offset section-services" data-theme="light">
+          <h2 class="sr-only">Услуги</h2>
+          <p class="section-services__desc desc desc--lg desc--center" data-lag="0.6">Совмещаем оперативность и качество, чтобы работать с нами было максимально удобно</p>
+          <ul class="section-services__list services-list" role="list">
+            <li class="services-list__item" data-lag="0.1">
+              <div class="service service--web">
+                <h3 class="service__title">Веб продакшн</h3>
+                <p class="service__desc desc desc--md desc--center">Мы разрабатываем сайты, которые решают задачи разной сложности</p>
+              </div>
+            </li>
+            <li class="services-list__item" data-lag="0.3">
+              <div class="service service--automation">
+                <h3 class="service__title">CRM и бизнес автоматизация</h3>
+                <p class="service__desc desc desc--md desc--center">Мы обновим структуру, поправим SEO и зальём свежий контент, чтобы сайт был <br> как с иголочки.</p>
+              </div>
+            </li>
+            <li class="services-list__item" data-lag="0.5">
+              <div class="service service--communications">
+                <h3 class="service__title">Маркетинговые коммуникации</h3>
+                <p class="service__desc desc desc--md desc--center">В зависимости от задач, маркетингового бюджета и KPI, продвигаем сайты в рамках медиа-микс, или используя точечные каналы</p>
+              </div>
+            </li>
+          </ul>
+        </section>
+      </main>
+    </div>
+  </div>
 </body>
 
 </html>
