@@ -59,7 +59,6 @@
     &--hero {
       @include for-desktop {
         min-height: calc(100vh - var(--header-height));
-        min-height: calc(100dvh - var(--header-height));
         padding-block-start: var(--header-height);
         row-gap: 60px;
         padding-block-end: var(--section-gap);
@@ -67,7 +66,6 @@
 
       @include tablet {
         min-height: 100vh;
-        min-height: 100dvh;
         padding-block: 60px;
       }
 
