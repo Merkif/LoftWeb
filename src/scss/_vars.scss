@@ -1,0 +1,12 @@
+:root {
+  // base
+  --font-family: "Gotham Pro", sans-serif;
+  --content-width: 1520px;
+  --container-offset: 80px;
+  --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
+  --container:max(var(--container-offset), calc((100% - var(--content-width)) / 2));
+  --container-half:max(var(--container-offset), calc(100% - var(--content-width) / 2));
+  --light-color: #fff;
+
+  //color
+}
