@@ -1,0 +1,11 @@
+.section-rating {
+  padding-inline: var(--container);
+
+  &__header {
+    margin-block-end: 40px;
+  }
+
+  &__img {
+    width: 50%;
+  }
+}

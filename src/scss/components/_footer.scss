@@ -1,0 +1,52 @@
+.footer {
+  padding-inline: var(--container);
+  padding-block: 80px 120px;
+  display: grid;
+  grid-template-columns: max-content max-content;
+  justify-content: space-between;
+  column-gap: 40px;
+  color:var(--dark-theme, #fff) var(--light-theme, var(--black));
+  row-gap: 80px;
+  line-height: 1.55;
+
+  &__title {
+    font-weight: 400;
+    margin-block: 0;
+    color: var(--gold);
+    font-size: 14px;
+  }
+
+  &__group {
+    display: flex;
+    flex-direction: column;
+    row-gap: 22px;
+  }
+
+  &__links {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+  }
+
+  &__link {
+    text-underline-offset: 4px;
+  }
+
+  &__adds {
+    margin-block: 0;
+    text-align: right;
+  }
+
+  &__copyright {
+    grid-column: span 2;
+    margin-block: 0;
+    color:#5E5E5E;
+  }
+
+  a {
+    transition: opacity 0.3s linear;
+    @include hover {
+      opacity: 0.5;
+    }
+  }
+}

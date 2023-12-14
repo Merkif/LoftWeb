@@ -1,0 +1,10 @@
+.section-contacts {
+  padding-inline: var(--container);
+  &__img {
+    width: 50%;
+  }
+
+  &__header {
+    margin-block-end: 56px;
+  }
+}

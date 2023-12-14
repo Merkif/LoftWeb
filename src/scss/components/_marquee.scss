@@ -4,6 +4,10 @@
   color:var(--gold);
   height: 100vh;
   overflow: hidden;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 
   &__item {
     background-color:#fff;

@@ -3,7 +3,7 @@
     "scope": "html",
     "prefix": "g-use",
     "body": [
-      "<svg class=\"\">",
+      "<svg class=\"\" aria-hidden=\"true\" width=\"\" height=\"\">",
       "  <use xlink:href=\"img/sprite.svg#$2\"></use>",
       "</svg>"
     ],

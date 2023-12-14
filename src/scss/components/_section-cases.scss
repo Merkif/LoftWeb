@@ -1,0 +1,16 @@
+.section-cases {
+  padding-block: 30px 50px;
+  display: flex;
+  flex-direction: column;
+
+  &__list {
+    margin-block-start: auto;
+    height: revert;
+  }
+
+  @include large-desktop {
+    &__list {
+      margin-block: auto;
+    }
+  }
+}

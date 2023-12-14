@@ -1,4 +1,5 @@
 :root {
+  $calc-container-offset:clamp-calc(1024px, 1600px, 20px, 80px);
   --ON: initial;
   --OFF: ;
   --light-theme: var(--OFF);
@@ -6,7 +7,7 @@
   // base
   --font-family: "Gotham Pro", sans-serif;
   --content-width: 1520px;
-  --container-offset: 80px;
+  --container-offset:#{$calc-container-offset};
   --container-width: calc(var(--content-width) + (var(--container-offset) * 2));
   --container:max(var(--container-offset), calc((100% - var(--content-width)) / 2));
   --container-half:max(var(--container-offset), calc(100% - var(--content-width) / 2));
@@ -20,4 +21,5 @@
   --gray:#757575;
   --extra-dark-gray:#303030;
   --graphite:#BABABA;
+  --card-bg:var(--dark-theme, #1E1E1E) var(--light-theme, var(--light-gray))
 }
