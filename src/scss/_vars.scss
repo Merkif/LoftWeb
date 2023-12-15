@@ -1,7 +1,9 @@
 :root {
   $calc-container-offset:clamp-calc(1024px, 1600px, 20px, 80px);
+  /* clean-css ignore:start */
   --ON: initial;
   --OFF: ;
+  /* clean-css ignore:end */
   --light-theme: var(--OFF);
   --dark-theme: var(--ON);
   // base

@@ -2,9 +2,9 @@ const {
   src,
   dest,
   series,
-  watch
+  watch,
 } = require('gulp');
-const formatHTML = require('gulp-format-html');
+const prettyHtml = require('gulp-pretty-html');
 const autoprefixer = require('gulp-autoprefixer');
 const cleanCSS = require('gulp-clean-css');
 const del = require('del');
@@ -34,6 +34,7 @@ const plumber = require('gulp-plumber');
 const path = require('path');
 const zip = require('gulp-zip');
 const rootFolder = path.basename(path.resolve());
+const ghPages = require('gulp-gh-pages');
 
 // paths
 const srcFolder = './src';
@@ -103,10 +104,10 @@ const styles = () => {
     .pipe(autoprefixer({
       cascade: false,
       grid: true,
-      overrideBrowserslist: ["last 5 versions"]
+      overrideBrowserslist: ["last 2 versions"]
     }))
     .pipe(gulpif(isProd, cleanCSS({
-      level: 2
+      level: 2,
     })))
     .pipe(dest(paths.buildCssFolder, { sourcemaps: '.' }))
     .pipe(browserSync.stream());
@@ -299,9 +300,11 @@ const htmlMinify = () => {
     .pipe(dest(buildFolder));
 }
 
-const htmlFormat = () => {
+const formatHTML = () => {
   return src(`${buildFolder}/**/*.html`)
-    .pipe(formatHTML())
+    .pipe(prettyHtml({
+      indent_size: 2,
+    }))
     .pipe(dest(buildFolder));
 }
 
@@ -318,6 +321,11 @@ const zipFiles = (done) => {
     .pipe(dest(buildFolder));
 }
 
+const deployToGitHubPages = () => {
+  return src('./app/**/*')
+    .pipe(ghPages());
+};
+
 const toProd = (done) => {
   isProd = true;
   done();
@@ -325,9 +333,11 @@ const toProd = (done) => {
 
 exports.default = series(clean, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, watchFiles);
 
-exports.backend = series(clean, htmlInclude, scriptsBackend, stylesBackend, resources, images, webpImages, svgSprites, htmlMinify, htmlFormat)
+exports.backend = series(clean, htmlInclude, scriptsBackend, stylesBackend, resources, images, webpImages, svgSprites, formatHTML)
 
-exports.build = series(toProd, clean, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, htmlMinify, htmlFormat);
+exports.build = series(toProd, clean, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, formatHTML);
+
+exports.deploy = series(toProd, clean, htmlInclude, scripts, styles, resources, images, webpImages, svgSprites, htmlMinify, deployToGitHubPages);
 
 exports.cache = series(cache, rewrite);
 
