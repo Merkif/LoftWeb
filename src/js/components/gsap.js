@@ -28,7 +28,8 @@ sectionHeroTitle.forEach((item, index) => {
 //horizontal section scroll
 const horizontalSections = gsap.utils.toArray('.horizontal-scroll');
 const cases = gsap.utils.toArray('.case');
-const marquee = gsap.utils.toArray('.marquee__track');
+const marqueeLight = gsap.utils.toArray('.marquee__item--light');
+const marqueeDark= gsap.utils.toArray('.marquee__item--dark');
 let scrollTween;
 
 horizontalSections.forEach(function (sec, i) {
@@ -60,8 +61,9 @@ sectionHeroTimeLine.from(scrollSticker, {
   ease: "elastic.out(1,0.3)",
 });
 
-sectionHeroTimeLine.to(scrollSticker, {
+sectionHeroTimeLine.to('.scroll-sticker__text', {
   rotate: 360,
+  transformOrigin:"center",
   scrollTrigger: {
     trigger: scrollSticker,
     containerAnimation: scrollTween,
@@ -103,8 +105,10 @@ cases.forEach((item) => {
 });
 
 //marquee
-marquee.forEach((item) => {
-  const marqueeTimeLine = gsap.timeline({
+marqueeLight.forEach((item) => {
+  const track = item.querySelector('.marquee__track');
+  gsap.from(track,{
+    x: -1000,
     scrollTrigger: {
       trigger: item,
       containerAnimation: scrollTween,
@@ -114,9 +118,20 @@ marquee.forEach((item) => {
       scrub: 0
     }
   });
+});
 
-  marqueeTimeLine.from(item, {
-    x: gsap.utils.random([800, -800]),
+marqueeDark.forEach((item) => {
+  const track = item.querySelector('.marquee__track');
+  gsap.to(track,{
+    x: -1000,
+    scrollTrigger: {
+      trigger: item,
+      containerAnimation: scrollTween,
+      toggleActions: "play none none reverse",
+      start: "clamp(0 100%)",
+      end: "clamp(0 -40%)",
+      scrub: 0
+    }
   });
 });
 
