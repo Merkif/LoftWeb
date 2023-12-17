@@ -1,10 +1,10 @@
 .section-cases {
-  padding-block: 30px 50px;
+  padding-block: 50px 30px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
 
   &__list {
-    margin-block-start: auto;
     height: revert;
   }
 

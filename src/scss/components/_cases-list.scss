@@ -3,8 +3,7 @@
   height: 100%;
 
   &__item {
-    flex: 0 0 960px;
-    padding-inline: 13.56vw;
+    width: 80vw;
     box-sizing: content-box;
     display: flex;
     justify-content: center;
@@ -15,6 +14,13 @@
 .case {
   $titleFs: clamp-calc(375px, 1920px, 32px, 96px);
   --title-fs:#{$titleFs};
+  width: 54vw;
+  max-width: 960px;
+
+  @include retina {
+    width: 58vw;
+    max-width: clamp-calc(1921px, 2560px, 961px, 1300px);
+  }
 
   &__tags {
     display: flex;
@@ -53,6 +59,7 @@
   &__img {
     display: block;
     aspect-ratio: 960/640;
+    width: 100%;
   }
 
   &__title {
