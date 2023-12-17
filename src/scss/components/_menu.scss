@@ -27,6 +27,18 @@
       transition: transform .5s cubic-bezier(.8,-.01,.34,1.01);
     }
 
+    &--underline {
+      &::after {
+        content:'';
+        position: absolute;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        height: 1px;
+        background-color:var(--gold);
+      }
+    }
+
     &--discuss {
       margin-block-start: 12px;
       text-underline-position: revert;
