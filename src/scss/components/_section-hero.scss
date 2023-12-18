@@ -20,7 +20,8 @@
     flex-wrap: wrap;
     justify-content: center;
     align-items:center;
-    column-gap: 24px;
+    gap: clamp-calc(470px, 1920px, 8px, 24px);
+    line-height: 1.06;
   }
 
   &__img {
@@ -29,14 +30,23 @@
 
     &--round {
       border-radius: 96px;
+      width: clamp-calc(470px, 1920px, 108px, 214px);
     }
 
     &--circle {
+      $width:clamp-calc(470px, 1920px, 48px, 96px);
+      --width:#{$width};
       border-radius: 50%;
+      width: var(--width);
+      height: var(--width);
     }
   }
 
   &__scroll-sticker {
+    $width:clamp-calc(470px, 1920px, 80px, 120px);
+    --width:#{$width};
     flex-shrink: 0;
+    width: var(--width);
+    height: var(--width);
   }
 }

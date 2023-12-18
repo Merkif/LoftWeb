@@ -1,0 +1,87 @@
+.custom-cursor {
+  --cursor-bg: var(--dark-theme, #fff) var(--light-theme, var(--black));
+  --follower-bg:revert;
+  --follower-border:#474747;
+  --cursor-size: 8px;
+  --follower-size: 56px;
+  --cursor-opacity:1;
+  user-select: none;
+  pointer-events: none;
+
+  &__cursor {
+    width: var(--cursor-size);
+    height: var(--cursor-size);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: var(--cursor-bg);
+    z-index: 2000;
+    user-select: none;
+    pointer-events: none;
+    opacity: var(--cursor-opacity);
+    transition: opacity .2s ease-in-out;
+  }
+
+  &__follower {
+    width: var(--follower-size);
+    height: var(--follower-size);
+    position: fixed;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    user-select: none;
+    pointer-events: none;
+    transition: .1s linear;
+    border:1px solid var(--follower-border);
+    background-color:var(--follower-bg);
+    z-index: 2000;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    overflow: hidden;
+    color:var(--black);
+    padding: 15px;
+    text-align: center;
+    font-size: clamp-calc(1024px, 1920px, 14px, 18px);
+  }
+
+  &--hover {
+    --follower-border:transparent;
+    --follower-bg: var(--dark-theme, rgba(251, 248, 235, 0.1)) var(--light-theme, rgba(0, 0, 0, 0.507));
+    --follower-size:80px;
+    --cursor-opacity:0;
+  }
+
+  &--case,
+  &--testimonial {
+    $followerSizeCalc: clamp-calc(1024px, 1920px, 100px, 160px);
+    --follower-border:transparent;
+    --cursor-opacity:0;
+    --follower-size:#{$followerSizeCalc};
+    --follower-bg:#fff;
+  }
+
+  &--case &__follower {
+    &::after {
+      content:'Посмотреть проект'
+    }
+  }
+
+  &--testimonial &__follower {
+    &::after {
+      content:'Смотреть отзыв'
+    }
+  }
+
+  &--testimonial-close &__follower {
+    &::after {
+      content:'Закрыть отзыв'
+    }
+  }
+
+  @include  tablet{
+    display: none;
+  }
+}
+
