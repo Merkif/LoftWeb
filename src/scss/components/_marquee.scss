@@ -11,7 +11,7 @@
 
   &__item {
     background-color:#fff;
-    padding-block: 24px;
+    padding-block: clamp-calc(375px, 1920px, 16px, 24px);
 
     &--light {
       z-index: 1;
@@ -29,5 +29,26 @@
 
   &__track {
     white-space: nowrap;
+    line-height: 1.2;
+    letter-spacing: -0.48px;
+  }
+
+  @include tablet {
+    height: revert;
+    overflow: revert;
+    position: static;
+    transform: revert;
+    &__item {
+      position: absolute;
+      left: 50%;
+      top: 40%;
+      transform-origin:left;
+      &--light {
+        transform: rotate(12deg) translateX(-50%);
+      }
+      &--dark {
+        transform: rotate(-12deg) translateX(-50%);
+      }
+    }
   }
 }

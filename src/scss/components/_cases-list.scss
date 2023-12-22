@@ -1,20 +1,29 @@
 .cases-list {
-  display: flex;
-  height: 100%;
-
-  &__item {
-    width: 80vw;
-    box-sizing: content-box;
+  @include for-desktop {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    height: 100%;
+
+    &__item {
+      width: 80vw;
+      box-sizing: content-box;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+  @include tablet {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(clamp-calc(470px, 1024px, 280px, 400px), 1fr));
+    gap: 80px 40px;
   }
 }
 
 .case {
-  $titleFs: clamp-calc(375px, 1920px, 32px, 96px);
+  $titleFs: clamp-calc(760px, 1920px, 32px, 96px);
   --title-fs:#{$titleFs};
-  width: 54vw;
+  @include for-desktop {
+    width: 54vw;
+  }
   max-width: 960px;
   position: relative;
 
@@ -23,11 +32,19 @@
     max-width: clamp-calc(1921px, 2560px, 961px, 1300px);
   }
 
+  @include tablet {
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+  }
+
   &__tags {
     display: flex;
     color:var(--dark-theme, #fff) var(--light-theme, var(--black));
     font-size:14px;
     gap: 4px;
+    position: relative;
+    z-index: 1;
 
     &-link {
       display: block;
@@ -46,27 +63,37 @@
 
   &__figure {
     margin: 0;
-    position: relative;
-    transform: scale(var(--scale, .875));
-    transition: transform .875s linear;
-    transition: transform .875s linear, filter .6s cubic-bezier(.25, .1, .25, 1) 0s;
-    backface-visibility: hidden;
-    transform-style: preserve-3d;
-    filter: brightness(var(--filter, .5));
-    will-change: transform, filter;
-    transform-origin: 50% 64%;
+    background-color:#A3A3A3;
+    overflow: hidden;
+    @include for-desktop {
+      position: relative;
+      transform: scale(var(--scale, .875));
+      transition: transform .875s linear;
+      transition: transform .875s linear, filter .6s cubic-bezier(.25, .1, .25, 1) 0s;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      filter: brightness(var(--filter, .5));
+      will-change: transform, filter;
+      transform-origin: 50% 64%;
+    }
   }
 
   &__img {
     display: block;
     aspect-ratio: 960/640;
     width: 100%;
+    filter: blur(20px);
+    transition: filter 0.3s ease-in-out;
+
+    &.entered.loaded {
+      filter: revert;
+    }
   }
 
   &__title {
     font-size: var(--title-fs);
     font-weight: 500;
-    margin-block: 0 24px;
+    margin-block: 0 clamp-calc(760px, 1920px, 16px, 24px);;
     color:#fff;
     letter-spacing: -0.96px;
     line-height: 1.16;
@@ -82,10 +109,13 @@
   }
 
   &__content {
-    margin-top: calc(-16px - var(--title-fs));
     display: flex;
     flex-direction: column;
-    align-items:flex-start
+    align-items:flex-start;
+
+    @include for-desktop {
+      margin-top: calc(-16px - var(--title-fs));
+    }
   }
 
   &__link {

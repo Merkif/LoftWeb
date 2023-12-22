@@ -104,7 +104,7 @@ const styles = () => {
     .pipe(autoprefixer({
       cascade: false,
       grid: true,
-      overrideBrowserslist: ["last 2 versions"]
+      overrideBrowserslist: ["last 1 versions"]
     }))
     .pipe(gulpif(isProd, cleanCSS({
       level: 2,
@@ -126,7 +126,7 @@ const stylesBackend = () => {
     .pipe(autoprefixer({
       cascade: false,
       grid: true,
-      overrideBrowserslist: ["last 2 versions"]
+      overrideBrowserslist: ["last 1 versions"]
     }))
     .pipe(dest(paths.buildCssFolder))
     .pipe(browserSync.stream());

@@ -5,7 +5,12 @@
     </svg>
   </a>
   <nav class="header__menu menu" aria-label="Основное меню" itemscope itemtype="https://schema.org/SiteNavigationElement">
-    <ul class="menu__list" role="list" id="menu__list">
+    <button class="menu__button" type="button" aria-expanded="false" aria-controls="menu__list" aria-label="Открыть меню">
+      <span class="menu__button-line" aria-hidden="true"></span>
+      <span class="menu__button-line" aria-hidden="true"></span>
+      <span class="menu__button-line" aria-hidden="true"></span>
+    </button>
+    <ul class="menu__list menu__list--main" role="list" id="menu__list">
       <li class="menu__item" itemprop="name">
         <a class="menu__link menu__link--hover" itemprop="url" href="/agency/" title="Агентство">
           <span class="menu__link-text">Агентство</span>

@@ -27,23 +27,55 @@ const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
   checker();
 }
 
-const someFunc = (instance) => {
-  if (instance) {
-    instance.on('slideChange', function (e) {
-      console.log('*** mySwiper.activeIndex', instance.activeIndex);
-    });
-  }
-};
-
 resizableSwiper(
-  '(max-width: 1280px)',
-  '.slider-1',
+  '(max-width: 1024px)',
+  '.swiper--clients',
   {
     modules: [Navigation],
-    loop: true,
-    spaceBetween: 32,
-    slidesPerView: 1,
-  },
-  someFunc
+    spaceBetween: 24,
+    slidesPerView: 1.3,
+    centeredSlidesBounds:true,
+    centeredSlides:true,
+    navigation: {
+      nextEl: '.swiper__button--next',
+      prevEl: '.swiper__button--prev',
+      disabledClass: 'swiper__button--disabled'
+    },
+    breakpoints: {
+      500: {
+        slidesPerView:2.3
+      },
+      590: {
+        slidesPerView:3.3,
+      }
+    }
+  }
 );
 
+resizableSwiper(
+  '(max-width: 1024px)',
+  '.swiper--rating',
+  {
+    modules: [Navigation],
+    spaceBetween: 24,
+    slidesPerView: 1.3,
+    centeredSlidesBounds:true,
+    centeredSlides:true,
+    navigation: {
+      nextEl: '.swiper__button--next',
+      prevEl: '.swiper__button--prev',
+      disabledClass: 'swiper__button--disabled'
+    },
+    breakpoints: {
+      590: {
+        slidesPerView:2,
+      },
+      725: {
+        slidesPerView:2.4,
+      },
+      940: {
+        slidesPerView:3,
+      }
+    }
+  }
+);

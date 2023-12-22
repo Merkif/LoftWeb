@@ -49,4 +49,17 @@
     width: var(--width);
     height: var(--width);
   }
+
+  @include tablet {
+    justify-content: center;
+    padding-block: 60px;
+    row-gap: 96px;
+    min-height: 100vh;
+    min-height: 100dvh;
+
+    .scroll-sticker__arrow {
+      transform: rotate(90deg);
+      transform-origin: center;
+    }
+  }
 }

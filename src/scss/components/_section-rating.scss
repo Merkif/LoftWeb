@@ -1,11 +1,17 @@
 .section-rating {
-  padding-inline: var(--container);
 
   &__header {
     margin-block-end: 40px;
+    padding-inline: var(--container);
   }
 
   &__img {
     width: 50%;
+  }
+
+  @include for-desktop {
+    &__container {
+      padding-inline: var(--container);
+    }
   }
 }

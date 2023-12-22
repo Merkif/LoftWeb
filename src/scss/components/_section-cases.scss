@@ -1,16 +1,30 @@
 .section-cases {
-  padding-block: 50px 30px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  @include for-desktop {
+    padding-block: 50px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 
-  &__list {
-    height: revert;
+    &__list {
+      height: revert;
+    }
+
+    &__more {
+      display: none;
+    }
   }
 
   @include large-desktop {
     &__list {
       margin-block: auto;
+    }
+  }
+
+  @include tablet {
+    padding-inline: var(--container);
+
+    &__list {
+      margin-block-end: clamp-calc(470px, 1024px, 80px, 160px);
     }
   }
 }

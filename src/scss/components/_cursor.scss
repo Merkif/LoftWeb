@@ -20,7 +20,7 @@
     user-select: none;
     pointer-events: none;
     opacity: var(--cursor-opacity);
-    transition: opacity .2s ease-in-out;
+    transition: opacity .3s ease-in-out;
   }
 
   &__follower {
@@ -80,7 +80,7 @@
     }
   }
 
-  @include  tablet{
+  @include  tablet {
     display: none;
   }
 }

@@ -3,7 +3,7 @@
 
 @include('partials/head.html', {
   "title":"LoftWeb Digital Agency | Автоматизация Бизнеса | Москва",
-  "description":"Автоматизация Бизнеса Москва Разработка сайтов Техническая поддержка"
+  "description":"Автоматизация Бизнеса Москва Разработка сайтов Техническая поддержка",
 })
 
 <body class="page__body page__body--cursor">
@@ -279,14 +279,17 @@
                     </article>
                   </li>
                 </ul>
+                <div class="section-cases__more button-wrap">
+                  <a class="button button--transparent" href="/projects.html">Смотреть <br> все проекты</a>
+                </div>
               </section>
               <div class="horizontal-scroll__section section-marquee">
                 <div class="marquee" aria-hidden="true">
                   <div class="marquee__item marquee__item--light">
-                    <div class="marquee__track">Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы </div>
+                    <div class="marquee__track">Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги </div>
                   </div>
                   <div class="marquee__item marquee__item--dark">
-                    <div class="marquee__track">Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы Наши кейсы </div>
+                    <div class="marquee__track">Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги </div>
                   </div>
                 </div>
               </div>
@@ -302,7 +305,7 @@
         <section class="main__section main__section--offset section-services" data-bg-class="theme-light">
           <h2 class="sr-only">Услуги</h2>
           <p class="section-services__desc desc desc--lg desc--center desc--mb" data-speed="1.10" data-lag="0.2">Совмещаем оперативность и качество, чтобы работать с нами было максимально удобно</p>
-          <ul class="section-services__list services-list" role="list" data-speed="1.2" data-lag="0.3">
+          <ul class="section-services__list services-list" role="list">
             <li class="services-list__item">
               <div class="service service--web">
                 <h3 class="service__title">Веб продакшн</h3>
@@ -331,170 +334,186 @@
               <img class="c-header__grid-img lazy" data-src="img/2.png" alt="" style="--rotate:30deg; --origin:56% 53%;"> -->
             </div>
           </header>
-          <div class="section-clients__container container">
-            <p class="section-clients__desc desc desc--lg desc--center desc--mb" data-lag="0.4">Опыт работы с клиентами <br> — наш секрет успеха!</p>
-            <ul class="section-clients__list clients-list" role="list" data-lag="0.5">
-              <li class="clients-list__item">
-                <div class="client-card client-card--con">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="199" height="80" style="--width:54%">
-                    <use xlink:href="img/sprite.svg#fP-1"></use>
+          <div class="section-clients__container">
+            <p class="section-clients__desc desc desc--lg desc--center desc--mb container" data-lag="0.4">Опыт работы с клиентами <br> — наш секрет успеха!</p>
+            <div class="swiper swiper--clients" data-lag="0.5">
+              <ul class="section-clients__list clients-list swiper-wrapper" role="list">
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--con">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="199" height="80" style="--width:54%">
+                      <use xlink:href="img/sprite.svg#fP-1"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#fP-1"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--vaillant">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="201" height="48" style="--width:57%">
+                      <use xlink:href="img/sprite.svg#vaillant"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#vaillant"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--chicco">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="144" height="80" style="--width:41%">
+                      <use xlink:href="img/sprite.svg#chicco"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#chicco"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--zolla">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="172" height="60" style="--width:47%">
+                      <use xlink:href="img/sprite.svg#zolla"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#zolla"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--beko">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="108" height="60" style="--width:30%">
+                      <use xlink:href="img/sprite.svg#beko"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#beko"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--pandora">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="241" height="48" style="--width:68%">
+                      <use xlink:href="img/sprite.svg#pandora"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#pandora"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--mb">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="241" height="48" style="--width:68%">
+                      <use xlink:href="img/sprite.svg#mb"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#mb"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+                <li class="clients-list__item swiper-slide">
+                  <div class="client-card client-card--atol">
+                    <button class="client-card__action" type="button">
+                      <span class="sr-only">Открыть отзыв</span>
+                    </button>
+                    <svg class="client-card__icon" aria-hidden="true" width="172" height="46" style="--width:47%">
+                      <use xlink:href="img/sprite.svg#atol"></use>
+                    </svg>
+                    <blockquote class="client-card__testimonial testimonial">
+                      <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
+                      <div class="testimonial__author">
+                        <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
+                          <use xlink:href="img/sprite.svg#atol"></use>
+                        </svg>
+                        <span class="testimonial__author-name">Иван Иванов</span>
+                        <span class="testimonial__author-position">Директор по маркетингу</span>
+                      </div>
+                    </blockquote>
+                  </div>
+                </li>
+              </ul>
+              <div class="swiper__buttons">
+                <button class="swiper__button swiper__button--prev" type="button">
+                  <span class="sr-only">Предыдущий слайд</span>
+                  <svg class="swiper-button__icon" aria-hidden="true" width="27" height="24">
+                    <use xlink:href="img/sprite.svg#arrow-l"></use>
                   </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#fP-1"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--vaillant">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="201" height="48" style="--width:57%">
-                    <use xlink:href="img/sprite.svg#vaillant"></use>
+                </button>
+                <button class="swiper__button swiper__button--next" type="button">
+                  <span class="sr-only">Следующий слайд</span>
+                  <svg class="swiper-button__icon" aria-hidden="true" width="27" height="24">
+                    <use xlink:href="img/sprite.svg#arrow-r"></use>
                   </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#vaillant"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--chicco">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="144" height="80" style="--width:41%">
-                    <use xlink:href="img/sprite.svg#chicco"></use>
-                  </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#chicco"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--zolla">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="172" height="60" style="--width:47%">
-                    <use xlink:href="img/sprite.svg#zolla"></use>
-                  </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#zolla"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--beko">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="108" height="60" style="--width:30%">
-                    <use xlink:href="img/sprite.svg#beko"></use>
-                  </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#beko"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--pandora">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="241" height="48" style="--width:68%">
-                    <use xlink:href="img/sprite.svg#pandora"></use>
-                  </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#pandora"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--mb">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="241" height="48" style="--width:68%">
-                    <use xlink:href="img/sprite.svg#mb"></use>
-                  </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#mb"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-              <li class="clients-list__item">
-                <div class="client-card client-card--atol">
-                  <button class="client-card__action" type="button">
-                    <span class="sr-only">Открыть отзыв</span>
-                  </button>
-                  <svg class="client-card__icon" aria-hidden="true" width="172" height="46" style="--width:47%">
-                    <use xlink:href="img/sprite.svg#atol"></use>
-                  </svg>
-                  <blockquote class="client-card__testimonial testimonial">
-                    <p class="testimonial__text">Мы большая компания с нестандартными проектными запросами. В связи с этим мы выбирали команду, которая станет не просто подрядчиками, а партнерами с максимальной степенью погружения в специфику нашего бизнеса на каждом этапе взаимодействия. Мы благодарны специалистам LoftWeb за профессионализм и экспертизу в разработке масштабных, технически сложных продуктов.</p>
-                    <div class="testimonial__author">
-                      <svg class="testimonial__author-icon" aria-hidden="true" width="40" height="20">
-                        <use xlink:href="img/sprite.svg#atol"></use>
-                      </svg>
-                      <span class="testimonial__author-name">Иван Иванов</span>
-                      <span class="testimonial__author-position">Директор по маркетингу</span>
-                    </div>
-                  </blockquote>
-                </div>
-              </li>
-            </ul>
+                </button>
+              </div>
+            </div>
           </div>
         </section>
         <section class="main__section main__section--offset section-rating" data-bg-class="theme-dark">
@@ -502,42 +521,60 @@
             <h2 class="section-rating__title c-header__title headline headline--1 headline--center" data-lag="0.4">Рейтинги</h2>
             <img class="section-rating__img c-header__img lazy" data-src="https://placehold.co/800x800/B4B5AF/B4B5AF?text=." alt="" width="800" height="800" data-speed="1.25" data-lag="0.5">
           </header>
-          <p class="section-rating__desc desc desc--lg desc--center desc--mb" data-speed="1.1" data-lag="0.4">Наша экспертиза <br> говорит сама за себя</p>
-          <ul class="section-rating__list rating-list" role="list" data-lag="0.5">
-            <li class="rating-list__item">
-              <div class="rating-card">
-                <h3 class="rating-card__title headline"><span>11</span> место</h3>
-                <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков интернет-магазинов </p>
+          <div class="section-rating__container">
+            <p class="section-rating__desc desc desc--lg desc--center desc--mb container" data-speed="1.1" data-lag="0.4">Наша экспертиза <br> говорит сама за себя</p>
+            <div class="swiper swiper--rating" data-lag="0.5">
+              <ul class="section-rating__list rating-list swiper-wrapper" role="list">
+                <li class="rating-list__item swiper-slide">
+                  <div class="rating-card">
+                    <h3 class="rating-card__title headline"><span>11</span> место</h3>
+                    <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков интернет-магазинов </p>
+                  </div>
+                </li>
+                <li class="rating-list__item swiper-slide">
+                  <div class="rating-card">
+                    <h3 class="rating-card__title headline"><span>22</span> место</h3>
+                    <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков игр на Android</p>
+                  </div>
+                </li>
+                <li class="rating-list__item swiper-slide">
+                  <div class="rating-card">
+                    <h3 class="rating-card__title headline"><span>16</span> место</h3>
+                    <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков интернет-магазинов подарков</p>
+                  </div>
+                </li>
+                <li class="rating-list__item swiper-slide">
+                  <div class="rating-card">
+                    <h3 class="rating-card__title headline"><span>17</span> место</h3>
+                    <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков мобильных игр</p>
+                  </div>
+                </li>
+              </ul>
+              <div class="swiper__buttons">
+                <button class="swiper__button swiper__button--prev" type="button">
+                  <span class="sr-only">Предыдущий слайд</span>
+                  <svg class="swiper-button__icon" aria-hidden="true" width="27" height="24">
+                    <use xlink:href="img/sprite.svg#arrow-l"></use>
+                  </svg>
+                </button>
+                <button class="swiper__button swiper__button--next" type="button">
+                  <span class="sr-only">Следующий слайд</span>
+                  <svg class="swiper-button__icon" aria-hidden="true" width="27" height="24">
+                    <use xlink:href="img/sprite.svg#arrow-r"></use>
+                  </svg>
+                </button>
               </div>
-            </li>
-            <li class="rating-list__item">
-              <div class="rating-card">
-                <h3 class="rating-card__title headline"><span>22</span> место</h3>
-                <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков игр на Android</p>
-              </div>
-            </li>
-            <li class="rating-list__item">
-              <div class="rating-card">
-                <h3 class="rating-card__title headline"><span>16</span> место</h3>
-                <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков интернет-магазинов подарков</p>
-              </div>
-            </li>
-            <li class="rating-list__item">
-              <div class="rating-card">
-                <h3 class="rating-card__title headline"><span>17</span> место</h3>
-                <p class="rating-card__desc desc">в Рейтинге Рунета среди разработчиков мобильных игр</p>
-              </div>
-            </li>
-          </ul>
+            </div>
+          </div>
         </section>
         <section class="main__section main__section--offset section-contacts" data-bg-class="theme-light">
           <header class="section-contacts__header c-header c-header--place-center">
             <h2 class="section-contacts__title c-header__title headline headline--1 headline--center" data-lag="0.4">Контакты</h2>
-            <!-- <img class="section-contacts__img c-header__img lazy" data-src="https://placehold.co/800x800/B4B5AF/B4B5AF?text=." alt="" width="800" height="800" data-speed="1.25" data-lag="0.5"> -->
+            <img class="section-contacts__img c-header__img lazy" data-src="https://placehold.co/800x800/B4B5AF/B4B5AF?text=." alt="" width="800" height="800" data-speed="1.25" data-lag="0.5">
           </header>
           <p class="section-rating__desc desc desc--lg desc--center desc--mb" data-speed="1.1" data-lag="0.4">Расскажите <br> о вашем проекте</p>
           <div class="button-wrap">
-            <a class="button button--dark" href="" data-speed="1.2" data-lag="0.5">Обсудить <br> проект</a>
+            <a class="section-contacts__button button button--dark" href="" data-speed="1.2" data-lag="0.5">Обсудить <br> проект</a>
           </div>
         </section>
       </main>

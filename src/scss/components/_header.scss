@@ -7,5 +7,10 @@
   justify-content: space-between;
   padding-inline: var(--container);
   z-index: 10;
-  padding-block: clamp-calc(470px, 1920px, 24px, 32px);
+  padding-block: clamp-calc(470px, 1920px, 30px, 32px);
+
+  @include tablet {
+    align-items:center;
+  }
 }
+

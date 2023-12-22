@@ -1,0 +1,7 @@
+.section-clients {
+  @include for-desktop {
+    &__container {
+      padding-inline: var(--container);
+    }
+  }
+}

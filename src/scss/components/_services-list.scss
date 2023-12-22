@@ -2,7 +2,7 @@
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(var(--item-width, 200px), 1fr));
   row-gap: 80px;
-  column-gap: 12px;
+  column-gap: 8px;
 
   &__item {
     position: relative;
@@ -28,10 +28,24 @@
   .service {
     height: 100%;
   }
+
+  @include small-tablet {
+    grid-template-columns: 1fr;
+    max-width: 400px;
+    &__item {
+      &:not(:first-child):not(:last-child) {
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+  }
 }
 
 .service {
-  padding: 24px;
+  padding-inline: clamp-calc(1024px, 1920px, 8px, 26px);
+  padding-block: clamp-calc(1024px, 1920px, 16px, 24px);
   display: flex;
   flex-direction: column;
   align-items:center;
@@ -80,5 +94,13 @@
     font-weight: 400;
     line-height: 1.63;
     max-width: var(--desc-max-width, revert);
+  }
+
+  @include tablet {
+    &__desc {
+      br {
+        display: none;
+      }
+    }
   }
 }

@@ -1,54 +1,68 @@
 .clients-list {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  position: relative;
-  margin-right: -1px;
-  margin-bottom: -1px;
-
-  &__item {
+  @include for-desktop {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
     position: relative;
-    &::before,
-    &::after {
-      $size:clamp-calc(470px, 1920px, 12px, 24px);
-      --size:#{$size};
-      content: '';
-      position: absolute;
-      width: var(--size);
-      height: var(--size);
-      background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
-      transition-property: background-color;
-      transition-delay: var(--body-delay);
-      transition-duration: var(--body-dur);
-      transition-timing-function: linear;
-      bottom: calc(100% - (var(--size) / 2));
-      left: calc(100% - (var(--size) / 2));
-      z-index: 2;
-    }
+    margin-right: -1px;
+    margin-bottom: -1px;
 
-    &::after {
-      top: calc(100% - (var(--size) / 2));
-    }
-    &:is(:nth-child(1), :nth-child(5)) {
-      .client-card {
-        border-inline-start:0;
-        padding-inline-start: 0;
-      }
-    }
-
-    &:is(:nth-child(4), :nth-child(8)) {
-      .client-card {
-        border-inline-end:0;
-        padding-inline-end: 0;
-      }
+    &__item {
+      position: relative;
       &::before,
       &::after {
-        display: none;
+        $size:clamp-calc(470px, 1920px, 12px, 24px);
+        --size:#{$size};
+        content: '';
+        position: absolute;
+        width: var(--size);
+        height: var(--size);
+        background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
+        transition-property: background-color;
+        transition-delay: var(--body-delay);
+        transition-duration: var(--body-dur);
+        transition-timing-function: linear;
+        bottom: calc(100% - (var(--size) / 2));
+        left: calc(100% - (var(--size) / 2));
+        z-index: 2;
       }
+
+      &::after {
+        top: calc(100% - (var(--size) / 2));
+      }
+      &:is(:nth-child(1), :nth-child(5)) {
+        .client-card {
+          border-inline-start:0;
+          padding-inline-start: 0;
+        }
+      }
+
+      &:is(:nth-child(4), :nth-child(8)) {
+        .client-card {
+          border-inline-end:0;
+          padding-inline-end: 0;
+        }
+        &::before,
+        &::after {
+          display: none;
+        }
+      }
+    }
+
+    &:has(.client-card--active) {
+      --logo-color:#5E5E5E;
     }
   }
 
-  &:has(.client-card--active) {
-    --logo-color:#5E5E5E;
+  @include tablet {
+    &__item {
+      &:last-child {
+        .client-card {
+          &::after {
+            display: none;
+          }
+        }
+      }
+    }
   }
 }
 
@@ -63,11 +77,31 @@
   justify-content: center;
   align-items: center;
   aspect-ratio: 362/242;
-  border: 1px solid var(--dark-gray);
   padding-block: var(--padding);
   padding-inline: var(--padding);
-  margin-left: -1px;
-  margin-top: -1px;
+  @include for-desktop {
+    border: 1px solid var(--dark-gray);
+    margin-left: -1px;
+    margin-top: -1px;
+  }
+
+  @include tablet {
+    --border-color:var(--dark-gray);
+    --gap:12px;
+    position: relative;
+    border-block: 1px solid var(--border-color);
+    position: relative;
+
+    &::after {
+      content:'';
+      height: calc(100% - (var(--gap) * 2));
+      position: absolute;
+      top: var(--gap);
+      left: calc(100% + var(--gap));
+      width: 1px;
+      background-color:var(--border-color);
+    }
+  }
   transition-property: background-color, color;
   transition-timing-function: linear;
   transition-duration: 0.3s;
@@ -82,54 +116,74 @@
   }
 
   &__testimonial {
-    position: absolute;
-    background-color:var(--card-bg);
-    width: calc((var(--item-size) * var(--item-unit)) - var(--padding));
-    height: calc((var(--item-size) * 2) - (var(--padding) * 2));
-    top: calc(100% - (var(--item-size) * var(--item-v-unit) - var(--padding)));
-    margin: 0;
-    z-index: 20;
-      /* clean-css ignore:start */
-    transition-property: opacity, visibility, transform;
-      /* clean-css ignore:end */
-    transition-duration: 0.5s;
-    transition-timing-function: ease-in-out;
-    opacity: 0;
-    transform-style: preserve-3d;
-    transform: perspective(1000px) rotateX(100deg) scale(0.5);
-    transition-delay: 0;
-    visibility: hidden;
-    transition-delay: 0.1s;
+    display: none;
   }
 
-  &--con &__testimonial,
-  &--beko &__testimonial {
-    left: var(--testimonial-position);
-  }
+  @include for-desktop {
+    &__testimonial {
+      position: absolute;
+      background-color:var(--card-bg);
+      width: calc((var(--item-size) * var(--item-unit)) - var(--padding));
+      height: calc((var(--item-size) * 2) - (var(--padding) * 2));
+      top: calc(100% - (var(--item-size) * var(--item-v-unit) - var(--padding)));
+      margin: 0;
+      z-index: 20;
+        /* clean-css ignore:start */
+      transition-property: opacity, visibility, transform;
+        /* clean-css ignore:end */
+      transition-duration: 0.5s;
+      transition-timing-function: ease-in-out;
+      opacity: 0;
+      transform-style: preserve-3d;
+      transform: perspective(1000px) rotateX(100deg) scale(0.5);
+      transition-delay: 0;
+      visibility: hidden;
+      transition-delay: 0.1s;
+      display: flex;
+    }
 
-  &--vaillant &__testimonial,
-  &--pandora &__testimonial {
-    --item-unit:2;
-    left: var(--testimonial-position);
-  }
+    &--con &__testimonial,
+    &--beko &__testimonial {
+      left: var(--testimonial-position);
+    }
 
-  &--chicco &__testimonial,
-  &--mb &__testimonial {
-    --item-unit:2;
-    right: var(--testimonial-position);
-  }
+    &--vaillant &__testimonial,
+    &--pandora &__testimonial {
+      --item-unit:2;
+      left: var(--testimonial-position);
+    }
 
-  &--zolla &__testimonial,
-  &--atol &__testimonial {
-    --item-unit:3;
-    right: var(--testimonial-position);
-  }
+    &--chicco &__testimonial,
+    &--mb &__testimonial {
+      --item-unit:2;
+      right: var(--testimonial-position);
+    }
 
-  &--beko,
-  &--pandora,
-  &--mb,
-  &--atol {
-    --item-v-unit:2;
+    &--zolla &__testimonial,
+    &--atol &__testimonial {
+      --item-unit:3;
+      right: var(--testimonial-position);
+    }
+
+    &--beko,
+    &--pandora,
+    &--mb,
+    &--atol {
+      --item-v-unit:2;
+    }
+
+    &:hover,
+    &--active  {
+      --logo-color:#fff;
+      background-color:var(--card-bg);
+      cursor: pointer;
+    }
+    &--active &__testimonial {
+      opacity: 1;
+      visibility: visible;
+      transform: perspective(1000px) rotateX(0) scale(1);
+      transition-delay: 0.35s;
+    }
   }
 
   &__action {
@@ -144,18 +198,5 @@
     padding: 0;
     cursor: pointer;
     outline-color: var(--gold);
-  }
-
-  &:hover,
-  &--active  {
-    --logo-color:#fff;
-    background-color:var(--card-bg);
-    cursor: pointer;
-  }
-  &--active &__testimonial {
-    opacity: 1;
-    visibility: visible;
-    transform: perspective(1000px) rotateX(0) scale(1);
-    transition-delay: 0.35s;
   }
 }

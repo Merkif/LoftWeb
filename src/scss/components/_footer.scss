@@ -49,4 +49,18 @@
       opacity: 0.5;
     }
   }
+
+  @include mobile {
+    grid-template-columns: 1fr;
+    text-align: center;
+    justify-items: center;
+
+    &__adds {
+      text-align: revert;
+    }
+
+    &__copyright  {
+      grid-column: auto;
+    }
+  }
 }
