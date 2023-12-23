@@ -5,13 +5,13 @@ import { ScrollSmoother } from './ScrollSmoother.min.js';
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 //scrollSmooth
-let smoother = ScrollSmoother.create({
+const smootherParams = {
   wrapper: '.viewport',
   content: '.scroll-container',
   smooth: 1.2,
-  effects: true,
-  smoothTouch: 0.1,
-});
+}
+
+let smoother = ScrollSmoother.create(smootherParams);
 
 export default smoother;
 
@@ -26,13 +26,32 @@ const marqueeDark = gsap.utils.toArray('.marquee__item--dark');
 const cursorWrapper = document?.querySelector('.custom-cursor');
 const cursorFollower = cursorWrapper?.querySelector('.custom-cursor__follower');
 const cursor = cursorWrapper?.querySelector('.custom-cursor__cursor');
-const links = document?.querySelectorAll('a');
+const links = document?.querySelectorAll('a, .footer__links, .menu__list');
 const clientCards = gsap.utils.toArray('.client-card');
 const ratingCards = gsap.utils.toArray('.rating-card');
 const caseLinks = document.querySelectorAll('.case__link');
 const clientCardBtn = document.querySelectorAll('.client-card__action');
 const scrollSticker = document.querySelector('.scroll-sticker');
 const testimonialsContainer = document.querySelector('.clients-list');
+const headerImg = gsap.utils.toArray('.c-header__img, .c-header__grid');
+
+//hero-section
+sectionHeroTitle.forEach((item, index) => {
+  sectionHeroTimeLine.from(item, {
+    y: +100,
+    duration: 1,
+    ease: "power4.out",
+    opacity: 0,
+    delay: 0.8,
+  }, 0.15 * index);
+});
+
+//scroll-sticker
+sectionHeroTimeLine.from(scrollSticker, {
+  scale: 0,
+  duration: 0.6,
+  ease: "elastic.out(1,0.3)",
+});
 
 //client testimonials
 function toggleTestimonial(card) {
@@ -58,24 +77,6 @@ function handleTestimonialClick(event) {
     clickTestimonial(card);
   }
 }
-
-//hero-section
-sectionHeroTitle.forEach((item, index) => {
-  sectionHeroTimeLine.from(item, {
-    y: +100,
-    duration: 1,
-    ease: "power4.out",
-    opacity: 0,
-    delay: 0.8,
-  }, 0.15 * index);
-});
-
-//scroll-sticker
-sectionHeroTimeLine.from(scrollSticker, {
-  scale: 0,
-  duration: 0.6,
-  ease: "elastic.out(1,0.3)",
-});
 
 mm.add(
   {
@@ -188,16 +189,18 @@ mm.add(
           }
         });
 
-        gsap.to(caseContent, {
-          x: 100,
+        gsap.fromTo(caseContent, {
+          x: 200,
+        }, {
+          x: -110,
           ease: "none",
           scrollTrigger: {
             trigger: item,
             containerAnimation: scrollTween,
-            scrub: 2,
+            scrub: 0.1,
             toggleActions: "play none none reverse",
-            start: "left right",
-            end: "left left",
+            start: "clamp(0 100%)",
+            end: "clamp(0 0%)",
           }
         });
       });
@@ -243,7 +246,7 @@ mm.add(
           className: "theme-light",
           targets: "html"
         },
-        start: "center 60%"
+        start: "clamp(0 70%)",
       });
 
       const sectionServicesImg = document.querySelector('.horizontal-scroll__section .section-services__img');
@@ -270,6 +273,21 @@ mm.add(
           end: "clamp(0 59%)",
           invalidateOnRefresh: true,
         }
+      });
+
+      //header img
+      headerImg.forEach(img => {
+        gsap.fromTo(img, {
+          y: 150,
+        }, {
+          y: -220,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: img,
+            start: "0 90%",
+            scrub: 1,
+          }
+        })
       });
 
       //section clients
@@ -351,6 +369,20 @@ mm.add(
       testimonialsContainer.addEventListener('click', handleTestimonialClick);
     }
     else if (context.conditions.isMobile) {
+      //header img
+      headerImg.forEach(img => {
+        gsap.fromTo(img, {
+          y: 50,
+        }, {
+          y: -100,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: img,
+            start: "0 90%",
+            scrub: 1,
+          }
+        })
+      });
       //scroll sticker
       sectionHeroTimeLine.to('.scroll-sticker__text', {
         rotate: 360,
@@ -362,16 +394,6 @@ mm.add(
           toggleActions: "play none none reverse",
           scrub: 0.3,
         }
-      });
-
-      //section services
-      smoother.effects('.section-services__title', {
-        lag: 0.4,
-      });
-
-      smoother.effects('.section-services__img', {
-        speed: 1.25,
-        lag: 0.5,
       });
 
       //client testimonial
@@ -406,21 +428,6 @@ mm.add(
 
       animateMarquee(marqueeLight, -500, 'from');
       animateMarquee(marqueeDark, -500, 'from');
-
-      return() => {
-        //horizontal section services
-        smoother.effects('.section-services__title', {
-          lag: 0,
-        });
-
-        smoother.effects('.section-services__img', {
-          speed: 0,
-          lag: 0,
-        });
-
-        document.querySelector('.section-services__img').removeAttribute('style');
-        document.querySelector('.section-services__title').removeAttribute('style');
-      }
     }
   }
 );

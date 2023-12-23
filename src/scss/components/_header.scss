@@ -8,9 +8,19 @@
   padding-inline: var(--container);
   z-index: 10;
   padding-block: clamp-calc(470px, 1920px, 30px, 32px);
+  @include for-desktop {
+    pointer-events: none;
 
+    &__logo,
+    &__menu {
+      pointer-events: initial;
+    }
+  }
+  &__logo {
+    position: relative;
+    z-index: 1;
+  }
   @include tablet {
     align-items:center;
   }
 }
-

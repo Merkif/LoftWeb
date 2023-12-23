@@ -6,6 +6,10 @@
   color:var(--dark-theme, #fff) var(--light-theme, var(--black));
   transition: color var(--body-dur) linear;
 
+  @include for-desktop {
+    align-self: flex-start;
+  }
+
   &__img {
     height: auto;
     width: clamp-calc(470px, 1920px, 94px, 188px);

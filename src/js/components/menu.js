@@ -78,6 +78,6 @@ const menu = new MenuHandler({
     smoother.paused(true);
   },
   onMenuClose() {
-    smoother.paused(false)
+    smoother.paused(false);
   }
 });

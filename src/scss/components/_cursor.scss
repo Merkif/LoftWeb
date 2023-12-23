@@ -48,7 +48,7 @@
 
   &--hover {
     --follower-border:transparent;
-    --follower-bg: var(--dark-theme, rgba(251, 248, 235, 0.1)) var(--light-theme, rgba(0, 0, 0, 0.507));
+    --follower-bg: var(--dark-theme, rgba(251, 248, 235, 0.1)) var(--light-theme, rgba(0, 0, 0, 0.15));
     --follower-size:80px;
     --cursor-opacity:0;
   }

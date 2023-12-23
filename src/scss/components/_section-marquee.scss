@@ -1,10 +1,13 @@
 .section-marquee {
-  max-width: 100vw;
+  max-width: 65vw;
+  min-width: 65vw;
   position: relative;
   height: 100vh;
 
   @include tablet {
-    height: 65vh;
+    max-width: 100%;
+    min-width: 100%;
+    height: 55vh;
     overflow: hidden;
     margin-block-end: clamp-calc(600px, 1024px, 1px, 200px);
   }

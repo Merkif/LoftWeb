@@ -129,16 +129,18 @@
     }
   }
 
-  &:hover {
-    --filter: .4;
-  }
-
-  &--active {
-    --filter: 1;
-    --scale: 1;
-
+  @include for-desktop {
     &:hover {
-      --filter: .7;
+      --filter: .4;
+    }
+
+    &--active {
+      --filter: 1;
+      --scale: 1;
+
+      &:hover {
+        --filter: .7;
+      }
     }
   }
 }

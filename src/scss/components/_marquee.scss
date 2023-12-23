@@ -13,6 +13,10 @@
     background-color:#fff;
     padding-block: clamp-calc(375px, 1920px, 16px, 24px);
 
+    @include large-desktop {
+      width: 130vw;
+    }
+
     &--light {
       z-index: 1;
       position: relative;

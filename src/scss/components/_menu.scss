@@ -5,8 +5,13 @@
   &__list {
     display: flex;
     flex-direction: column;
-    gap: 12px;
     text-align: right;
+    row-gap: 12px;
+  }
+  @media (hover:hover) {
+    &__list--main:hover &__link:not(:hover) {
+      color:#8C8C8C;
+    }
   }
 
   &__link {
@@ -14,13 +19,17 @@
     transition: color var(--body-dur) linear;
     display: inline-flex;
     align-items: center;
-    overflow: hidden;
+    overflow-y: clip;
     position: relative;
     white-space: nowrap;
-
+    line-height: 1.55;
+    display: flex;
+    justify-content: flex-end;
+    align-items:center;
     &-count {
       position: absolute;
-      left: calc(100% + 4px);
+      top: -2px;
+      left: calc(100% + 5px);
       font-size: 12px;
       vertical-align: super;
       color:#8C8C8C;
@@ -42,27 +51,26 @@
       }
     }
 
-    &--discuss {
-      margin-block-start: 12px;
-      text-underline-position: revert;
-      text-underline-offset: 6px;
-    }
-
-    &--hover {
-      &::before {
-        content: attr(title);
-        position: absolute;
-        transition: transform .5s cubic-bezier(.8,-.01,.34,1.01);
-        transform:translateY(-100%);
-      }
-      @include hover {
+    @include for-desktop {
+      &--hover {
         &::before {
-          transform: translateY(0);
+          content: attr(title);
+          position: absolute;
+          transition: transform .5s cubic-bezier(.8,-.01,.34,1.01);
+          transform:translateY(-100%);
         }
-
-        .menu__link-text {
-          transform:translateY(100%);
+        @include hover {
+          &::before {
+            transform: translateY(0);
+          }
+          .menu__link-text {
+            transform:translateY(100%);
+          }
         }
+      }
+      &--discuss {
+        margin-block-start: 12px;
+        padding-block-end: 2px;
       }
     }
   }
@@ -81,6 +89,8 @@
       row-gap: var(--gap);
       padding: 0;
       overflow: hidden;
+      position: relative;
+      z-index: 1;
 
       &-line {
         height: 1px;
@@ -110,7 +120,29 @@
       }
     }
     &__list--main {
-      display: none;
+      position: fixed;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom:0;
+      background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
+      padding: 20px;
+      padding-inline: var(--container-offset);
+      padding-block-start: calc(var(--header-height) + 40px);
+      align-items:flex-start;
+      font-size: 24px;
+      row-gap: 40px;
+      height: 100vh;
+      transition: transform 0.3s, visibility 0.2s;
+      transform: translateX(100%);
+      visibility: hidden;
+    }
+
+    &__list--open {
+      display: flex;
+      overflow-y: auto;
+      visibility: visible;
+      transform: translateX(0);
     }
   }
 }

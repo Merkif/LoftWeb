@@ -47,10 +47,6 @@
         }
       }
     }
-
-    &:has(.client-card--active) {
-      --logo-color:#5E5E5E;
-    }
   }
 
   @include tablet {
@@ -73,6 +69,7 @@
   --item-unit:3;
   --item-v-unit:1;
   --testimonial-position:calc(100% + var(--padding));
+  --logo-color:#5E5E5E;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -112,7 +109,7 @@
     max-width: 100%;
     width: var(--width, revert);
     color:var(--dark-theme, var(--logo-color, #fff)) var(--light-theme, var(--extra-dark-gray));
-    transition: color 0.3s linear 0.35s;
+    transition: color 0.3s linear;
   }
 
   &__testimonial {
@@ -136,7 +133,6 @@
       opacity: 0;
       transform-style: preserve-3d;
       transform: perspective(1000px) rotateX(100deg) scale(0.5);
-      transition-delay: 0;
       visibility: hidden;
       transition-delay: 0.1s;
       display: flex;
