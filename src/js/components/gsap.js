@@ -4,16 +4,15 @@ import { ScrollSmoother } from './ScrollSmoother.min.js';
 
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
-//scrollSmooth
-const smootherParams = {
-  wrapper: '.viewport',
-  content: '.scroll-container',
-  smooth: 1.2,
+//scroll Smoother
+if (ScrollTrigger.isTouch !== 1) {
+  let smoother = ScrollSmoother.create({
+    wrapper: '.viewport',
+    content: '.scroll-container',
+    smooth: 1.2,
+    effects:false,
+  });
 }
-
-let smoother = ScrollSmoother.create(smootherParams);
-
-export default smoother;
 
 let mm = gsap.matchMedia();
 const sectionHeroTimeLine = gsap.timeline();

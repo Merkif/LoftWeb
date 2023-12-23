@@ -1,8 +1,6 @@
-import smoother from "./gsap";
-
 class MenuHandler {
   constructor(options = {}) {
-    // this.scrollY = 0;
+    this.scrollY = 0;
     this.expanded = false;
     this.options = options;
     this.init();
@@ -21,10 +19,10 @@ class MenuHandler {
       this.menuButtonElement.addEventListener('click', this.toggleMenu.bind(this));
     }
 
-    // if (this.menuElement) {
-    //   this.syncHeight();
-    //   window.addEventListener('resize', this.syncHeight.bind(this));
-    // }
+    if (this.menuElement) {
+      this.syncHeight();
+      window.addEventListener('resize', this.syncHeight.bind(this));
+    }
   }
 
   openMenu() {
@@ -32,15 +30,15 @@ class MenuHandler {
       return;
     }
 
-    // this.scrollY = window.scrollY;
-    // document.documentElement.style.setProperty('--window-scroll-y', `-${this.scrollY}px`);
+    this.scrollY = window.scrollY;
+    document.documentElement.style.setProperty('--window-scroll-y', `-${this.scrollY}px`);
 
     this.menuButtonElement.setAttribute('aria-expanded', 'true');
     this.menuButtonElement.setAttribute('aria-label', 'Закрыть меню');
 
     this.menuButtonElement.classList.toggle('menu__button--open', true);
     this.menuElement.classList.toggle('menu__list--open', true);
-    // document.documentElement.classList.toggle('is-locked', true);
+    document.documentElement.classList.toggle('is-locked', true);
 
     this.onMenuOpen();
   }
@@ -55,17 +53,17 @@ class MenuHandler {
 
     this.menuButtonElement.classList.toggle('menu__button--open', false);
     this.menuElement.classList.toggle('menu__list--open', false);
-    // document.documentElement.classList.toggle('is-locked', false);
+    document.documentElement.classList.toggle('is-locked', false);
 
-    // window.scrollTo(0, this.scrollY);
-    // document.documentElement.style.removeProperty('--window-scroll-y');
+    window.scrollTo(0, this.scrollY);
+    document.documentElement.style.removeProperty('--window-scroll-y');
 
     this.onMenuClose();
   }
 
-  // syncHeight() {
-  //   document.documentElement.style.setProperty('--window-inner-height', `${window.innerHeight}px`);
-  // }
+  syncHeight() {
+    document.documentElement.style.setProperty('--window-inner-height', `${window.innerHeight}px`);
+  }
 
   toggleMenu() {
     this.expanded = !this.expanded;
@@ -75,9 +73,7 @@ class MenuHandler {
 
 const menu = new MenuHandler({
   onMenuOpen() {
-    smoother.paused(true);
   },
   onMenuClose() {
-    smoother.paused(false);
   }
 });
