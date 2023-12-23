@@ -366,6 +366,10 @@ mm.add(
 
       //client testimonial
       testimonialsContainer.addEventListener('click', handleTestimonialClick);
+
+      return () => {
+        window.location.reload()
+      }
     }
     else if (context.conditions.isMobile) {
       //header img
@@ -382,6 +386,7 @@ mm.add(
           }
         })
       });
+
       //scroll sticker
       sectionHeroTimeLine.to('.scroll-sticker__text', {
         rotate: 360,
