@@ -35,12 +35,12 @@
 
   &--transparent {
     background-color:transparent;
-    border-color:var(--extra-dark-gray)
+    border-color:var(--extra-dark-gray);
   }
 
   @include hover {
     filter: invert(1);
-    border-color:var(--extra-dark-gray)
+    border-color:var(--extra-dark-gray);
   }
 
   &:focus-visible {

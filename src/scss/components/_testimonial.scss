@@ -34,3 +34,61 @@
     }
   }
 }
+
+
+.modal-testimonial {
+  color:var(--black);
+  display: flex;
+  flex-direction: column;
+  row-gap: 24px;
+
+  &__author {
+    display: grid;
+    grid-template-columns: max-content 1fr;
+    gap: 3px 16px;
+
+    &-name {
+      font-size: clamp-calc(470px, 1024px, 16px, 18px);
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: -0.32px;
+      grid-column: 2;
+      align-self:flex-end
+    }
+
+    &-position {
+      font-size: clamp-calc(470px, 1024px, 14px, 16px);
+      line-height: 1.45;
+      color:#8C8C8C;
+      grid-column: 2;
+      align-self:flex-start;
+    }
+
+    &-icon {
+      $sizeCalc:clamp-calc(470px, 1024px, 56px, 80px);
+      --size:#{$sizeCalc};
+      width: var(--size);
+      height: var(--size);
+      border-radius:50%;
+      background-color:#E8E8E8;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border:1px solid var(--light-gray);
+      color:var(--black);
+      padding: clamp-calc(470px, 1024px, 7px, 12px);
+      grid-row: span 2;
+      align-self: center;
+
+      svg {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+  &__text {
+    margin: 0;
+    line-height: 1.75;
+    font-size: clamp-calc(470px, 1024px, 16px, 18px);
+  }
+}

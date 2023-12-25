@@ -25,12 +25,14 @@
   &__links {
     display: flex;
     flex-direction: column;
-    gap: 24px;
+    gap: 12px;
 
   }
 
   &__link {
     text-underline-offset: 4px;
+    padding-block: 6px;
+    display: block;
   }
 
   &__adds {

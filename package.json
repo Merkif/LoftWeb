@@ -58,6 +58,7 @@
   },
   "dependencies": {
     "gsap": "^3.12.3",
+    "hystmodal": "^1.0.1",
     "swiper": "^11.0.5",
     "vanilla-lazyload": "^17.8.5"
   }
