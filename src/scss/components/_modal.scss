@@ -97,6 +97,7 @@
   @include mobile {
     border-radius: 24px 24px 0 0;
     min-height: calc(100% - var(--modal-top-offset));
+    min-height: calc(100dvh - var(--modal-top-offset));
     margin-block: var(--modal-top-offset) 0;
   }
 }

@@ -47,11 +47,6 @@ class Menu {
     if (this.menuButtonElement) {
       this.menuButtonElement.addEventListener('click', this.toggleMenu.bind(this));
     }
-
-    if (this.menuElement) {
-      this.syncHeight();
-      window.addEventListener('resize', this.syncHeight.bind(this));
-    }
   }
 
   openMenu() {
@@ -67,7 +62,7 @@ class Menu {
 
     this.menuButtonElement.classList.toggle('menu__button--open', true);
     this.menuElement.classList.toggle(this.menuOpenClass, true);
-    document.documentElement.classList.toggle('is-locked', true);
+    document.documentElement.classList.toggle('menu-open', true);
 
     this.onMenuOpen();
   }
@@ -97,16 +92,12 @@ class Menu {
 
     this.menuButtonElement.classList.toggle('menu__button--open', false);
     this.menuElement.classList.toggle(this.menuOpenClass, false);
-    document.documentElement.classList.toggle('is-locked', false);
+    document.documentElement.classList.toggle('menu-open', false);
 
     window.scrollTo(0, this.scrollY);
     document.documentElement.style.removeProperty('--window-scroll-y');
 
     this.onMenuClose();
-  }
-
-  syncHeight() {
-    document.documentElement.style.setProperty('--window-inner-height', `${window.innerHeight}px`);
   }
 
   toggleMenu() {

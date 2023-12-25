@@ -43,19 +43,6 @@ html {
   }
 }
 
-.page.is-locked,
-.page.is-locked body {
-  height: calc(var(--window-inner-height) - 1px);
-  overflow: hidden;
-  box-sizing: border-box;
-}
-
-.page.is-locked {
-  .viewport {
-    transform: translateY(var(--window-scroll-y));
-  }
-}
-
 img {
   height: auto;
   max-width: 100%;

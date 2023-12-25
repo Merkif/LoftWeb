@@ -1,9 +1,12 @@
 import HystModal from "hystmodal";
-import gsap from "gsap";
+import { gsap } from "gsap";
+import './swiped-events';
 
 const testimonialBtns = document?.querySelectorAll('.client-card__action--modal');
 const testimonialModalId = '#testimonial';
 const modalContentContainer = document.querySelector('.hystmodal__content');
+const modalClose = document?.querySelector('.hystmodal__close');
+const modalHeadline = document?.querySelector('.hystmodal__headline');
 const mm = gsap.matchMedia();
 
 const setupModal = () => {
@@ -15,13 +18,14 @@ const setupModal = () => {
       const modalHTML = modalTestimonialHTML(testimonialData);
 
       clearModalContent();
-
       modalContentContainer.insertAdjacentHTML('beforeend', modalHTML);
     },
     afterClose: (modal) => {
       clearModalContent();
     },
   });
+
+
 };
 
 function getTestimonial(modal) {
@@ -91,6 +95,9 @@ const clearDatasetForDesktop = () => {
 const initialize = () => {
   const testimonialModal = setupModal();
 
+  closeOnSwipedDown(modalClose, testimonialModal);
+  closeOnSwipedDown(modalHeadline, testimonialModal);
+
   mm.add(
     {
       isMobile: "(max-width:1024px)",
@@ -102,3 +109,8 @@ const initialize = () => {
 
 initialize();
 
+function closeOnSwipedDown(el, modal) {
+  el.addEventListener('swiped-down', function(e) {
+    modal.close();
+  });
+}
