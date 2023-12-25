@@ -1,8 +1,10 @@
 import gsap from "gsap";
+import './swiped-events';
 
 //menu animation
 let mm = gsap.matchMedia();
 const menuItem = gsap.utils.toArray('.menu__item');
+const menuContainer = document?.querySelector('.menu__container');
 const menuTl = gsap.timeline({
   paused: true,
   reversed: true,
@@ -21,6 +23,8 @@ mm.add(
         opacity: 0,
         stagger: 0.12,
       });
+
+      closeOnSwipedRight(menuContainer);
     }
   }
 );
@@ -119,4 +123,10 @@ function menuAnimPlay() {
   setTimeout(() => {
     menuTl.play();
   }, 400);
+}
+
+function closeOnSwipedRight(el) {
+  el.addEventListener('swiped-right', function(e) {
+    menu.toggleMenu();
+  });
 }
