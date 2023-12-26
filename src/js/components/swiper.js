@@ -36,6 +36,7 @@ resizableSwiper(
     slidesPerView: 1.3,
     centeredSlidesBounds:true,
     centeredSlides:true,
+    focusableElements:'input',
     navigation: {
       nextEl: '.swiper__button--next',
       prevEl: '.swiper__button--prev',
