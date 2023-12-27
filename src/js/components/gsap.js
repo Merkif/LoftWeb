@@ -28,11 +28,12 @@ const cursor = cursorWrapper?.querySelector('.custom-cursor__cursor');
 const links = document?.querySelectorAll('a, .footer__links, .menu__list');
 const clientCards = gsap.utils.toArray('.client-card');
 const ratingCards = gsap.utils.toArray('.rating-card');
-const caseLinks = document.querySelectorAll('.case__link');
-const clientCardBtn = document.querySelectorAll('.client-card__action');
-const scrollSticker = document.querySelector('.scroll-sticker');
-const testimonialsContainer = document.querySelector('.clients-list');
+const caseLinks = document?.querySelectorAll('.case__link');
+const clientCardBtn = document?.querySelectorAll('.client-card__action');
+const scrollSticker = gsap.utils.toArray('.scroll-sticker');
+const testimonialsContainer = document?.querySelector('.clients-list');
 const headerImg = gsap.utils.toArray('.c-header__img, .c-header__grid');
+const horizontalServicesSection = document?.querySelector('.horizontal-scroll__section.section-services');
 
 //hero-section
 sectionHeroTitle.forEach((item, index) => {
@@ -159,7 +160,7 @@ mm.add(
         });
       });
 
-      sectionHeroTimeLine.to('.scroll-sticker__text', {
+      sectionHeroTimeLine.to('.scroll-sticker__text--horizontal', {
         rotate: 360,
         transformOrigin: "center",
         scrollTrigger: {
@@ -238,7 +239,7 @@ mm.add(
 
       //section services
       ScrollTrigger.create({
-        trigger: ".horizontal-scroll__section.section-services",
+        trigger: horizontalServicesSection,
         containerAnimation: scrollTween,
         toggleActions: "play none none reverse",
         toggleClass: {
@@ -248,7 +249,7 @@ mm.add(
         start: "clamp(0 70%)",
       });
 
-      const sectionServicesImg = document.querySelector('.horizontal-scroll__section .section-services__img');
+      const sectionServicesImg = document?.querySelector('.horizontal-scroll__section .section-services__img');
       gsap.from(sectionServicesImg, {
         x: 300,
         ease: "none",
@@ -261,7 +262,7 @@ mm.add(
         }
       });
 
-      const sectionServicesList = document.querySelector('.section-services__list');
+      const sectionServicesList = document?.querySelector('.section-services__list');
       gsap.to(sectionServicesList, {
         "--lines-height": context.conditions.isDesktop ? "100%" : '0',
         ease: "none",
@@ -365,7 +366,7 @@ mm.add(
       });
 
       //client testimonial
-      testimonialsContainer.addEventListener('click', handleTestimonialClick);
+      testimonialsContainer?.addEventListener('click', handleTestimonialClick);
 
       return () => {
         window.location.reload()
@@ -388,7 +389,7 @@ mm.add(
       });
 
       //scroll sticker
-      sectionHeroTimeLine.to('.scroll-sticker__text', {
+      sectionHeroTimeLine.to('.scroll-sticker__text--vertical', {
         rotate: 360,
         transformOrigin: "center",
         scrollTrigger: {
@@ -401,7 +402,7 @@ mm.add(
       });
 
       //client testimonial
-      testimonialsContainer.removeEventListener('click', handleTestimonialClick);
+      testimonialsContainer?.removeEventListener('click', handleTestimonialClick);
 
       //marquee
       function createMarqueeAnimation(item, x, animationType) {
@@ -432,6 +433,10 @@ mm.add(
 
       animateMarquee(marqueeLight, -500, 'from');
       animateMarquee(marqueeDark, -500, 'from');
+    }
+
+    return () => {
+      window.location.reload()
     }
   }
 );

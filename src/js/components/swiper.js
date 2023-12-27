@@ -1,6 +1,7 @@
 import Swiper from 'swiper';
 import { Navigation } from 'swiper/modules';
 
+const swiperEl = document?.querySelector('.swiper');
 const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
   let swiper;
 
@@ -27,56 +28,58 @@ const resizableSwiper = (breakpoint, swiperClass, swiperSettings, callback) => {
   checker();
 }
 
-resizableSwiper(
-  '(max-width: 1024px)',
-  '.swiper--clients',
-  {
-    modules: [Navigation],
-    spaceBetween: 24,
-    slidesPerView: 1.3,
-    centeredSlidesBounds:true,
-    centeredSlides:true,
-    focusableElements:'input',
-    navigation: {
-      nextEl: '.swiper__button--next',
-      prevEl: '.swiper__button--prev',
-      disabledClass: 'swiper__button--disabled'
-    },
-    breakpoints: {
-      500: {
-        slidesPerView:2.3
+if (swiperEl) {
+  resizableSwiper(
+    '(max-width: 1024px)',
+    '.swiper--clients',
+    {
+      modules: [Navigation],
+      spaceBetween: 24,
+      slidesPerView: 1.3,
+      centeredSlidesBounds: true,
+      centeredSlides: true,
+      focusableElements: 'input',
+      navigation: {
+        nextEl: '.swiper__button--next',
+        prevEl: '.swiper__button--prev',
+        disabledClass: 'swiper__button--disabled'
       },
-      590: {
-        slidesPerView:3.3,
+      breakpoints: {
+        500: {
+          slidesPerView: 2.3
+        },
+        590: {
+          slidesPerView: 3.3,
+        }
       }
     }
-  }
-);
+  );
 
-resizableSwiper(
-  '(max-width: 1024px)',
-  '.swiper--rating',
-  {
-    modules: [Navigation],
-    spaceBetween: 24,
-    slidesPerView: 1.3,
-    centeredSlidesBounds:true,
-    centeredSlides:true,
-    navigation: {
-      nextEl: '.swiper__button--next',
-      prevEl: '.swiper__button--prev',
-      disabledClass: 'swiper__button--disabled'
-    },
-    breakpoints: {
-      590: {
-        slidesPerView:2,
+  resizableSwiper(
+    '(max-width: 1024px)',
+    '.swiper--rating',
+    {
+      modules: [Navigation],
+      spaceBetween: 24,
+      slidesPerView: 1.3,
+      centeredSlidesBounds: true,
+      centeredSlides: true,
+      navigation: {
+        nextEl: '.swiper__button--next',
+        prevEl: '.swiper__button--prev',
+        disabledClass: 'swiper__button--disabled'
       },
-      725: {
-        slidesPerView:2.4,
-      },
-      940: {
-        slidesPerView:3,
+      breakpoints: {
+        590: {
+          slidesPerView: 2,
+        },
+        725: {
+          slidesPerView: 2.4,
+        },
+        940: {
+          slidesPerView: 3,
+        }
       }
     }
-  }
-);
+  );
+}

@@ -193,6 +193,10 @@
     border:none;
     padding: 0;
     cursor: pointer;
-    outline: none;
+    outline-color: var(--gold);
+
+    @include tablet {
+      outline: none;
+    }
   }
 }

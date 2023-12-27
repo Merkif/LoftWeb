@@ -110,7 +110,7 @@ const initialize = () => {
 initialize();
 
 function closeOnSwipedDown(el, modal) {
-  el.addEventListener('swiped-down', function(e) {
+  el?.addEventListener('swiped-down', function(e) {
     modal.close();
   });
 }

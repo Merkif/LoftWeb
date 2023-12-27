@@ -97,3 +97,15 @@
     }
   }
 }
+
+@include for-desktop {
+  .scroll-sticker--vertical {
+    display: none;
+  }
+}
+
+@include tablet {
+  .scroll-sticker--horizontal {
+    display: none;
+  }
+}
