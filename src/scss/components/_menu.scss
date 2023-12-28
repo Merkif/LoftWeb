@@ -147,6 +147,7 @@
       padding-block: calc(var(--header-height) + 40px) 40px;
       align-items:flex-start;
       font-size: 24px;
+      height: 100vh;
       height: 100dvh;
       transition: transform 0.4s linear, visibility 0.4s linear;
       transform: translateX(100%);
