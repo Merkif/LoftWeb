@@ -38,7 +38,7 @@
       transition: text-shadow 0.3s ease;
     }
 
-    &:has(.form__input:focus-visible){
+    &:has(.form__input:focus-visible, .form__input:not(:placeholder-shown), .form__list-input:checked){
       --counter-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
       --counter-translate-neg:0;
       --counter-translate-pos:50px;
