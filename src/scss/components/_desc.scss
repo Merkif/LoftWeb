@@ -3,7 +3,7 @@
   margin-block: 0;
   transition: color var(--body-dur);
   transition-delay: var(--body-delay);
-  transition-timing-function: linear;
+  transition-timing-function: ease;
   color:var(--dark-theme, var(--dark-gray)) var(--light-theme, var(--graphite));
 
   &--lg {

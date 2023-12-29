@@ -33,7 +33,7 @@
 
   &__link {
     color:var(--dark-theme, #fff) var(--light-theme, var(--black));
-    transition: color var(--body-dur) linear;
+    transition: color var(--body-dur) ease;
     display: inline-flex;
     align-items: center;
     overflow-y: clip;

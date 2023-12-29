@@ -20,10 +20,11 @@
         transition-property: background-color;
         transition-delay: var(--body-delay);
         transition-duration: var(--body-dur);
-        transition-timing-function: linear;
+        transition-timing-function: ease;
         bottom: calc(100% - (var(--size) / 2));
         left: calc(100% - (var(--size) / 2));
         z-index: 2;
+        pointer-events: none;
       }
 
       &::after {
@@ -100,7 +101,7 @@
     }
   }
   transition-property: background-color, color;
-  transition-timing-function: linear;
+  transition-timing-function: eaque;
   transition-duration: 0.3s;
   background-clip: content-box;
 
@@ -109,7 +110,7 @@
     max-width: 100%;
     width: var(--width, revert);
     color:var(--dark-theme, var(--logo-color, #fff)) var(--light-theme, var(--extra-dark-gray));
-    transition: color 0.3s linear;
+    transition: color 0.3s ease;
   }
 
   &__testimonial {

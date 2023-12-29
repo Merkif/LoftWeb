@@ -1,4 +1,8 @@
 .main {
+  &--content {
+    padding-block: calc(var(--header-height) + 120px ) 80px;
+  }
+
   &__section {
     &--offset {
       padding-block: clamp-calc(375px, 1920px, 1px, 56px) clamp-calc(768px, 1920px, 160px, 240px);

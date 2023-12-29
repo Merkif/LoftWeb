@@ -31,5 +31,8 @@ class BgScroll {
   }
 }
 
-const el = document.querySelector('[data-bg-scroll]');
-new BgScroll(el);
+const scrollBg = document.querySelector('[data-bg-scroll]');
+
+if(scrollBg) {
+  new BgScroll(scrollBg);
+}

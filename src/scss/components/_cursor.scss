@@ -32,7 +32,7 @@
     border-radius: 50%;
     user-select: none;
     pointer-events: none;
-    transition: .1s linear;
+    transition: .1s ease;
     border:1px solid var(--follower-border);
     background-color:var(--follower-bg);
     z-index: 2000;

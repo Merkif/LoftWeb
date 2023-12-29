@@ -27,7 +27,7 @@ html {
   color:var(--dark-theme, #fff) var(--light-theme, var(--gray));
   background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
   transition-property: background-color, color;
-  transition-timing-function: linear;
+  transition-timing-function: ease;
   transition-duration: var(--body-dur);
   transition-delay: var(--body-delay);
   font-weight: 400;

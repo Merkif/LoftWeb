@@ -2,6 +2,7 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from './ScrollSmoother.min.js';
 
+gsap.config({ nullTargetWarn: false, trialWarn: false, });
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
 
 //scroll Smoother
@@ -33,7 +34,6 @@ const clientCardBtn = document?.querySelectorAll('.client-card__action');
 const scrollSticker = gsap.utils.toArray('.scroll-sticker');
 const testimonialsContainer = document?.querySelector('.clients-list');
 const headerImg = gsap.utils.toArray('.c-header__img, .c-header__grid');
-const horizontalServicesSection = document?.querySelector('.horizontal-scroll__section.section-services');
 
 //hero-section
 sectionHeroTitle.forEach((item, index) => {
@@ -236,18 +236,6 @@ mm.add(
 
       animateMarquee(marqueeLight, -1200, 'from');
       animateMarquee(marqueeDark, -1200, 'to');
-
-      //section services
-      ScrollTrigger.create({
-        trigger: horizontalServicesSection,
-        containerAnimation: scrollTween,
-        toggleActions: "play none none reverse",
-        toggleClass: {
-          className: "theme-light",
-          targets: "html"
-        },
-        start: "clamp(0 70%)",
-      });
 
       const sectionServicesImg = document?.querySelector('.horizontal-scroll__section .section-services__img');
       gsap.from(sectionServicesImg, {

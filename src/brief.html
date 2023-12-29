@@ -1,16 +1,252 @@
 <!DOCTYPE html>
-<html lang="ru" class="page" data-bg-scroll>
+<html lang="ru" class="page">
 @include('partials/head.html', {
   "title":"Заполнить бриф - LoftWeb Digital Agency",
   "description":"Наш блокнот открыт, и мы готовы принять ваше задание",
 })
 <body class="page__body page__body--cursor">
   @include('partials/custom-cursor.html')
-  @include('partials/header.html')
+  @include('partials/header.html', {
+    "page":'!home'
+  })
   <div class="viewport">
     <div class="scroll-container">
-      <main class="main">
+      <main class="main main--content">
+        <div class="c-tabs c-tabs--form tabs">
+          <ul class="c-tabs__tablist">
+            <li class="c-tabs__item">
+              <a class="c-tabs__tab" href="#section-brief" data-theme="dark">Заполнить бриф</a>
+            </li>
+            <li class="c-tabs__item">
+              <a class="c-tabs__tab" href="#section-contacts" data-theme="light">Связаться со мной</a>
+            </li>
+          </ul>
+          <section class="c-tabs__tabpanel" id="section-brief">
+            <h2 class="sr-only">Заполнить бриф</h2>
+            <p class="c-tabs__desc">Наш блокнот открыт, и мы готовы принять ваше задание</p>
+            <form class="form" action="">
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваше имя и фамилию</span>
+                  <input class="form__input" type="text" name="brief_full_name" id="brief_full_name" placeholder="Имя и фамилия">
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите название вашей компании <span class="form__optional">Опционально</span></span>
+                  <input class="form__input" type="text" name="company_name" id="company_name" placeholder="Название компании">
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваш email</span>
+                  <input class="form__input" type="email" name="brief_email" id="brief_email" placeholder="email" required>
+                </label>
+                <span class="form__error">Обязательное поле</span>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваш номер телефона</span>
+                  <input class="form__input" type="tel" name="brief_tel" id="brief_tel" placeholder="+7 (___) ___-__-__" inputmode="numeric" maxlength="18" data-tel-input>
+                </label>
+              </div>
+              <div class="form__item">
+                <fieldset class="form__fieldset">
+                  <legend class="form__label form__legend">Выберите услугу</legend>
+                  <ul class="form__list" role="list">
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="analytics" id="analytics">
+                        <span class="form__list-tag">Аналитика</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="branding" id="branding">
+                        <span class="form__list-tag">Брендинг</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="creative" id="creative">
+                        <span class="form__list-tag">Креатив</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="design" id="design">
+                        <span class="form__list-tag">Дизайн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="mobile-dev" id="mobile-dev">
+                        <span class="form__list-tag">Мобильная разработка</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="web-dev" id="web-dev">
+                        <span class="form__list-tag">Веб-разработка</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="architecture" id="architecture">
+                        <span class="form__list-tag">Архитектура</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="3D" id="3D">
+                        <span class="form__list-tag">3D</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="support" id="support">
+                        <span class="form__list-tag">Поддержка</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox" name="other" id="other">
+                        <span class="form__list-tag">Другое</span>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+              </div>
+              <div class="form__item">
+                <fieldset class="form__fieldset">
+                  <legend class="form__label  form__legend">Укажите бюджет</legend>
+                  <ul class="form__list" role="list">
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">Менее 1млн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">1-3 млн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">3-5 млн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">5-10 млн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">10-25 млн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">25-50 млн</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="radio" name="budget">
+                        <span class="form__list-tag">Более 50 млн</span>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">У вас есть что рассказать о проекте? <span class="form__optional">Опционально</span></span>
+                  <textarea class="form__input" name="form_msg" id="form_msg" rows="1" placeholder="Ваше прекрасное сообщение"></textarea>
+                </label>
+              </div>
+              <div class="form__item">
+                <fieldset class="form__fieldset">
+                  <legend class="form__label form__legend">Откуда вы узнали о нас?</legend>
+                  <ul class="form__list" role="list">
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox">
+                        <span class="form__list-tag">Рейтинги</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox">
+                        <span class="form__list-tag">Рекомендации</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox">
+                        <span class="form__list-tag">Работы</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox">
+                        <span class="form__list-tag">СМИ</span>
+                      </label>
+                    </li>
+                    <li>
+                      <label class="form__list-item">
+                        <input class="form__list-input sr-input" type="checkbox">
+                        <span class="form__list-tag">Соцсети</span>
+                      </label>
+                    </li>
+                  </ul>
+                </fieldset>
+              </div>
+              <button class="form__submit button" type="submit">Отправить</button>
 
+              <p class="form__agreement">Нажимая на кнопку вы даете согласие на <a class="underline" href="">обработку персональных данных</a> и соглашаетесь с <a class="underline">политикой конфиденциальности</a></p>
+            </form>
+          </section>
+          <section class="c-tabs__tabpanel" id="section-contacts">
+            <h2 class="sr-only">Связаться со мной</h2>
+            <p class="c-tabs__desc">Наш блокнот открыт, и мы готовы принять ваше задание</p>
+            <form class="form" action="">
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваше имя и фамилию</span>
+                  <input class="form__input" type="text" name="full_name" id="full_name" placeholder="Имя и фамилия">
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваш email</span>
+                  <input class="form__input" type="email" name="email" id="email" placeholder="email" required>
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваш номер телефона</span>
+                  <input class="form__input" type="tel" name="tel" id="tel" placeholder="+7 (___) ___-__-__" inputmode="numeric" maxlength="18" data-tel-input>
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">У вас есть что рассказать о проекте? <span class="form__optional">Опционально</span></span>
+                  <textarea class="form__input" name="form_msg" id="form_msg" rows="1" placeholder="Ваше прекрасное сообщение"></textarea>
+                </label>
+              </div>
+              <button class="form__submit button" type="submit">Отправить</button>
+              <p class="form__agreement">Нажимая на кнопку вы даете согласие на <a class="underline" href="">обработку персональных данных</a> и соглашаетесь с <a class="underline">политикой конфиденциальности</a></p>
+            </form>
+          </section>
+        </div>
       </main>
       @include('partials/footer.html')
     </div>

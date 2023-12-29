@@ -4,7 +4,7 @@
   justify-content: center;
   align-items:center;
   color:var(--dark-theme, #fff) var(--light-theme, var(--black));
-  transition: color var(--body-dur) linear;
+  transition: color var(--body-dur) ease;
 
   @include for-desktop {
     align-self: flex-start;

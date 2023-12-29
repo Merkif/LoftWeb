@@ -6,7 +6,9 @@
 })
 <body class="page__body page__body--cursor">
   @include('partials/custom-cursor.html')
-  @include('partials/header.html')
+  @include('partials/header.html', {
+    "page": "home"
+  })
   <div class="viewport">
     <div class="scroll-container">
       <main class="main">
@@ -229,7 +231,7 @@
                   <a class="button button--transparent" href="/projects.html">Смотреть <br> все проекты</a>
                 </div>
               </section>
-              <div class="horizontal-scroll__section section-marquee">
+              <div class="horizontal-scroll__section section-marquee" data-bg-class="theme-dark">
                 <div class="marquee" aria-hidden="true">
                   <div class="marquee__item marquee__item--light">
                     <div class="marquee__track">Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги Наши услуги </div>
@@ -239,7 +241,7 @@
                   </div>
                 </div>
               </div>
-              <section class="horizontal-scroll__section section-services">
+              <section class="horizontal-scroll__section section-services" data-bg-class="theme-light">
                 <header class="c-header c-header--place-center">
                   <h2 class="section-services__title c-header__title headline headline--1">Услуги</h2>
                   <img class="section-services__img c-header__img lazy" data-src="https://placehold.co/800x800/B4B5AF/B4B5AF?text=." alt="" width="800" height="800">
@@ -496,7 +498,7 @@
           </header>
           <p class="section-rating__desc desc desc--lg desc--center desc--mb">Расскажите <br> о вашем проекте</p>
           <div class="button-wrap">
-            <a class="section-contacts__button button button--dark" href="">Обсудить <br> проект</a>
+            <a class="section-contacts__button button button--dark" href="brief.html">Обсудить <br> проект</a>
           </div>
         </section>
       </main>
