@@ -68,6 +68,7 @@
       @include tablet {
         min-height: 100vh;
         min-height: 100dvh;
+        padding-block: 60px;
       }
 
       display: flex;
