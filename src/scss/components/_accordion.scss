@@ -1,0 +1,96 @@
+.accordion-list {
+  margin-block-start: 1px;
+}
+.accordion {
+  border-block: 1px solid var(--extra-dark-gray);
+  margin-block-start: -1px;
+
+  &[open] {
+    --icon-transform:180deg;
+  }
+
+  &:has(:focus-visible) {
+    border-color: var(--gold);
+  }
+
+  &__title {
+    display: list-item;
+    list-style-position: inside;
+    list-style-type: none;
+    font-size: clamp-calc(470px, 1920px, 22px, 32px);
+    color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+    padding-block: 40px;
+    padding-inline-end: 38px;
+    outline: none;
+    position: relative;
+
+    &::-webkit-details-marker {
+      display: none
+    }
+
+    &::after {
+      $size: clamp-calc(768px, 1920px, 24px, 32px);
+      --size:#{$size};
+      content:'';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      margin-block: auto;
+      right: 0;
+      width: var(--size);
+      height: var(--size);
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='32' height='32' viewBox='0 0 32 32' fill='none'%3E%3Cpath d='M28 17.4247L16 29L4.00001 17.4247L4 13.9848L14.6698 24.2771L14.6698 2L17.3302 2L17.3302 24.2771L28 13.9848L28 17.4247Z' fill='white'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-size: cover;
+      transition: transform 0.4s ease-in-out;
+      transform: rotate(var(--icon-transform, revert));
+      filter: var(--dark-theme, revert) var(--light-theme, invert(1));
+      will-change: transform, filter;
+    }
+  }
+
+  &__content {
+    color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    overflow: hidden;
+
+    p {
+      margin-block: 0;
+    }
+
+    ul,
+    ol {
+      display: flex;
+      flex-direction: column;
+      row-gap: 24px;
+      padding-inline: 28px 0;
+      padding-block: 0;
+      line-height: 1.55;
+      margin-block-end: 40px;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li {
+      position: relative;
+
+      &::before {
+        --size: 6px;
+        content: '';
+        position: absolute;
+        left: -24px;
+        top: 0;
+        bottom: 0;
+        margin-block: auto;
+        width: var(--size);
+        height: var(--size);
+        border-radius: 50%;
+        background-color: var(--gold);
+      }
+    }
+  }
+}

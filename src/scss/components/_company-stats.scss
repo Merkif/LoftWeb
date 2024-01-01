@@ -1,0 +1,28 @@
+.company-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 80px 120px;
+  margin-block: 0;
+  width: 100%;
+  justify-content: space-between;
+
+  &__item {
+    display: flex;
+    flex-direction: column-reverse;
+
+    @include tablet {
+      flex-grow: 1;
+    }
+  }
+
+  &__term {
+    font-size: clamp-calc(768px, 1920px, 22px, 24px);
+  }
+
+  &__desc {
+    font-size: clamp-calc(768px, 1920px, 120px, 200px);
+    margin-inline: 0;
+    line-height: 1.2;
+    letter-spacing: -4px;
+  }
+}

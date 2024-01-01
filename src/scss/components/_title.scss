@@ -9,6 +9,20 @@
     color:var(--light-theme, var(--light-gray)) var(--dark-theme, var(--extra-dark-gray));
   }
 
+  &--primary {
+    font-size: clamp-calc(470px, 1920px, 24px, 56px);
+    font-weight: 400;
+  }
+
+  &--indent {
+    color:var(--light-theme, var(--black)) var(--dark-theme,#fff);
+    font-weight: 400;
+
+    @include for-desktop {
+      text-indent: 20vw;
+    }
+  }
+
   &--center {
     text-align: center;
   }

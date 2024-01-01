@@ -6,9 +6,7 @@
 })
 <body class="page__body page__body--cursor">
   @include('partials/custom-cursor.html')
-  @include('partials/header.html', {
-    "page": "home"
-  })
+  @include('partials/header.html')
   <div class="viewport">
     <div class="scroll-container">
       <main class="main">
@@ -508,7 +506,6 @@
 
   @include('partials/modal.html', {
     "modalId": "testimonial",
-    "page": "home",
     "modalHeadline": "Отзыв компании",
     "modalContent": ""
   })

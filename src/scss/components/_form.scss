@@ -35,7 +35,7 @@
       color:transparent;
       overflow: hidden;
       text-shadow: 0 var(--counter-translate-pos, 0) var(--counter-color), 0 var(--counter-translate-neg, -25px) var(--counter-color);
-      transition: text-shadow 0.3s ease;
+      transition: text-shadow 0.3s ease, color var(--body-dur) ease;
     }
 
     &:has(.form__input:focus-visible, .form__input:not(:placeholder-shown), .form__list-input:checked){
@@ -62,6 +62,7 @@
     border-width: 0;
     line-height: 1.5;
     color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+    transition: color var(--body-dur) ease;
   }
 
   &__legend {
@@ -90,7 +91,7 @@
     border-color: var(--dark-theme, #303030) var(--light-theme, #D1D1D1);
     outline: none;
     resize: none;
-
+    transition: color var(--body-dur) ease, border-color var(--body-dur) ease;
     &:focus-visible {
       border-block-end-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
     }
@@ -117,6 +118,7 @@
   }
   &__optional {
     color: var(--dark-theme, #474747) var(--light-theme, #A3A3A3);
+    transition: color var(--body-dur) ease;
   }
 
   &__list {

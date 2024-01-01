@@ -189,7 +189,7 @@
     &:hover,
     &--active  {
       --logo-color:#fff;
-      background-color:var(--card-bg);
+      background-color:var(--dark-theme, rgba(#fff, 0.02)) var(--light-theme, rgba(#191919, 0.02));
       cursor: pointer;
     }
     &--active &__testimonial {

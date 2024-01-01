@@ -1,6 +1,7 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from './ScrollSmoother.min.js';
+import SplitType from 'split-type'
 
 gsap.config({ nullTargetWarn: false, trialWarn: false, });
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -11,7 +12,7 @@ if (ScrollTrigger.isTouch !== 1) {
     wrapper: '.viewport',
     content: '.scroll-container',
     smooth: 1.2,
-    effects:false,
+    effects: false,
   });
 }
 
@@ -34,6 +35,11 @@ const clientCardBtn = document?.querySelectorAll('.client-card__action');
 const scrollSticker = gsap.utils.toArray('.scroll-sticker');
 const testimonialsContainer = document?.querySelector('.clients-list');
 const headerImg = gsap.utils.toArray('.c-header__img, .c-header__grid');
+const agencyFigure = gsap.utils.toArray('.l-agency__figure');
+const splitText = new SplitType('.split-title', { types: 'words, chars' });
+const splitTitle = gsap.utils.toArray('.split-title');
+const agencyHero = SplitType.create('.l-agency__headline--hero, .l-agency__desc--hero', { types: 'words, chars' });
+const agencyTl = gsap.timeline({});
 
 //hero-section
 sectionHeroTitle.forEach((item, index) => {
@@ -52,31 +58,6 @@ sectionHeroTimeLine.from(scrollSticker, {
   duration: 0.6,
   ease: "elastic.out(1,0.3)",
 });
-
-//client testimonials
-function toggleTestimonial(card) {
-  const { classList } = card;
-  classList.toggle('client-card--active');
-  cursorWrapper.classList.toggle('custom-cursor--testimonial-close');
-}
-
-function clickTestimonial(card) {
-  clientCards.forEach(otherCard => {
-    if (otherCard !== card && otherCard?.classList.contains('client-card--active')) {
-      otherCard.classList.remove('client-card--active');
-    }
-  });
-  toggleTestimonial(card);
-}
-
-function handleTestimonialClick(event) {
-  const cardBtn = event.target.closest('.client-card__action');
-
-  if (cardBtn) {
-    const card = cardBtn.closest('.client-card');
-    clickTestimonial(card);
-  }
-}
 
 mm.add(
   {
@@ -428,3 +409,84 @@ mm.add(
     }
   }
 );
+
+//split title
+splitTitle.forEach(h => {
+  const chars = h.querySelectorAll('.char')
+  gsap.from(chars, {
+    opacity: 0.2,
+    stagger: 0.05,
+    delay: 0.2,
+    duration: 1,
+    ease: "back.out",
+    scrollTrigger: {
+      trigger: h,
+      start: "clamp(top 90%)",
+      end: "clamp(top 7%)",
+      scrub: 1.2,
+    }
+  })
+});
+
+//agency img
+agencyFigure.forEach(fig => {
+  const img = fig.querySelector('img')
+  gsap.from(img, {
+    scale: 1.2,
+    ease: "sine.out",
+    scrollTrigger: {
+      trigger: fig,
+      start: "clamp(top 90%)",
+      scrub: 1.2,
+    }
+  })
+});
+
+//client testimonials
+function toggleTestimonial(card) {
+  const { classList } = card;
+  classList.toggle('client-card--active');
+  cursorWrapper.classList.toggle('custom-cursor--testimonial-close');
+}
+
+function clickTestimonial(card) {
+  clientCards.forEach(otherCard => {
+    if (otherCard !== card && otherCard?.classList.contains('client-card--active')) {
+      otherCard.classList.remove('client-card--active');
+    }
+  });
+  toggleTestimonial(card);
+}
+
+function handleTestimonialClick(event) {
+  const cardBtn = event.target.closest('.client-card__action');
+
+  if (cardBtn) {
+    const card = cardBtn.closest('.client-card');
+    clickTestimonial(card);
+  }
+}
+
+//agency
+agencyTl.from('.l-agency__headline--hero .char', {
+  opacity: 0.2,
+  ease: "power4.out",
+  stagger: {
+    each: 0.03,
+    from: "random",
+    grid: "auto",
+  },
+  delay: 0.15,
+})
+
+agencyTl.from('.l-agency__desc--hero', {
+  y:150,
+  opacity:0,
+  duration:0.5,
+})
+
+agencyTl.from('.l-agency__desc--hero .char', {
+  opacity:0,
+  ease: "power4.out",
+  stagger: 0.01
+}, 1)

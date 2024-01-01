@@ -1,20 +1,9 @@
 <header class="header">
-  @if (page === 'home') {
-    <a class="header__logo logo">
-      <svg class="logo__img" aria-hidden="true" width="188" height="40">
-        <use xlink:href="img/sprite.svg#logo"></use>
-      </svg>
-    </a>
-  }
-
-  @if (page === '!home') {
-    <a class="header__logo logo" href="index.html">
-      <svg class="logo__img" aria-hidden="true" width="188" height="40">
-        <use xlink:href="img/sprite.svg#logo"></use>
-      </svg>
-    </a>
-  }
-
+  <a class="header__logo logo" @if (context.page) {href="index.html"}>
+    <svg class="logo__img" aria-hidden="true" width="188" height="40">
+      <use xlink:href="img/sprite.svg#logo"></use>
+    </svg>
+  </a>
   <nav class="header__menu menu" aria-label="Основное меню" itemscope itemtype="https://schema.org/SiteNavigationElement">
     <button class="menu__button" type="button" aria-expanded="false" aria-controls="menu__list" aria-label="Открыть меню">
       <span class="menu__button-line" aria-hidden="true"></span>
@@ -24,23 +13,23 @@
     <div class="menu__container">
       <ul class="menu__list menu__list--main" role="list" id="menu__list">
         <li class="menu__item" itemprop="name">
-          <a class="menu__link" itemprop="url" href="/agency/" title="Агентство">
+          <a class="menu__link @if (context.page === 'agency') {menu__link--current}" itemprop="url" href="agency.html" title="Агентство">
             <span class="menu__link-text">Агентство</span>
           </a>
         </li>
         <li class="menu__item" itemprop="name">
-          <a class="menu__link" itemprop="url" href="/projects/" title="Проекты">
+          <a class="menu__link @if (context.page === 'projects') {menu__link--current}" itemprop="url" href="/projects/" title="Проекты">
             <span class="menu__link-text">Проекты</span>
             <span class="menu__link-count">24</span>
           </a>
         </li>
         <li class="menu__item" itemprop="name">
-          <a class="menu__link" itemprop="url" href="/contacts/" title="Контакты">
+          <a class="menu__link @if (context.page === 'contacts') {menu__link--current}" itemprop="url" href="/contacts/" title="Контакты">
             <span class="menu__link-text">Контакты</span>
           </a>
         </li>
         <li class="menu__item" itemprop="name">
-          <a class="menu__link menu__link--underline menu__link--discuss" itemprop="url" href="brief.html" title="Обсудить проект">
+          <a class="menu__link menu__link--underline menu__link--discuss @if (context.page === 'brief') {menu__link--current}" itemprop="url" href="brief.html" title="Обсудить проект">
             <span class="menu__link-text">Обсудить проект</span>
           </a>
         </li>
