@@ -88,11 +88,21 @@
     margin-block: 0;
     font-size: clamp-calc(470px, 1920px, 18px, 24px);
     letter-spacing: -0.36px;
-    line-height: 1.55;
+    line-height: 1.5;
     align-self: flex-end;
     padding-block-start: 40px;
     position: relative;
     text-wrap: pretty;
+
+    &--flex {
+      display: flex;
+      flex-direction: column;
+      row-gap: 16px;
+
+      p {
+        margin-block: 0;
+      }
+    }
 
     @include for-desktop {
       max-width: 748px;
