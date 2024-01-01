@@ -1,5 +1,6 @@
 import HystModal from "hystmodal";
 import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 import './swiped-events';
 
 const testimonialBtns = document?.querySelectorAll('.client-card__action--modal');
@@ -22,10 +23,9 @@ const setupModal = () => {
     },
     afterClose: (modal) => {
       clearModalContent();
+      ScrollTrigger.refresh();
     },
   });
-
-
 };
 
 function getTestimonial(modal) {
