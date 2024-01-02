@@ -415,7 +415,7 @@ splitTitle.forEach(h => {
   const chars = h.querySelectorAll('.char')
   gsap.from(chars, {
     opacity: 0.2,
-    stagger: 0.05,
+    stagger: 0.1,
     delay: 0.2,
     duration: 1,
     ease: "back.out",
@@ -423,7 +423,7 @@ splitTitle.forEach(h => {
       trigger: h,
       start: "clamp(top 90%)",
       end: "clamp(top 7%)",
-      scrub: 1.2,
+      scrub: true,
     }
   })
 });

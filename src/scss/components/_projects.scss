@@ -1,0 +1,47 @@
+.projects {
+  $rowGap:clamp-calc(768px, 1920px, 80px, 120px);
+  --row-gap:#{$rowGap};
+  display: flex;
+  flex-direction: column;
+  row-gap: var(--row-gap);
+
+  &__header {
+    --gap: 160px;
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--gap);
+  }
+
+  &__headline {
+    --offset: var(--gap);
+    position: relative;
+
+    &::after {
+      --line-height: 1px;
+      content: "";
+      position: absolute;
+      width: 160px;
+      height: var(--line-height);
+      background-color: var(--gold);
+      left: 0;
+      right: 0;
+      margin-inline: auto;
+      bottom: calc(var(--offset) / -2 - var(--line-height) / 2);
+    }
+  }
+
+  &__list {
+    display: flex;
+    flex-direction: column;
+    row-gap: var(--row-gap);
+  }
+
+  &__archive {
+    padding-block: var(--row-gap) clamp-calc(768px, 1920px, 80px, 160px);
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
+    max-width: 1006px;
+    margin-inline: auto;
+  }
+}

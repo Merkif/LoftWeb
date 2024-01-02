@@ -1,0 +1,104 @@
+.project-list {
+  gap: 80px clamp-calc(768px, 1920px, 40px, 72px);
+  display: grid;
+  @include from-mobile {
+    $topOffset:clamp-calc(768px, 1920px, 80px, 160px);
+    --top-offset:#{$topOffset};
+    grid-template-columns: 1fr 1fr;
+  }
+
+  &__item {
+    @include from-mobile {
+      &:nth-child(2) {
+        margin-block-start: var(--top-offset);
+      }
+
+      &:nth-child(odd):not(:first-child) {
+        margin-block-start: calc(-1 * var(--top-offset));
+      }
+    }
+  }
+}
+
+.project-card {
+  position: relative;
+
+  &__tags {
+    display: flex;
+    color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+    font-size: 14px;
+    gap: 4px;
+    position: relative;
+    z-index: 1;
+  }
+
+  &__tag {
+    display: block;
+    padding-block: 4px;
+    padding-inline: 16px;
+    border: 1px solid var(--extra-dark-gray);
+    border-radius: 40px;
+    transition: background-color 0.3s ease-in-out;
+
+    @include hover {
+      background-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+      color: var(--dark-theme, var(--black)) var(--light-theme, #fff)
+    }
+  }
+
+  &__figure {
+    margin: 0;
+    margin-block-end: 24px;
+    background-color: #A3A3A3;
+    overflow: hidden;
+  }
+
+  &__img {
+    display: block;
+    aspect-ratio: 724/544;
+    width: 100%;
+    filter: blur(20px);
+    transition: filter 0.3s ease-in-out;
+
+    &.entered.loaded {
+      filter: revert;
+    }
+  }
+
+  &__title {
+    font-size: 32px;
+    font-weight: 500;
+    margin-block: 0 8px;
+    color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+    letter-spacing: -0.96px;
+    line-height: 1.16;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px 20px;
+
+    &-text {
+      display: block;
+    }
+  }
+
+  &__state {
+    font-size: 14px;
+    line-height: 1.42;
+    letter-spacing: -0.28px;
+    color: #5E5E5E;
+    font-weight: 400;
+  }
+
+  &__desc {
+    margin-block: 0 24px;
+    color: #A3A3A3;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

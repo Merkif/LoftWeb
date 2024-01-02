@@ -1,0 +1,41 @@
+.archive {
+  &__table {
+    overflow-x: auto;
+    width: 100%;
+    color:var(--dark-theme, #fff) var(--light-theme, var(--black));
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      display: block;
+      margin-block-start: 1px;
+    }
+
+    tbody {
+      display: flex;
+      flex-direction: column;
+    }
+
+    tr {
+      padding-block: 40px;
+      border-block: 1px solid var(--extra-dark-gray);
+      margin-block-start: -1px;
+      display: grid;
+      grid-template-columns: minmax(70px, 104px) minmax(0, 232px) auto;
+      column-gap: 24px;
+
+      @include big-mobile {
+        grid-template-columns: 1fr;
+        row-gap: 24px;
+      }
+
+      td {
+        line-height: 1.33;
+      }
+
+      td:first-child {
+        color: #5E5E5E;
+      }
+    }
+  }
+}

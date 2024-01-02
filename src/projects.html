@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html', {
+  "title":"Агентство - LoftWeb Digital Agency",
+  "description":"Мы цифровое агентство, которое специализируется на предоставлении широкого спектра услуг в области разработки, маркетинга и рекламы.",
+})
+<body class="page__body page__body--cursor">
+  @include('partials/custom-cursor.html')
+  @include('partials/header.html', {
+    "page":"projects"
+  })
+  <div class="viewport">
+    <div class="scroll-container">
+      <main class="main main--container projects">
+        <header class="projects__header">
+          <h1 class="projects__headline headline headline--primary headline--indent">Мы помогаем развивать цифровые продукты и бренды, что подтверждается нашими клиентами и успешными проектами</h1>
+          <div class="project__filters project-filters">
+            <details-utils class="project-filters__item" animate close-esc close-click-outside>
+              <details class="filter">
+                <summary class="filter__title" data-total="17">Отрасли</summary>
+                <div class="filter__content">
+                  <ul class="filter__options" role="list">
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Корпоративные сайты</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Интернет-магазины</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Маркетплейсы</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Лендинги</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </details-utils>
+            <details-utils class="project-filters__item" animate close-esc close-click-outside>
+              <details class="filter">
+                <summary class="filter__title" data-total="14">Типы сайтов</summary>
+                <div class="filter__content">
+                  <ul class="filter__options" role="list">
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Корпоративные сайты</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Интернет-магазины</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Маркетплейсы</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Лендинги</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </details-utils>
+            <details-utils class="project-filters__item" animate close-esc close-click-outside>
+              <details class="filter">
+                <summary class="filter__title" data-total="29">Услуги</summary>
+                <div class="filter__content">
+                  <ul class="filter__options" role="list">
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Веб продакшн</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>CRM и бизнес автоматизация</span>
+                      </label>
+                    </li>
+                    <li class="filter__option">
+                      <label class="filter__label">
+                        <input class="sr-input" type="checkbox" name="option-1">
+                        <span>Маркетинговые коммуникации</span>
+                      </label>
+                    </li>
+                  </ul>
+                </div>
+              </details>
+            </details-utils>
+          </div>
+        </header>
+        <section class="projects__list">
+          <h2 class="sr-only">Проекты</h2>
+          <ul class="project-list" role="list">
+            <li class="project-list__item">
+              <article class="project-card">
+                <figure class="project-card__figure">
+                  <picture>
+                    <source data-srcset="img/case-1.webp" type="image/webp">
+                    <img class="project-card__img lazy" data-src="img/case-1.jpg" width="724" height="544" alt="">
+                  </picture>
+                </figure>
+                <h3 class="project-card__title headline">
+                  <a class="project-card__link" href="">Парадайс</a>
+                </h3>
+                <p class="project-card__desc">Сайт для агентства недвижимости</p>
+                <ul class="project-card__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                  <li>
+                    <a class="project-card__tag" href="#">ui</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">ux</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">web</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">dev</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="project-list__item">
+              <article class="project-card">
+                <figure class="project-card__figure">
+                  <picture>
+                    <source data-srcset="img/case-2.webp" type="image/webp">
+                    <img class="project-card__img lazy" data-src="img/case-2.jpg" width="724" height="544" alt="">
+                  </picture>
+                </figure>
+                <h3 class="project-card__title headline">
+                  <a class="project-card__link" href="">Мариллион</a>
+                  <span class="project-card__state">Кейс в разработке</span>
+                </h3>
+                <p class="project-card__desc">Корпоративный сайт аудиторской компании</p>
+                <ul class="project-card__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                  <li>
+                    <a class="project-card__tag" href="#">ui</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">ux</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">web</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">dev</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="project-list__item">
+              <article class="project-card">
+                <figure class="project-card__figure">
+                  <picture>
+                    <source data-srcset="img/case-3.webp" type="image/webp">
+                    <img class="project-card__img lazy" data-src="img/case-3.jpg" width="724" height="544" alt="">
+                  </picture>
+                </figure>
+                <h3 class="project-card__title headline">
+                  <a class="project-card__link" href="">Русский хлеб</a>
+                </h3>
+                <p class="project-card__desc">Техническая поддержка и развитие</p>
+                <ul class="project-card__tags" itemprop="keywords" content="web, dev" role="list">
+                  <li>
+                    <a class="project-card__tag" href="#">web</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">dev</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="project-list__item">
+              <article class="project-card">
+                <figure class="project-card__figure">
+                  <picture>
+                    <source data-srcset="img/case-4.webp" type="image/webp">
+                    <img class="project-card__img lazy" data-src="img/case-4.jpg" width="724" height="544" alt="">
+                  </picture>
+                </figure>
+                <h3 class="project-card__title headline">
+                  <a class="project-card__link" href="">Тверьстроймаш</a>
+                </h3>
+                <p class="project-card__desc">Корпоративный сайт компании по производству полуприцепов</p>
+                <ul class="project-card__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                  <li>
+                    <a class="project-card__tag" href="#">ui</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">ux</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">web</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">dev</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="project-list__item">
+              <article class="project-card">
+                <figure class="project-card__figure">
+                  <picture>
+                    <source data-srcset="img/case-5.webp" type="image/webp">
+                    <img class="project-card__img lazy" data-src="img/case-5.jpg" width="724" height="544" alt="">
+                  </picture>
+                </figure>
+                <h3 class="project-card__title headline">
+                  <a class="project-card__link" href="">Слова будущего</a>
+                </h3>
+                <p class="project-card__desc">Промо-сайт для благотворительного фонда</p>
+                <ul class="project-card__tags" itemprop="keywords" content="web, dev" role="list">
+                  <li>
+                    <a class="project-card__tag" href="#">web</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">dev</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+            <li class="project-list__item">
+              <article class="project-card">
+                <figure class="project-card__figure">
+                  <picture>
+                    <source data-srcset="img/case-6.webp" type="image/webp">
+                    <img class="project-card__img lazy" data-src="img/case-6.jpg" width="724" height="544" alt="">
+                  </picture>
+                </figure>
+                <h3 class="project-card__title headline">
+                  <a class="project-card__link" href="">Фабрика позитивных изменений</a>
+                </h3>
+                <p class="project-card__desc">Корпоративный сайт</p>
+                <ul class="project-card__tags" itemprop="keywords" content="ui, ux, web, dev" role="list">
+                  <li>
+                    <a class="project-card__tag" href="#">ui</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">ux</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">web</a>
+                  </li>
+                  <li>
+                    <a class="project-card__tag" href="#">dev</a>
+                  </li>
+                </ul>
+              </article>
+            </li>
+          </ul>
+          <div class="button-wrap">
+            <a class="button button--transparent">Показать <br> еще</a>
+          </div>
+        </section>
+        <section class="projects__archive archive">
+          <h2 class="desc desc--lg desc--center">Архивные проекты</h2>
+          <div class="archive__table">
+            <table>
+              <thead class="sr-only">
+                <tr>
+                  <th>Год</th>
+                  <th>Клиент</th>
+                  <th>Выполненные этапы проекта</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>2018</td>
+                  <td><a href="">Pandora</a></td>
+                  <td>Спроектировали и нарисовали дизайн, написали тексты, сверстали и сделали разработку интернет-магазина украшений</td>
+                </tr>
+                <tr>
+                  <td>2017</td>
+                  <td>Prothem Expert</td>
+                  <td>Спроектировали и нарисовали концепт интерфейса личного кабинета пользователя</td>
+                </tr>
+                <tr>
+                  <td>2016</td>
+                  <td>Cosmodrome Games</td>
+                  <td>Спроектировали и нарисовали сайт интернет-магазина игр</td>
+                </tr>
+                <tr>
+                  <td>2015</td>
+                  <td>Будет Тепло</td>
+                  <td>Провели автоматизацию расчета коммерческих предложений</td>
+                </tr>
+                <tr>
+                  <td>2014</td>
+                  <td>Elegant Time</td>
+                  <td>Спроектировали и нарисовали сайт интернет-магазина украшений</td>
+                </tr>
+                <tr>
+                  <td>2013</td>
+                  <td>Chicco</td>
+                  <td>Спроектировали и нарисовали сайт интернет-магазина детских товаров</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+        <section class="projects__section">
+          <h2 class="desc desc--lg desc--center desc--mb">Расскажите <br> о вашем проекте</h2>
+          <div class="button-wrap">
+            <a class="button button--light" href="brief.html">Обсудить <br> проект</a>
+          </div>
+        </section>
+      </main>
+      @include('partials/footer.html')
+    </div>
+  </div>
+</body>
+
+</html>
