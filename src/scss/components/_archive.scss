@@ -8,7 +8,6 @@
       width: 100%;
       border-collapse: collapse;
       display: block;
-      margin-block-start: 1px;
     }
 
     tbody {
@@ -16,17 +15,25 @@
       flex-direction: column;
     }
 
+    tr + tr {
+      border-block-start: 1px solid var(--extra-dark-gray);
+    }
     tr {
       padding-block: 40px;
-      border-block: 1px solid var(--extra-dark-gray);
-      margin-block-start: -1px;
       display: grid;
       grid-template-columns: minmax(70px, 104px) minmax(0, 232px) auto;
       column-gap: 24px;
-
       @include big-mobile {
         grid-template-columns: 1fr;
         row-gap: 24px;
+      }
+
+      &:first-child {
+        border-block-start: 1px solid var(--extra-dark-gray);
+      }
+
+      &:last-child {
+        border-block-end: 1px solid var(--extra-dark-gray);
       }
 
       td {

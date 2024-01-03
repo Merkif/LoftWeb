@@ -40,6 +40,8 @@ const splitText = new SplitType('.split-title', { types: 'words, chars' });
 const splitTitle = gsap.utils.toArray('.split-title');
 const agencyHero = SplitType.create('.l-agency__headline--hero, .l-agency__desc--hero', { types: 'words, chars' });
 const agencyTl = gsap.timeline({});
+const projectCards = gsap.utils.toArray('.project-list__item');
+const archiveTable = gsap.utils.toArray('.archive__table tr');
 
 //hero-section
 sectionHeroTitle.forEach((item, index) => {
@@ -337,6 +339,36 @@ mm.add(
       //client testimonial
       testimonialsContainer?.addEventListener('click', handleTestimonialClick);
 
+      //project-cards
+      projectCards.forEach(card => {
+        gsap.from(card, {
+          opacity: 0,
+          y: 200,
+          scale: 0.98,
+          scrollTrigger: {
+            scrub: true,
+            trigger: card,
+            start: "clamp(top 100%)",
+            end: "clamp(top 30%)"
+          }
+        })
+      });
+
+      //archive table
+      archiveTable.forEach(tr => {
+        gsap.from(tr, {
+          opacity: 0,
+          scale: 0.8,
+          ease: "power4.out",
+          scrollTrigger: {
+            scrub: true,
+            trigger: tr,
+            start: "clamp(top 100%)",
+            end: "clamp(top 30%)",
+          }
+        })
+      });
+
       return () => {
         window.location.reload()
       }
@@ -480,13 +512,13 @@ agencyTl.from('.l-agency__headline--hero .char', {
 })
 
 agencyTl.from('.l-agency__desc--hero', {
-  y:150,
-  opacity:0,
-  duration:0.5,
+  y: 150,
+  opacity: 0,
+  duration: 0.5,
 })
 
 agencyTl.from('.l-agency__desc--hero .char', {
-  opacity:0,
+  opacity: 0,
   ease: "power4.out",
   stagger: 0.01
 }, 1)
