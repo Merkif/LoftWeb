@@ -11,7 +11,7 @@ if (ScrollTrigger.isTouch !== 1) {
   let smoother = ScrollSmoother.create({
     wrapper: '.viewport',
     content: '.scroll-container',
-    smooth: 1.2,
+    smooth: 1.4,
     effects: false,
   });
 }
@@ -26,15 +26,13 @@ const marqueeLight = gsap.utils.toArray('.marquee__item--light');
 const marqueeDark = gsap.utils.toArray('.marquee__item--dark');
 const cursorWrapper = document?.querySelector('.custom-cursor');
 const cursorFollower = cursorWrapper?.querySelector('.custom-cursor__follower');
-const cursor = cursorWrapper?.querySelector('.custom-cursor__cursor');
-const links = document?.querySelectorAll('a, .footer__links, .menu__list');
+const links = document?.querySelectorAll('a[href], .footer__links, .menu__list');
 const clientCards = gsap.utils.toArray('.client-card');
 const ratingCards = gsap.utils.toArray('.rating-card');
 const caseLinks = document?.querySelectorAll('.case__link');
 const clientCardBtn = document?.querySelectorAll('.client-card__action');
 const scrollSticker = gsap.utils.toArray('.scroll-sticker');
 const testimonialsContainer = document?.querySelector('.clients-list');
-const headerImg = gsap.utils.toArray('.c-header__img, .c-header__grid');
 const agencyFigure = gsap.utils.toArray('.l-agency__figure');
 const splitText = new SplitType('.split-title', { types: 'words, chars' });
 const splitTitle = gsap.utils.toArray('.split-title');
@@ -42,6 +40,7 @@ const agencyHero = SplitType.create('.l-agency__headline--hero, .l-agency__desc-
 const agencyTl = gsap.timeline({});
 const projectCards = gsap.utils.toArray('.project-list__item');
 const archiveTable = gsap.utils.toArray('.archive__table tr');
+const horizontalServicesSection = document?.querySelector('.horizontal-scroll__section.section-services');
 
 //hero-section
 sectionHeroTitle.forEach((item, index) => {
@@ -70,23 +69,26 @@ mm.add(
   (context) => {
     if (context.conditions.isDesktop) {
       //cursor
-      gsap.set('.custom-cursor__follower', { xPercent: -50, yPercent: -50 });
-      gsap.set('.custom-cursor__cursor', { xPercent: -50, yPercent: -50 });
+      gsap.set(cursorWrapper, { opacity: 1, delay: 0.5 })
+      gsap.set(cursorFollower, { xPercent: -50, yPercent: -50 });
 
       window.addEventListener('mousemove', e => {
         const { clientX, clientY } = e;
-        gsap.to(cursor, {
-          x: clientX,
-          y: clientY
-        });
-
         gsap.to(cursorFollower, {
-          x: clientX,
-          y: clientY,
-          duration: .4,
-          ease: "sine.out",
+          x: clientX + 3,
+          y: clientY + 3,
+          duration: 0.7,
+          ease: 'power4',
         });
       });
+
+      document.addEventListener('mouseleave', () => {
+        cursorWrapper.classList.add('custom-cursor--hidden');
+      });
+
+      document.addEventListener('mouseenter', () => {
+        cursorWrapper.classList.remove('custom-cursor--hidden');
+      })
 
       links.forEach(a => {
         a.addEventListener('mousemove', () => {
@@ -138,7 +140,7 @@ mm.add(
             end: () => "+=" + (thisAnimWrap.scrollWidth - window.innerWidth),
             pin: thisPinWrap,
             invalidateOnRefresh: true,
-            scrub: 1.2,
+            scrub: 1.5,
           }
         });
       });
@@ -247,6 +249,7 @@ mm.add(
       });
 
       //header img
+      const headerImg = gsap.utils.toArray('.c-header__img:not(.section-services__img), .c-header__grid');
       headerImg.forEach(img => {
         gsap.fromTo(img, {
           y: 150,
@@ -369,12 +372,27 @@ mm.add(
         })
       });
 
+      //section services
+      if(horizontalServicesSection) {
+        ScrollTrigger.create({
+          trigger: horizontalServicesSection,
+          containerAnimation: scrollTween,
+          toggleActions: "play play none reverse",
+          toggleClass: {
+            className: "theme-light",
+            targets: "html"
+          },
+          start: "clamp(0 60%)",
+        });
+      }
+
       return () => {
         window.location.reload()
       }
     }
     else if (context.conditions.isMobile) {
       //header img
+      const headerImg = gsap.utils.toArray('.c-header__img, .c-header__grid');
       headerImg.forEach(img => {
         gsap.fromTo(img, {
           y: 50,

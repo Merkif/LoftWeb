@@ -7,6 +7,8 @@
   --cursor-opacity:1;
   user-select: none;
   pointer-events: none;
+  transition: opacity 0.5s ease;
+  opacity: 0;
 
   &__cursor {
     width: var(--cursor-size);
@@ -32,7 +34,7 @@
     border-radius: 50%;
     user-select: none;
     pointer-events: none;
-    transition: .1s ease;
+    transition: .08s ease;
     border:1px solid var(--follower-border);
     background-color:var(--follower-bg);
     z-index: 2000;
@@ -80,8 +82,10 @@
     }
   }
 
+  &--hidden {
+    --follower-border:transparent;
+  }
   @include  tablet {
     display: none;
   }
 }
-

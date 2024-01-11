@@ -58,6 +58,7 @@
     letter-spacing: -0.48px;
     font-size: clamp-calc(470px, 1920px, 18px, 24px);
     color: var(--color, var(--dark-theme, #fff) var(--light-theme, var(--black)));
+    cursor: pointer;
 
     &::before {
       content: attr(data-total);

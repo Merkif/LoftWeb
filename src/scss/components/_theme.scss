@@ -9,3 +9,9 @@
     --dark-theme: var(--OFF);
   }
 }
+
+.theme-separator {
+  width: 30vw;
+  flex-shrink: 0;
+  min-height: 160px;
+}

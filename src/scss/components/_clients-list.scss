@@ -212,7 +212,9 @@
     padding: 0;
     cursor: pointer;
     outline-color: var(--gold);
-
+    @include for-desktop {
+      cursor: none;
+    }
     @include tablet {
       outline: none;
     }

@@ -6,6 +6,6 @@ import "./components/menu";
 import "./components/swiper";
 import "./components/modal";
 import "./components/tabs";
-import "./components/form";
+import "./components/mask";
 import "./components/details";
 import "./components/cookies";

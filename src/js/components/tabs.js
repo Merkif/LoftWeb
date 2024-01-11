@@ -1,10 +1,17 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import SplitType from 'split-type'
 
 gsap.registerPlugin(ScrollTrigger);
 
+const tab = gsap.utils.toArray('.c-tabs__tab');
+const splitDesc = new SplitType('.c-tabs__desc', { types: 'words, chars' });
+const tabsDesc = gsap.utils.toArray('.c-tabs__tabpanel:not([hidden]) .c-tabs__desc .char');
+const formItems = gsap.utils.toArray('.c-tabs__tabpanel:not([hidden]) .form__item');
+
+//tabbed
 class Tabbed {
-  constructor(tabbedElement) {
+  constructor(tabbedElement, options = {}) {
     if (typeof tabbedElement === 'string') {
       this.tabbed = document.querySelector(tabbedElement);
     } else if (tabbedElement instanceof Element) {
@@ -15,9 +22,10 @@ class Tabbed {
       this.tablist = this.tabbed.querySelector('ul');
       this.tabs = [...this.tablist.querySelectorAll('a')];
       this.panels = [...this.tabbed.querySelectorAll('[id^="section"]')];
+      this.onTabSwitch = options.onTabSwitch || function () { };
       this.init();
     } else {
-      console.error('Tabbed element not found.');
+      console.log('Tabbed element not found.');
     }
   }
 
@@ -101,6 +109,9 @@ class Tabbed {
     oldTab.removeAttribute('aria-selected');
     oldTab.setAttribute('tabindex', '-1');
 
+    newTab.parentElement.classList.add('c-tabs__item--current');
+    oldTab.parentElement.classList.remove('c-tabs__item--current');
+
     const index = Array.from(this.tabs).indexOf(newTab);
     const oldIndex = Array.from(this.tabs).indexOf(oldTab);
 
@@ -109,13 +120,60 @@ class Tabbed {
 
     this.setTheme(newTab);
     this.setCenterTab(newTab);
-    ScrollTrigger.refresh();
+
+    this.onTabSwitch(this.panels[index]);
   }
 }
 
-const tabs = document.querySelectorAll('.tabs');
+const tabs = new Tabbed('#tabs', {
+  onTabSwitch(activePanel) {
+    const tabDesc = activePanel.querySelectorAll('.c-tabs__desc .char');
+    const formItems = activePanel.querySelectorAll('.form__item');
 
-tabs.forEach(tab => {
-  new Tabbed(tab);
-});
+    //update trigger
+    ScrollTrigger.refresh();
 
+    //form animation
+    formAnim(tabDesc, formItems)
+  }
+})
+
+//form animation
+function formAnim(desc, items) {
+  const formTl = gsap.timeline({});
+
+  formTl.fromTo(tab, {
+    opacity: 0,
+    yPercent: 100
+  }, {
+    opacity: 1,
+    yPercent: 0,
+    ease: "expo.out",
+    duration: 1.2,
+    stagger: .1,
+    willChange: "transform"
+  }, 0.4);
+
+  formTl.from(desc, {
+    y: 100,
+    opacity: 0,
+    stagger: 0.01,
+  }, '<0.3');
+
+  formTl.from(items, {
+    yPercent: 100,
+    opacity: 0,
+    stagger: 0.2,
+  }, '<0.35');
+
+  formTl.fromTo(items, {
+    "--border-opacity": 1,
+    "--border-progress":0,
+  },{
+    "--border-progress":1,
+    "--border-opacity": 0.2,
+
+  }, '<0.3');
+}
+
+formAnim(tabsDesc, formItems);

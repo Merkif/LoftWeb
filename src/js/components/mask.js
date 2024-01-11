@@ -1,4 +1,3 @@
-//tel mask
 const phoneInputs = document.querySelectorAll('input[data-tel-input]');
 
 const getInputNumbersValue = function (input) {

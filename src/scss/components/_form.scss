@@ -32,16 +32,11 @@
       color: var(--counter-color);
       line-height: 1.63;
       align-self: flex-start;
-      color:transparent;
-      overflow: hidden;
-      text-shadow: 0 var(--counter-translate-pos, 0) var(--counter-color), 0 var(--counter-translate-neg, -25px) var(--counter-color);
-      transition: text-shadow 0.3s ease, color var(--body-dur) ease;
+      transition: color var(--body-dur) ease;
     }
 
     &:has(.form__input:focus-visible, .form__input:not(:placeholder-shown), .form__list-input:checked){
       --counter-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
-      --counter-translate-neg:0;
-      --counter-translate-pos:50px;
     }
   }
 
@@ -75,6 +70,34 @@
     display: flex;
     flex-direction: column;
     row-gap: 24px;
+    position: relative;
+
+    &::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color:var(--dark-theme, #fff) var(--light-theme, #191919);
+      height: 1px;
+      transform: scaleX(var(--border-progress, 0));
+      transform-origin: 100% 50%;
+      transition: opacity .15s linear;
+      opacity: var(--border-opacity, 1);
+      z-index: -1;
+    }
+
+    &:focus-within {
+      --border-opacity:1;
+    }
+    
+    &:has(input:not(:placeholder-shown)) {
+      --border-opacity:1;
+    }
+
+    @include hover {
+      --border-opacity:1;
+    }
   }
 
   &__input {
@@ -87,19 +110,11 @@
     font-weight: 400;
     background-color: transparent;
     border: none;
-    border-block-end: 1px solid;
-    border-color: var(--dark-theme, #303030) var(--light-theme, #D1D1D1);
     outline: none;
     resize: none;
     transition: color var(--body-dur) ease, border-color var(--body-dur) ease;
-    &:focus-visible {
-      border-block-end-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
-    }
-
-    &::placeholder {
-      color: var(--placeholder);
-    }
   }
+
   textarea {
     padding-inline-end: 15px;
     &::-webkit-scrollbar {
@@ -167,12 +182,13 @@
     color:var(--gray);
     line-height: 1.57;
     font-size: 14px;
+    margin-block: 0;
     a {
       color:var(--dark-theme, #fff) var(--light-theme, var(--black));
     }
   }
 
-  @include big-desktop {
+  @include tablet {
     &__submit,
     &__agreement {
       margin-inline-start: 0;

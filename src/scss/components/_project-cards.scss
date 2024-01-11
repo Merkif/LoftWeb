@@ -39,11 +39,6 @@
     border: 1px solid var(--extra-dark-gray);
     border-radius: 40px;
     transition: background-color 0.3s ease-in-out;
-
-    @include hover {
-      background-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
-      color: var(--dark-theme, var(--black)) var(--light-theme, #fff)
-    }
   }
 
   &__figure {

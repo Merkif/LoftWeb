@@ -4,7 +4,7 @@
   "title":"Заполнить бриф - LoftWeb Digital Agency",
   "description":"Наш блокнот открыт, и мы готовы принять ваше задание",
 })
-<body class="page__body page__body--cursor">
+<body class="page__body">
   @include('partials/custom-cursor.html')
   @include('partials/header.html', {
     "page":"brief"
@@ -12,7 +12,7 @@
   <div class="viewport">
     <div class="scroll-container">
       <main class="main main--content">
-        <div class="c-tabs c-tabs--form tabs">
+        <div class="c-tabs c-tabs--form" id="tabs">
           <ul class="c-tabs__tablist">
             <li class="c-tabs__item">
               <a class="c-tabs__tab" href="#section-brief" data-theme="dark">Заполнить бриф</a>
@@ -21,7 +21,7 @@
               <a class="c-tabs__tab" href="#section-contacts" data-theme="light">Связаться со мной</a>
             </li>
           </ul>
-          <section class="c-tabs__tabpanel" id="section-brief">
+          <section class="c-tabs__tabpanel c-tabs__tabpanel--active" id="section-brief">
             <h2 class="sr-only">Заполнить бриф</h2>
             <p class="c-tabs__desc">Наш блокнот открыт, и мы готовы принять ваше задание</p>
             <form class="form" action="">
@@ -42,7 +42,7 @@
                   <span class="form__label">Введите ваш email</span>
                   <input class="form__input" type="email" name="brief_email" id="brief_email" placeholder="email" required>
                 </label>
-                <span class="form__error">Обязательное поле</span>
+                <!-- <span class="form__error">Обязательное поле</span> -->
               </div>
               <div class="form__item">
                 <label class="form__input-label">
@@ -214,9 +214,9 @@
               <p class="form__agreement">Нажимая на кнопку вы даете согласие на <a class="underline" href="">обработку персональных данных</a> и соглашаетесь с <a class="underline">политикой конфиденциальности</a></p>
             </form>
           </section>
-          <section class="c-tabs__tabpanel" id="section-contacts">
+          <section class="c-tabs__tabpanel" id="section-contacts" hidden>
             <h2 class="sr-only">Связаться со мной</h2>
-            <p class="c-tabs__desc">Наш блокнот открыт, и мы готовы принять ваше задание</p>
+            <p class="c-tabs__desc">Наши двери всегда открыты для вас</p>
             <form class="form" action="">
               <div class="form__item">
                 <label class="form__input-label">

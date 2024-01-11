@@ -117,7 +117,7 @@
   &__desc {
     margin-block: 0;
     line-height: 1.5;
-    color:var(--dark-theme, #fff) var(--light-theme, var(--black));
+    color:#757575;
     @include for-desktop {
     font-size: clamp-calc(1024px, 1920px, 14px, 18px);
     }
