@@ -80,16 +80,6 @@ class Tabbed {
     }
   }
 
-  setTheme(tab) {
-    const theme = tab.dataset.theme;
-
-    if (theme) {
-      const root = document.documentElement;
-      root.classList.forEach(cls => cls.startsWith('theme-') && root.classList.remove(cls));
-      root.classList.add(`theme-${theme}`);
-    }
-  }
-
   setCenterTab(tab) {
     const tabList = this.tablist;
     let activeTab = tab;
@@ -118,20 +108,22 @@ class Tabbed {
     this.panels[oldIndex].hidden = true;
     this.panels[index].hidden = false;
 
-    this.setTheme(newTab);
     this.setCenterTab(newTab);
 
-    this.onTabSwitch(this.panels[index]);
+    this.onTabSwitch(this.panels[index], newTab);
   }
 }
 
 const tabs = new Tabbed('#tabs', {
-  onTabSwitch(activePanel) {
-    const tabDesc = activePanel.querySelectorAll('.c-tabs__desc .char');
-    const formItems = activePanel.querySelectorAll('.form__item');
+  onTabSwitch(activePanel, activeTab) {
+    const tabDesc = [...activePanel.querySelectorAll('.c-tabs__desc .char')];
+    const formItems = [...activePanel.querySelectorAll('.form__item')];
 
     //update trigger
     ScrollTrigger.refresh();
+
+    //set theme
+    setTheme(activeTab)
 
     //form animation
     formAnim(tabDesc, formItems)
@@ -168,12 +160,24 @@ function formAnim(desc, items) {
 
   formTl.fromTo(items, {
     "--border-opacity": 1,
-    "--border-progress":0,
-  },{
-    "--border-progress":1,
+    "--border-progress": 0,
+  }, {
+    "--border-progress": 1,
     "--border-opacity": 0.2,
 
   }, '<0.3');
 }
 
+//set theme
+function setTheme(tab) {
+  const theme = tab.dataset.theme;
+
+  if (theme) {
+    const root = document.documentElement;
+    root.classList.forEach(cls => cls.startsWith('theme-') && root.classList.remove(cls));
+    root.classList.add(`theme-${theme}`);
+  }
+}
+
+//start form animation
 formAnim(tabsDesc, formItems);
