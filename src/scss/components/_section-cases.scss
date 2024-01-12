@@ -22,6 +22,7 @@
 
   @include tablet {
     padding-inline: var(--container);
+    padding-block-end: 120px;
 
     &__list {
       margin-block-end: clamp-calc(470px, 1024px, 80px, 160px);
