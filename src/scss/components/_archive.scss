@@ -1,4 +1,14 @@
 .archive {
+  /* clean-css ignore:start */
+  --ON: initial;
+  --OFF: ;
+  /* clean-css ignore:end */
+  --hide-first-and-last-border: var(--OFF);
+  --show-first-and-last-border: var(--ON);
+  display: flex;
+  flex-direction: column;
+  row-gap: 80px;
+
   &__table {
     overflow-x: auto;
     width: 100%;
@@ -18,30 +28,48 @@
     tr + tr {
       border-block-start: 1px solid var(--extra-dark-gray);
     }
+
     tr {
       padding-block: 40px;
       display: grid;
       grid-template-columns: minmax(70px, 104px) minmax(0, 232px) auto;
-      column-gap: 24px;
-      @include big-mobile {
-        grid-template-columns: 1fr;
-        row-gap: 24px;
+      column-gap: 16px;
+
+      @include tablet {
+        display: flex;
+        flex-wrap: wrap;
+        row-gap: 16px;
       }
 
       &:first-child {
-        border-block-start: 1px solid var(--extra-dark-gray);
+        border-block-start: var(--show-first-and-last-border, 1px solid var(--extra-dark-gray)) var(--hide-first-and-last-border, none);
+        padding-block-start: var(--show-first-and-last-border, 40px) var(--hide-first-and-last-border, 16px);
       }
 
       &:last-child {
-        border-block-end: 1px solid var(--extra-dark-gray);
+        border-block-end: var(--show-first-and-last-border, 1px solid var(--extra-dark-gray)) var(--hide-first-and-last-border, none);
+        padding-block-end: var(--show-first-and-last-border, 40px) var(--hide-first-and-last-border, 16px);
       }
 
       td {
         line-height: 1.33;
+        padding: 0;
       }
 
       td:first-child {
         color: #5E5E5E;
+        @include tablet {
+          br {
+            display: none;
+          }
+        }
+      }
+
+      td:last-child {
+        @include tablet {
+          width: 100%;
+          margin-block-start: 24px;
+        }
       }
     }
   }

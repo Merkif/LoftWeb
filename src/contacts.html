@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html', {
+  "title":"Контакты | LoftWeb Digital Agency",
+  "description":"Автоматизация Бизнеса Москва Разработка сайтов Техническая поддержка",
+})
+<body class="page__body">
+  @include('partials/custom-cursor.html')
+  @include('partials/header.html', {
+    "page":"contacts"
+  })
+  <div class="viewport">
+    <div class="scroll-container">
+      <main class="main main--container">
+        <h1 class="sr-only">Контакты</h1>
+        <div class="contacts">
+          <div class="contacts__list">
+            <dl class="description-list contacts__list-2-col">
+              <dt class="description-list__term">Контакты</dt>
+              <dd class="description-list__details">
+                <a href="tel:+74955327888">+7 495 53 27 888</a>
+              </dd>
+              <dd class="description-list__details">
+                <a href="mailto:hello@loftweb.ru">hello@loftweb.ru</a>
+              </dd>
+            </dl>
+            <dl class="description-list">
+              <dt class="description-list__term">Офис</dt>
+              <dd class="description-list__details">Россия, Москва, <br> ул. Троицкая 15, стр. 1</dd>
+            </dl>
+            <dl class="description-list">
+              <dt class="description-list__term">Вакансии</dt>
+              <dd class="description-list__details">
+                <a href="">Актуальные вакансии <br>на <a class="underline" href="">hh.ru</a></a>
+              </dd>
+            </dl>
+          </div>
+          <div class="contacts__content">
+            <div class="contacts__links">
+              <a class="headline headline--primary underline" href="https://t.me/loftweb" target="blank" rel="noopener noreferrer">Написать в телеграм</a>
+              <a class="headline headline--primary underline" href="brief.html">Обсудить проект</a>
+            </div>
+            <section class="contacts__archive archive">
+              <h2 class="headline headline--3">Наши последние проекты</h2>
+              <div class="archive__table">
+                <table>
+                  <thead class="sr-only">
+                    <tr>
+                      <th>Год</th>
+                      <th>Клиент</th>
+                      <th>Выполненные этапы проекта</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Декабрь <br> 2023</td>
+                      <td><a href="">РЖД</a></td>
+                      <td>Спроектировали и нарисовали дизайн, написали тексты для клиентского терминала компании РЖД</td>
+                    </tr>
+                    <tr>
+                      <td>Июль <br> 2023</td>
+                      <td>Prothem Expert</td>
+                      <td>Спроектировали и нарисовали концепт интерфейса личного кабинета пользователя</td>
+                    </tr>
+                    <tr>
+                      <td>Февраль <br> 2023</td>
+                      <td>Cosmodrome Games</td>
+                      <td>Спроектировали и нарисовали сайт интернет-магазина игр</td>
+                    </tr>
+                    <tr>
+                      <td>Ноябрь <br> 2022</td>
+                      <td>Будет Тепло</td>
+                      <td>Провели автоматизацию расчета коммерческих предложений</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <div class="button-wrap">
+                <a class="button button--transparent">Смотреть <br> все проекты</a>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+      @include('partials/footer.html', {
+        "simpleFooter": true,
+      })
+    </div>
+  </div>
+  @include('partials/cookies.html')
+</body>
+
+</html>

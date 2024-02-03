@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" class="page">
+@include('partials/head.html', {
+  "title":"Агентство - LoftWeb Digital Agency",
+  "description":"Мы цифровое агентство, которое специализируется на предоставлении широкого спектра услуг в области разработки, маркетинга и рекламы.",
+})
+<body class="page__body">
+  @include('partials/custom-cursor.html')
+  @include('partials/header.html', {
+    "page":"projects",
+    "hamburgerMenu":"true",
+  })
+  <div class="viewport">
+    <div class="scroll-container">
+      <main class="main">
+        <header class="main__lead lead">
+          <h1 class="lead__title headline headline--primary"><span class="lead__title-holder color-gold">Разработка корпоративного сайта</span> агентства недвижимости «Парадайс»</h1>
+          <figure class="lead__figure">
+            <img src="lead__img" alt="">
+          </figure>
+        </header>
+      </main>
+    </div>
+  </div>
+
+  @include('partials/cookies.html')
+</body>
+
+</html>

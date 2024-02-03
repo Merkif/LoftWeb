@@ -108,7 +108,7 @@ class Tabbed {
     this.panels[oldIndex].hidden = true;
     this.panels[index].hidden = false;
 
-    this.setCenterTab(newTab);
+    // this.setCenterTab(newTab);
 
     this.onTabSwitch(this.panels[index], newTab);
   }

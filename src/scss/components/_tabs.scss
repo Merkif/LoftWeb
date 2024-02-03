@@ -16,6 +16,10 @@
     &--current {
       order: -1;
     }
+
+    &:not(&--current) {
+      padding-right: 30px;
+    }
   }
 
   &__tablist {
@@ -35,6 +39,7 @@
 
     @include small-tablet {
       padding-inline: var(--container);
+      column-gap: 30px;
     }
   }
 

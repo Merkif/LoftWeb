@@ -4,7 +4,10 @@
       <use xlink:href="img/sprite.svg#logo"></use>
     </svg>
   </a>
-  <nav class="header__menu menu" aria-label="Основное меню" itemscope itemtype="https://schema.org/SiteNavigationElement">
+  <nav class="header__menu menu @if (context.hamburgerMenu) {menu--hamburger}" aria-label="Основное меню" itemscope itemtype="https://schema.org/SiteNavigationElement">
+    @if (context.hamburgerMenu) {
+      <a class="underline itemprop="url" href="brief.html" title="Обсудить проект">Обсудить проект</a>
+    }
     <button class="menu__button" type="button" aria-expanded="false" aria-controls="menu__list" aria-label="Открыть меню">
       <span class="menu__button-line" aria-hidden="true"></span>
       <span class="menu__button-line" aria-hidden="true"></span>
@@ -28,11 +31,13 @@
             <span class="menu__link-text">Контакты</span>
           </a>
         </li>
-        <li class="menu__item" itemprop="name">
-          <a class="menu__link menu__link--underline menu__link--discuss @if (context.page === 'brief') {menu__link--current}" itemprop="url" href="brief.html" title="Обсудить проект">
-            <span class="menu__link-text">Обсудить проект</span>
-          </a>
-        </li>
+        @if (!context.hamburgerMenu) {
+          <li class="menu__item" itemprop="name">
+            <a class="menu__link menu__link--underline menu__link--discuss @if (context.page === 'brief') {menu__link--current}" itemprop="url" href="brief.html" title="Обсудить проект">
+              <span class="menu__link-text">Обсудить проект</span>
+            </a>
+          </li>
+        }
       </ul>
       <ul class="menu__list menu__list--contacts" role="list">
         <li class="menu__item">

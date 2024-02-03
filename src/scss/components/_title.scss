@@ -4,6 +4,7 @@
   transition: color var(--body-dur);
   transition-delay: var(--body-delay);
   transition-timing-function: ease;
+
   &--1 {
     font-size: clamp-calc(470px, 1920px, 64px, 280px);
     color:var(--light-theme, var(--light-gray)) var(--dark-theme, var(--extra-dark-gray));
@@ -11,6 +12,12 @@
 
   &--primary {
     font-size: clamp-calc(470px, 1920px, 24px, 56px);
+    font-weight: 400;
+    text-underline-offset: clamp-calc(470px, 1920px, 6px, 10px);
+  }
+
+  &--3 {
+    font-size: clamp-calc(470px, 1920px, 22px, 32px);
     font-weight: 400;
   }
 

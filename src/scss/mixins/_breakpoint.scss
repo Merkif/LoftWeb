@@ -24,6 +24,18 @@
   }
 }
 
+@mixin min-contacts {
+  @media (min-width: (1281px)) {
+    @content;
+  }
+}
+
+@mixin max-contacts {
+  @media (max-width: (1280px)) {
+    @content;
+  }
+}
+
 @mixin tablet {
   @media (max-width: (1024px)) {
     @content;

@@ -26,7 +26,7 @@ const marqueeLight = gsap.utils.toArray('.marquee__item--light');
 const marqueeDark = gsap.utils.toArray('.marquee__item--dark');
 const cursorWrapper = document?.querySelector('.custom-cursor');
 const cursorFollower = cursorWrapper?.querySelector('.custom-cursor__follower');
-const links = document?.querySelectorAll('a[href], .footer__links, .menu__list');
+const links = document?.querySelectorAll('a[href], .footer__links');
 const clientCards = gsap.utils.toArray('.client-card');
 const ratingCards = gsap.utils.toArray('.rating-card');
 const caseLinks = document?.querySelectorAll('.case__link');
@@ -39,7 +39,7 @@ const splitTitle = gsap.utils.toArray('.split-title');
 const agencyHero = SplitType.create('.l-agency__headline--hero, .l-agency__desc--hero', { types: 'words, chars' });
 const agencyTl = gsap.timeline({});
 const projectCards = gsap.utils.toArray('.project-list__item');
-const archiveTable = gsap.utils.toArray('.archive__table tr');
+const archiveTable = gsap.utils.toArray('.projects__archive tr');
 const horizontalServicesSection = document?.querySelector('.horizontal-scroll__section.section-services');
 
 //hero-section

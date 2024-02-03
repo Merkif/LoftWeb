@@ -9,3 +9,4 @@ import "./components/tabs";
 import "./components/mask";
 import "./components/details";
 import "./components/cookies";
+import "./components/contacts";

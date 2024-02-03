@@ -3,7 +3,6 @@ import './swiped-events';
 
 //menu animation
 let mm = gsap.matchMedia();
-const menuItem = gsap.utils.toArray('.menu__item');
 const menuContainer = document?.querySelector('.menu__container');
 const menuTl = gsap.timeline({
   paused: true,
@@ -13,17 +12,27 @@ const menuTl = gsap.timeline({
 mm.add(
   {
     isMobile: "(max-width:1024px)",
+    isDesktop: "(min-width:1025px)",
   },
 
   (context) => {
-    if (context.conditions.isMobile) {
-      menuTl.from(menuItem, {
+    if (context.conditions.isDesktop) {
+      const menuItems = gsap.utils.toArray('.menu--hamburger .menu__item');
+      menuTl.from(menuItems, {
+        x:50,
+        ease: "power4.out",
+        opacity: 0,
+        stagger: 0.05,
+      });
+    }
+    else if (context.conditions.isMobile) {
+      const menuItems = gsap.utils.toArray('.menu__item');
+      menuTl.from(menuItems, {
         xPercent: 200,
         ease: "power4.out",
         opacity: 0,
         stagger: 0.12,
       });
-
       closeOnSwipedRight(menuContainer);
     }
   }

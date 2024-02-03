@@ -9,6 +9,10 @@
   row-gap: 80px;
   line-height: 1.55;
 
+  &--simple {
+    padding-block: 80px;
+  }
+
   &__title {
     font-weight: 400;
     margin-block: 0;

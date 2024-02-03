@@ -5,6 +5,10 @@
   &--container {
     padding-block: calc(var(--header-height) + 120px ) 80px;
     padding-inline: var(--container);
+
+    @include big-mobile {
+      padding-block: calc(var(--header-height) + 80px ) 80px;
+    }
   }
   &__section {
     &--offset {
