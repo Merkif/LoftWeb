@@ -26,6 +26,10 @@
     display: flex;
     flex-direction: column;
 
+    &--main {
+      pointer-events: none;
+    }
+
     @include for-desktop {
       text-align: right;
       row-gap: 12px;
@@ -56,7 +60,6 @@
   &__link {
     color: var(--dark-theme, #fff) var(--light-theme, var(--black));
     transition: color var(--body-dur) ease;
-    display: inline-flex;
     align-items: center;
     position: relative;
     white-space: nowrap;
@@ -64,6 +67,7 @@
     display: inline-flex;
     justify-content: flex-end;
     align-items: center;
+    pointer-events: all;
 
     @include for-desktop {
       &::before {
