@@ -1,19 +1,23 @@
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from './ScrollSmoother.min.js';
-import SplitType from 'split-type'
+import SplitType from 'split-type';
+import OnLoadImages from "./loadImages.js";
 
 gsap.config({ nullTargetWarn: false, trialWarn: false, });
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
+const viewport = document?.querySelector('.viewport');
 
 //scroll Smoother
-if (ScrollTrigger.isTouch !== 1) {
+if (ScrollTrigger.isTouch !== 1 && viewport) {
   let smoother = ScrollSmoother.create({
     wrapper: '.viewport',
     content: '.scroll-container',
     smooth: 1.4,
     effects: false,
   });
+
+  OnLoadImages(".lazy", ScrollTrigger.refresh);
 }
 
 let mm = gsap.matchMedia();
@@ -29,7 +33,7 @@ const cursorFollower = cursorWrapper?.querySelector('.custom-cursor__follower');
 const links = document?.querySelectorAll('a[href], .footer__links');
 const clientCards = gsap.utils.toArray('.client-card');
 const ratingCards = gsap.utils.toArray('.rating-card');
-const caseLinks = document?.querySelectorAll('.case__link');
+const caseLinks = document?.querySelectorAll('.case__link, .lead__link');
 const clientCardBtn = document?.querySelectorAll('.client-card__action');
 const scrollSticker = gsap.utils.toArray('.scroll-sticker');
 const testimonialsContainer = document?.querySelector('.clients-list');

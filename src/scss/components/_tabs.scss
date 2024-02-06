@@ -16,10 +16,6 @@
     &--current {
       order: -1;
     }
-
-    &:not(&--current) {
-      padding-right: 30px;
-    }
   }
 
   &__tablist {

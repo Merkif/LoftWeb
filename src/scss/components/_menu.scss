@@ -4,16 +4,25 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    column-gap: 80px;
+    column-gap: clamp-calc(470px, 1920px, 30px, 80px);
 
-    .menu__button {
-      display: flex;
+    @include for-desktop {
+      .menu__button {
+        display: flex;
+      }
+
+      .menu__container {
+        position: absolute;
+        top: calc(100% + 40px);
+        right: 0;
+      }
     }
 
-    .menu__container {
-      position: absolute;
-      top: calc(100% + 40px);
-      right: 0;
+    &:has(.menu__container--open) {
+      .header__link-discuss {
+        opacity: 0;
+        visibility: hidden;
+      }
     }
   }
 
@@ -220,16 +229,18 @@
   }
 }
 
-.menu-open {
-  height: 100%;
-  height: 100dvh;
-  overflow: hidden;
-}
+@include tablet {
+  .menu-open {
+    height: 100%;
+    height: 100dvh;
+    overflow: hidden;
+  }
 
-.menu-open .page__body {
-  top: var(--window-scroll-y);
-  width: 100%;
-  height: auto;
-  position: fixed;
-  overflow: hidden;
+  .menu-open .page__body {
+    top: var(--window-scroll-y);
+    width: 100%;
+    height: auto;
+    position: fixed;
+    overflow: hidden;
+  }
 }

@@ -1,0 +1,52 @@
+.lead {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  min-height: 524px;
+  padding-inline: var(--container);
+  padding-block: 120px 160px;
+  row-gap: 80px;
+
+  &--cover {
+    height: 100vh;
+    height: 100dvh;
+  }
+
+  &__title {
+    text-wrap: balance;
+    &-holder {
+      display: block;
+    }
+  }
+
+  &__tagline {
+    font-size: 14px;
+    color:var(--gold);
+  }
+
+  &__figure {
+    position: absolute;
+    inset: 0;
+    margin: 0;
+    z-index: -1;
+    filter: brightness(var(--brightness, 30%));
+  }
+
+  &__img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__link {
+    &::before {
+      content: '';
+      inset: 0;
+      position: absolute;
+    }
+  }
+}

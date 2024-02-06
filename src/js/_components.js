@@ -10,3 +10,4 @@ import "./components/mask";
 import "./components/details";
 import "./components/cookies";
 import "./components/contacts";
+import "./components/loadImages";

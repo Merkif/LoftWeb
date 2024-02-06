@@ -1,18 +1,20 @@
 .description-list {
+  --_term-fs:var(--term-fs, 14px);
+  --_details-fs:var(--details-fs, clamp-calc(470px, 1920px, 20px, 24px));
   display: flex;
   flex-direction: column;
   row-gap: 24px;
   margin: 0;
 
   &__term {
-    font-size: 14px;
+    font-size: var(--_term-fs);
     color:var(--gold);
     line-height: 1;
   }
 
   &__details {
     margin-inline: 0;
-    font-size: clamp-calc(470px, 1920px, 20px, 24px);
+    font-size: var(--_details-fs);
     line-height: 1.5;
     font-weight: 400;
   }

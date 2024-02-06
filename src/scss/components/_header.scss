@@ -8,6 +8,14 @@
   padding-inline: var(--container);
   z-index: 10;
   padding-block: clamp-calc(470px, 1920px, 30px, 32px);
+
+  &__link-discuss {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+    @include big-mobile {
+      display: none;
+    }
+  }
+
   @include for-desktop {
     pointer-events: none;
 

@@ -1,0 +1,17 @@
+.marker {
+  position: relative;
+  padding-inline-start: 28px;
+
+  &::before {
+    content:'';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 6px;
+    height: 6px;
+    background-color: var(--gold);
+    margin-block: auto;
+    border-radius: 50%;
+  }
+}

@@ -67,15 +67,17 @@ class Menu {
       return;
     }
 
-    this.scrollY = window.scrollY;
-    document.documentElement.style.setProperty('--window-scroll-y', `-${this.scrollY}px`);
+    if(mm.contexts[0].conditions.isMobile) {
+      this.scrollY = window.scrollY;
+      document.documentElement.style.setProperty('--window-scroll-y', `-${this.scrollY}px`);
+      document.documentElement.classList.toggle('menu-open', true);
+    }
 
     this.menuButtonElement.setAttribute('aria-expanded', 'true');
     this.menuButtonElement.setAttribute('aria-label', 'Закрыть меню');
 
     this.menuButtonElement.classList.toggle('menu__button--open', true);
     this.menuElement.classList.toggle(this.menuOpenClass, true);
-    document.documentElement.classList.toggle('menu-open', true);
 
     this.onMenuOpen();
   }
@@ -105,10 +107,12 @@ class Menu {
 
     this.menuButtonElement.classList.toggle('menu__button--open', false);
     this.menuElement.classList.toggle(this.menuOpenClass, false);
-    document.documentElement.classList.toggle('menu-open', false);
 
-    window.scrollTo(0, this.scrollY);
-    document.documentElement.style.removeProperty('--window-scroll-y');
+    if(mm.contexts[0].conditions.isMobile) {
+      document.documentElement.classList.toggle('menu-open', false);
+      window.scrollTo(0, this.scrollY);
+      document.documentElement.style.removeProperty('--window-scroll-y');
+    }
 
     this.onMenuClose();
   }
