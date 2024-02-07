@@ -54,6 +54,12 @@
   }
 }
 
+@mixin from-big-mobile {
+  @media (min-width: (577px)) {
+    @content;
+  }
+}
+
 @mixin big-mobile {
   @media (max-width: (576px)) {
     @content;

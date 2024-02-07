@@ -7,7 +7,7 @@
   position: relative;
   min-height: 524px;
   padding-inline: var(--container);
-  padding-block: 120px 160px;
+  padding-block: 120px clamp-calc(470px, 768px, 120px, 160px);
   row-gap: 80px;
 
   &--cover {

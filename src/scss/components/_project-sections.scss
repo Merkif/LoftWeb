@@ -1,34 +1,50 @@
 .project-info {
   --details-fs:18px;
   &__grid {
-    display: grid;
-    grid-template-columns: repeat(10, 1fr);
-    column-gap: 24px;
-    row-gap: 80px;
+    @include from-big-mobile {
+      display: grid;
+      grid-template-columns: repeat(10, 1fr);
+      column-gap: 24px;
+      row-gap: 80px;
+    }
 
     @include tablet {
-      grid-template-columns: repeat(8, 1fr);
+      @include from-big-mobile {
+        grid-template-columns: repeat(8, 1fr);
+      }
+    }
+
+    @include big-mobile {
+      display: flex;
+      flex-direction: column;
+      row-gap: 40px;
     }
   }
 
   &__tasks {
-    grid-column: 1/-1;
+    @include from-big-mobile {
+      grid-column: 1/-1;
+    }
   }
 
   &__progress {
-    grid-column: span 4;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    column-gap: 24px;
-    min-width: 500px;
+    @include from-big-mobile {
+      grid-column: span 4;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      column-gap: 24px;
+      min-width: 500px;
 
-    :first-child {
-      grid-column: span 2;
+      :first-child {
+        grid-column: span 2;
+      }
     }
 
     @include tablet {
-      grid-column: 1/ span 8;
-      min-width: revert;
+      @include from-big-mobile {
+        grid-column: 1/ span 8;
+        min-width: revert;
+      }
     }
   }
 
@@ -42,11 +58,13 @@
   }
 
   @include tablet {
-    &__platform {
-      grid-column: 1/ span 4;
-    }
-    &__link {
-      grid-column: 5/ span 4;
+    @include from-big-mobile {
+      &__platform {
+        grid-column: 1/ span 4;
+      }
+      &__link {
+        grid-column: 5/ span 4;
+      }
     }
   }
 }
