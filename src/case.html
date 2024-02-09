@@ -248,6 +248,39 @@
               Сейчас мы активно работаем над его улучшением, внедряем новые фишки и инструменты, чтобы делать его еще лучше.</p>
           </div>
         </section>
+        <section class="l-project__section">
+          <div class="l-project__container">
+            <h2 class="l-project__headline headline headline--primary">Расскажите о своей задаче</h2>
+            <form class="l-project__form form" action="">
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваше имя и фамилию</span>
+                  <input class="form__input" type="text" name="full_name" id="full_name" placeholder="Имя и фамилия">
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваш email</span>
+                  <input class="form__input" type="email" name="email" id="email" placeholder="email" required>
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">Введите ваш номер телефона</span>
+                  <input class="form__input" type="tel" name="tel" id="tel" placeholder="+7 (___) ___-__-__" inputmode="numeric" maxlength="18" data-tel-input>
+                </label>
+              </div>
+              <div class="form__item">
+                <label class="form__input-label">
+                  <span class="form__label">У вас есть что рассказать о проекте? <span class="form__optional">Опционально</span></span>
+                  <textarea class="form__input" name="form_msg" id="form_msg" rows="1" placeholder="Ваше прекрасное сообщение"></textarea>
+                </label>
+              </div>
+              <button class="form__submit button" type="submit">Отправить</button>
+              <p class="form__agreement">Нажимая на кнопку вы даете согласие на <a class="underline" href="">обработку персональных данных</a> и соглашаетесь с <a class="underline">политикой конфиденциальности</a></p>
+            </form>
+          </div>
+        </section>
         <aside class="lead">
           <a class="lead__link" href=""><span class="lead__tagline">Следующий проект</span></a>
           <h2 class="lead__title headline headline--primary"><span class="lead__title-holder color-gold">Разработка корпоративного сайта</span> производителя полуприцепов «Тверьстроймаш»</h2>

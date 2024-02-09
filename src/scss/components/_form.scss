@@ -8,7 +8,6 @@
 
   &__item {
     --counter-color: var(--dark-theme, #474747) var(--light-theme, #BABABA);
-    --counter-translate:-24px;
     gap: 8px 40px;
     padding: 0;
     margin: 0;
@@ -90,7 +89,7 @@
     &:focus-within {
       --border-opacity:1;
     }
-    
+
     &:has(input:not(:placeholder-shown)) {
       --border-opacity:1;
     }

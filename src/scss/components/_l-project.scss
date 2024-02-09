@@ -1,6 +1,11 @@
 .l-project {
+  --border-progress:1;
+  --border-opacity:0.2;
   &__section {
     padding-block: clamp-calc(768px, 1920px, 120px, 160px);
+    display: flex;
+    flex-direction: column;
+    row-gap: 80px;
   }
 
   &__headline {
@@ -8,9 +13,17 @@
   }
 
   &__desc {
-    margin-block: 0 80px;
+    margin-block: 0;
     line-height: 1.6;
     color:#A3A3A3;
+
+    &:not(:last-child) {
+      margin-block: 0 80px;
+    }
+  }
+
+  &__form {
+    margin-block-start: 80px;
   }
 
   &__container {
