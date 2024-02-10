@@ -29,6 +29,7 @@
   &__button {
     display: none;
     cursor: pointer;
+    outline-offset: 6px;
   }
 
   &__list {
