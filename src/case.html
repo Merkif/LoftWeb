@@ -115,11 +115,16 @@
             </ol>
           </div>
         </section>
-        <section class="l-project__section project-home-page">
+        <section class="l-project__section">
           <div class="l-project__container">
             <h2 class="l-project__headline headline headline--primary">Спроектировали главную страницу</h2>
             <p class="l-project__desc">В качестве основного направления мы выбрали минималистичный стиль с контрастной типографикой, чтобы продемонстрировать надежность и серьезный подход — это позволило по-новому посмотреть на образ агентства в целом и масштабировать ценности на все каналы коммуникации.</p>
-            <iframe class="l-project__iframe lazy" data-src="https://paradase.ru/" frameborder="0"></iframe>
+            <div class="c-scroller">
+              <picture>
+                <source srcset="img/case-main-page.webp" type="image/webp">
+                <img class="c-scroller__img lazy" src="img/case-main-page.jpg" class="image" width="1230" height="5228" alt="Главная страница">
+              </picture>
+            </div>
           </div>
         </section>
         <section class="l-project__section">
@@ -249,8 +254,8 @@
           </div>
         </section>
         <section class="l-project__section">
-          <div class="l-project__container">
-            <h2 class="l-project__headline headline headline--primary">Расскажите о своей задаче</h2>
+          <div class="l-project__container" style="--content-width: var(--form-width);">
+            <h2 class="l-project__headline headline headline--center headline--primary">Расскажите о своей задаче</h2>
             <form class="l-project__form form" action="">
               <div class="form__item">
                 <label class="form__input-label">

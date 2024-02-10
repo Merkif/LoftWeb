@@ -11,3 +11,4 @@ import "./components/details";
 import "./components/cookies";
 import "./components/contacts";
 import "./components/loadImages";
+import "./components/c-scroller";
