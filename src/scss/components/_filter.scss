@@ -69,6 +69,7 @@
       letter-spacing: -0.24px;
       line-height: 1.33;
       color: var(--dark-theme, #8C8C8C) var(--light-theme, var(--dark-gray));
+      pointer-events: none;
     }
 
     &::after {
@@ -89,6 +90,7 @@
       transform: rotate(var(--icon-transform, revert));
       filter: var(--dark-theme, revert) var(--light-theme, invert(1));
       will-change: transform, filter;
+      pointer-events: none;
     }
 
     &::-webkit-details-marker {
@@ -118,7 +120,6 @@
   }
   &__label {
     display: block;
-
     span {
       display: block;
       padding-block: clamp-calc(470px, 1920px, 7px, 10px);

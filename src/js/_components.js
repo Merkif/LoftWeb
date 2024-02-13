@@ -12,3 +12,4 @@ import "./components/cookies";
 import "./components/contacts";
 import "./components/loadImages";
 import "./components/c-scroller";
+import "./components/filter-counter";
