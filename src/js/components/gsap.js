@@ -171,8 +171,8 @@ mm.add(
             containerAnimation: scrollTween,
             scrub: 0,
             toggleActions: "play none none reverse",
-            start: "left center",
-            end: "left left",
+            start: "clamp(left center)",
+            end: "clamp(left left)",
             toggleClass: "case--active",
             invalidateOnRefresh: true,
           }
