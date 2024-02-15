@@ -544,3 +544,13 @@ agencyTl.from('.l-agency__desc--hero .char', {
   ease: "power4.out",
   stagger: 0.01
 }, 1)
+
+/* Проверяем наличие jQuery */
+window.addEventListener('load', () => {
+  if (window.jQuery) {
+      /* Обновляем ScrollTrigger по AJAX-событию в фильтре */
+      $(document).on('mse2_load', function (e, data) { 
+        ScrollTrigger.refresh()
+      });
+  }
+})
