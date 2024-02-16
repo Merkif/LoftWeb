@@ -37,6 +37,10 @@
     &:has(.form__input:focus-visible, .form__input:not(:placeholder-shown), .form__list-input:checked){
       --counter-color: var(--dark-theme, #fff) var(--light-theme, var(--black));
     }
+
+    &:has(.is-invalid) .form__error {
+      display: block;
+    }
   }
 
   &__fieldset {
@@ -170,6 +174,7 @@
     color:var(--error-color);
     font-size: 14px;
     grid-column: field;
+    display: none;
   }
 
   &__submit,
