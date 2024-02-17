@@ -2,7 +2,6 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import { ScrollSmoother } from './ScrollSmoother.min.js';
 import SplitType from 'split-type';
-import OnLoadImages from "./loadImages.js";
 
 gsap.config({ nullTargetWarn: false, trialWarn: false, });
 gsap.registerPlugin(ScrollTrigger, ScrollSmoother);
@@ -16,8 +15,6 @@ if (ScrollTrigger.isTouch !== 1 && viewport) {
     smooth: 1.4,
     effects: false,
   });
-
-  OnLoadImages(".lazy", ScrollTrigger.refresh);
 }
 
 let mm = gsap.matchMedia();
@@ -549,7 +546,7 @@ agencyTl.from('.l-agency__desc--hero .char', {
 window.addEventListener('load', () => {
   if (window.jQuery) {
       /* Обновляем ScrollTrigger по AJAX-событию в фильтре */
-      $(document).on('mse2_load', function (e, data) { 
+      $(document).on('mse2_load', function (e, data) {
         ScrollTrigger.refresh()
       });
   }
