@@ -24,6 +24,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     pointer-events: none;
+    overflow-x: clip;
 
     &-img {
       display: block;
