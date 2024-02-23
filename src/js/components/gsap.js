@@ -147,17 +147,12 @@ mm.add(
       });
 
       sectionHeroTimeLine.to('.scroll-sticker__text--horizontal', {
-        rotate: 360,
+        rotation: 360,
         transformOrigin: "center",
-        scrollTrigger: {
-          trigger: scrollSticker,
-          containerAnimation: scrollTween,
-          start: "clamp(left center)",
-          toggleActions: "play none none reverse",
-          end: "0 -10%",
-          scrub: 0.1,
-        }
-      });
+        repeat:-1,
+        ease: "linear",
+        duration:8,
+      }, 0.3);
 
       //cases
       cases.forEach((item) => {
@@ -410,16 +405,12 @@ mm.add(
 
       //scroll sticker
       sectionHeroTimeLine.to('.scroll-sticker__text--vertical', {
-        rotate: 360,
+        rotation: 360,
         transformOrigin: "center",
-        scrollTrigger: {
-          trigger: scrollSticker,
-          start: "clamp(0 80%)",
-          end: "clamp(0 -10%)",
-          toggleActions: "play none none reverse",
-          scrub: 0.3,
-        }
-      });
+        repeat:-1,
+        ease: "linear",
+        duration:8,
+      }, 0.3);
 
       //client testimonial
       testimonialsContainer?.removeEventListener('click', handleTestimonialClick);
