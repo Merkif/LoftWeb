@@ -1,0 +1,33 @@
+.circular-text {
+  $size:clamp-calc(470px, 1280px, 120px, 280px);
+  --_size:var(--size, #{$size});
+  width: var(--_size);
+  height: var(--_size);
+  position: relative;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__svg{
+    width: var(--_size);
+    height: var(--_size);
+    content: '';
+    inset: 0;
+    position: absolute;
+    background-repeat: no-repeat;
+    background-size: contain;
+    color:var(--gold)
+  }
+  &__img {
+    border-radius: 50%;
+    width: 78.57%;
+    height: 78.57%;
+    border: 2px solid var(--gold);
+    display: block;
+    object-fit: cover;
+    object-position: var(--obj-position, auto);
+  }
+
+}

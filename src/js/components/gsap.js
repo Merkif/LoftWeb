@@ -542,3 +542,11 @@ window.addEventListener('load', () => {
       });
   }
 })
+
+//circular text rotate
+gsap.to('.circular-text__svg', {
+  rotation:360,
+  repeat:-1,
+  ease:"linear",
+  duration:8,
+})

@@ -8,6 +8,7 @@
   color:var(--dark-theme, #fff) var(--light-theme, var(--black));
   row-gap: 80px;
   line-height: 1.55;
+  margin-block-start: auto;
 
   &--simple {
     padding-block: 80px;
