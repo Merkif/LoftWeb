@@ -24,9 +24,13 @@ mm.add(
             pin: true,
             trigger: scroller,
             scrub: true,
-            start: "center 52%",
+            start: "center center",
             end: () => "+=" + (scroller.scrollHeight - scroller.offsetHeight),
             invalidateOnRefresh: true,
+            toggleClass: {
+              targets: ".header",
+              className:"header--hide"
+            },
           }
         });
       });
