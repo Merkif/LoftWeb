@@ -1,0 +1,14 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  background-color: var(--black);
+  display: grid;
+  place-content: center;
+  z-index: 999999;
+  transform: opacity 0.3s ease, visibility 0.3s ease;
+
+  &--hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+}
