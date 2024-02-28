@@ -6,6 +6,7 @@
 @import "settings";
 
 // подключения компонентов страницы
+@import "./components/preloader";
 @import "./components/cursor";
 @import "./components/menu";
 @import "./components/logo";
@@ -31,6 +32,7 @@
 @import "./components/section-contacts";
 @import "./components/main-section";
 @import "./components/footer";
+@import "./components/_message";
 @import "./components/modal";
 @import "./components/tabs";
 @import "./components/form";
@@ -51,7 +53,6 @@
 @import "./components/technologies.scss";
 @import "./components/c-scroller";
 @import "./components/circular-text";
-@import "./components/_error";
 //swiper
 @import "./components/swiper";
 //цвета

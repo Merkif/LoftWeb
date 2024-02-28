@@ -114,3 +114,33 @@ function closeOnSwipedDown(el, modal) {
     modal.close();
   });
 }
+
+//modal
+let modalSuccessWindow = document.querySelector('.modal-success__window');
+let modalCircularText = gsap.to('.modal-success__circular-text svg', {
+  rotation:360,
+  repeat:-1,
+  ease:"linear",
+  duration:8,
+  paused:true,
+  reversed:true,
+});
+
+const modal = new HystModal({
+  linkAttributeName: "data-hystmodal",
+  waitTransitions: true,
+  beforeOpen(modal) {
+    if(modal.element.querySelector('.circular-text')) {
+      modalCircularText.play();
+    }
+  },
+  afterClose(modal) {
+    if(modal.element.querySelector('.circular-text')) {
+      modalCircularText.pause();
+    }
+  }
+});
+
+if(modalSuccessWindow) {
+  closeOnSwipedDown(modalSuccessWindow, modal);
+}

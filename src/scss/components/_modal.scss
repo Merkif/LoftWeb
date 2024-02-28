@@ -176,3 +176,30 @@
   padding-inline: clamp-calc(470px, 1024px, 16px, 24px);
   padding-block: 24px;
 }
+
+.modal-success {
+  &__window {
+    background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
+    color: var(--dark-theme, #fff) var(--light-theme, var(--black));
+    padding-block: 80px;
+    padding-inline:clamp-calc(470px, 1280px, 30px, 80px);
+    border-radius:0;
+    border:2px solid var(--dark-theme, #303030) var(--light-theme, var(--light-gray));
+
+    @include for-desktop {
+      width: 900px;
+    }
+
+    @include mobile {
+      border-radius: 24px 24px 0 0;
+    }
+  }
+
+  &__message {
+    padding-inline: 0;
+  }
+
+  &__close {
+    filter: var(--dark-theme, invert(1));
+  }
+}

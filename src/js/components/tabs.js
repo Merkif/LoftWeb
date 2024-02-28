@@ -7,7 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 const tab = gsap.utils.toArray('.c-tabs__tab');
 const splitDesc = new SplitType('.c-tabs__desc', { types: 'words, chars' });
 const tabsDesc = gsap.utils.toArray('.c-tabs__tabpanel:not([hidden]) .c-tabs__desc .char');
-const formItems = gsap.utils.toArray('.c-tabs__tabpanel:not([hidden]) .form__item');
+const formItems = gsap.utils.toArray('.c-tabs__tabpanel:not([hidden]) :is(.form__item, .form__submit, .form__agreement)');
 
 //tabbed
 class Tabbed {
@@ -117,7 +117,7 @@ class Tabbed {
 const tabs = new Tabbed('#tabs', {
   onTabSwitch(activePanel, activeTab) {
     const tabDesc = [...activePanel.querySelectorAll('.c-tabs__desc .char')];
-    const formItems = [...activePanel.querySelectorAll('.form__item')];
+    const formItems = [...activePanel.querySelectorAll('.form__item, .form__submit, .form__agreement')];
 
     //update trigger
     ScrollTrigger.refresh();
