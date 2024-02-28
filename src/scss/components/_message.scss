@@ -12,8 +12,8 @@
   }
 }
 
-
-.error-message {
+.error-message,
+.success-message {
   padding-inline: var(--container);
   display: flex;
   flex-direction: column;
