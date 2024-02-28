@@ -209,7 +209,7 @@
                   </ul>
                 </fieldset>
               </div>
-              <button class="form__submit button" type="submit">Отправить</button>
+              <button class="form__submit button" type="submit" data-hystmodal="#modal-success">Отправить</button>
 
               <p class="form__agreement">Нажимая на кнопку вы даете согласие на <a class="underline" href="">обработку персональных данных</a> и соглашаетесь с <a class="underline">политикой конфиденциальности</a></p>
             </form>
@@ -242,7 +242,8 @@
                   <textarea class="form__input" name="form_msg" id="form_msg" rows="1" placeholder="Ваше прекрасное сообщение"></textarea>
                 </label>
               </div>
-              <button class="form__submit button" type="submit">Отправить</button>
+              <button class="form__submit button" type="submit" data-hystmodal="#modal-success">Отправить</button>
+              <!-- modal.open('#modal-success'); -->
               <p class="form__agreement">Нажимая на кнопку вы даете согласие на <a class="underline" href="">обработку персональных данных</a> и соглашаетесь с <a class="underline">политикой конфиденциальности</a></p>
             </form>
           </section>
@@ -251,6 +252,7 @@
       @include('partials/footer.html')
     </div>
   </div>
+  @include('partials/modal-success.html')
   @include('partials/cookies.html')
 </body>
 
