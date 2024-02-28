@@ -152,6 +152,12 @@ mm.add(
         repeat:-1,
         ease: "linear",
         duration:8,
+        scrollTrigger: {
+          trigger: ".section-hero",
+          start: "0 100%",
+          end: "0 -100%+=100px",
+          toggleActions: "play pause play pause",
+        }
       }, 0.3);
 
       //cases
@@ -410,6 +416,12 @@ mm.add(
         repeat:-1,
         ease: "linear",
         duration:8,
+        scrollTrigger: {
+          trigger: ".section-hero",
+          start: "0 100%",
+          end: "0 -100%+=100px",
+          toggleActions: "play pause play pause",
+        }
       }, 0.3);
 
       //client testimonial
@@ -544,9 +556,13 @@ window.addEventListener('load', () => {
 })
 
 //circular text rotate
-gsap.to('.circular-text__svg', {
+gsap.to('.circular-text__svg.is-running', {
   rotation:360,
   repeat:-1,
   ease:"linear",
   duration:8,
+  scrollTrigger: {
+    trigger: ".circular-text",
+    toggleActions: "play pause play pause",
+  }
 })
