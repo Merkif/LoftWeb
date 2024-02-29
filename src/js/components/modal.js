@@ -144,3 +144,9 @@ const modal = new HystModal({
 if(modalSuccessWindow) {
   closeOnSwipedDown(modalSuccessWindow, modal);
 }
+
+/* Показываем "Спасибо" после успешной отправки формы */
+document.addEventListener('fetchit:success', (e) => {
+  const { form } = e.detail;
+  modal.open('#modal-success');
+});
