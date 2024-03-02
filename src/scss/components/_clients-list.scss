@@ -5,46 +5,20 @@
     position: relative;
     margin-right: -1px;
     margin-bottom: -1px;
+    clip-path: inset(12px 2px 12px 1px);
 
     &__item {
       position: relative;
-      &::before,
-      &::after {
-        $size:clamp-calc(470px, 1920px, 12px, 24px);
-        --size:#{$size};
-        content: '';
-        position: absolute;
-        width: var(--size);
-        height: var(--size);
-        background-color:var(--dark-theme, var(--black)) var(--light-theme, #fff);
-        transition-property: background-color;
-        transition-delay: var(--body-delay);
-        transition-duration: var(--body-dur);
-        transition-timing-function: ease;
-        bottom: calc(100% - (var(--size) / 2));
-        left: calc(100% - (var(--size) / 2));
-        z-index: 2;
-        pointer-events: none;
-      }
 
-      &::after {
-        top: calc(100% - (var(--size) / 2));
-      }
       &:is(:nth-child(1), :nth-child(5)) {
         .client-card {
-          border-inline-start:0;
           padding-inline-start: 0;
         }
       }
 
       &:is(:nth-child(4), :nth-child(8)) {
         .client-card {
-          border-inline-end:0;
           padding-inline-end: 0;
-        }
-        &::before,
-        &::after {
-          display: none;
         }
       }
     }
@@ -77,14 +51,15 @@
   aspect-ratio: 362/242;
   padding-block: var(--padding);
   padding-inline: var(--padding);
+
   @include for-desktop {
-    border: 1px solid var(--dark-gray);
+    border: 1px solid #303030;
     margin-left: -1px;
     margin-top: -1px;
   }
 
   @include tablet {
-    --border-color:var(--dark-gray);
+    --border-color:#303030;
     --gap:12px;
     position: relative;
     border-block: 1px solid var(--border-color);
@@ -120,7 +95,7 @@
   @include for-desktop {
     &__testimonial {
       position: absolute;
-      background-color:var(--dark-theme, #1E1E1E) var(--light-theme, var(--light-gray));
+      background-color:var(--dark-theme, #303030) var(--light-theme, var(--light-gray));
       width: calc((var(--item-size) * var(--item-unit)) - var(--padding));
       height: calc((var(--item-size) * 2) - (var(--padding) * 2));
       top: calc(100% - (var(--item-size) * var(--item-v-unit) - var(--padding)));
@@ -186,10 +161,13 @@
       --item-v-unit:2;
     }
 
-    &:hover,
+    &:hover {
+      --logo-color:#fff;
+      cursor: pointer;
+      background-color:var(--dark-theme, rgba(#fff, 0.02)) var(--light-theme, rgba(#191919, 0.02));
+    }
     &--active  {
       --logo-color:#fff;
-      background-color:var(--dark-theme, rgba(#fff, 0.02)) var(--light-theme, rgba(#191919, 0.02));
       cursor: pointer;
     }
     &--active &__testimonial {
@@ -211,12 +189,16 @@
     border:none;
     padding: 0;
     cursor: pointer;
-    outline-color: var(--gold);
+    outline:none;
+
     @include for-desktop {
       cursor: none;
     }
-    @include tablet {
-      outline: none;
-    }
+  }
+  &:has(&__action:focus-visible) {
+    background-color:var(--dark-theme, rgba(#fff, 0.02)) var(--light-theme, rgba(#191919, 0.02));
+  }
+  &__action:focus-visible + &__icon {
+    --logo-color:#fff;
   }
 }
