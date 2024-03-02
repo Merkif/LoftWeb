@@ -6,6 +6,7 @@
 
 .button {
   --size:160px;
+  --step:16px;
   border:none;
   font-size: 18px;
   display: block;
@@ -20,35 +21,75 @@
   hyphens: auto;
   word-break: break-all;
   line-height: 1.55;
-  transition-property: border-color, background-color, filter, color;
-  transition-timing-function: ease;
-  transition-duration: 0.3s;
+  transition-property: border-color, background-color, filter, color, box-shadow;
+  transition-timing-function: ease-in-out;
+  transition-duration: 0.4s;
   border:3px solid transparent;
   background-color:var(--light-theme, var(--light-gray)) var(--dark-theme, var(--extra-dark-gray));
   padding: 18px;
   line-height: 1.55;
 
+  @include hover {
+    $lightColor:#D1D1D1;
+    $darkColor:#303030;
+    box-shadow: 0 0 0 var(--step)
+                var(--light-theme, rgb($lightColor, .3))
+                var(--dark-theme, rgb($darkColor, .3)),
+
+                0 0 0 calc(var(--step) * 2)
+                var(--light-theme, rgb($lightColor, .2))
+                var(--dark-theme, rgb($darkColor, .2)),
+
+                0 0 0 calc(var(--step) * 3)
+                var(--light-theme, rgb($lightColor, .1))
+                var(--dark-theme, rgb($darkColor, .1));
+  }
+
   &--dark {
     background-color:var(--light-theme, var(--black)) var(--dark-theme, var(--extra-dark-gray));
+
+    @include hover {
+      $lightColor:#191919;
+      $darkColor:#303030;
+      box-shadow: 0 0 0 var(--step)
+                  var(--light-theme, rgb($lightColor, .3))
+                  var(--dark-theme, rgb($darkColor, .3)),
+
+                  0 0 0 calc(var(--step) * 2)
+                  var(--light-theme, rgb($lightColor, .2))
+                  var(--dark-theme, rgb($darkColor, .2)),
+
+                  0 0 0 calc(var(--step) * 3)
+                  var(--light-theme, rgb($lightColor, .1))
+                  var(--dark-theme, rgb($darkColor, .1));
+    }
   }
 
   &--light {
     background-color:var(--light-theme, var(--black)) var(--dark-theme, #fff);
     color:var(--light-theme, #fff) var(--dark-theme, var(--black));
+
+    @include hover {
+      $lightColor:#191919;
+      $darkColor:#fff;
+      box-shadow: 0 0 0 var(--step)
+                  var(--light-theme, rgb($lightColor, .3))
+                  var(--dark-theme, rgb($darkColor, .3)),
+
+                  0 0 0 calc(var(--step) * 2)
+                  var(--light-theme, rgb($lightColor, .2))
+                  var(--dark-theme, rgb($darkColor, .2)),
+                  
+                  0 0 0 calc(var(--step) * 3)
+                  var(--light-theme, rgb($lightColor, .1))
+                  var(--dark-theme, rgb($darkColor, .1));
+    }
   }
 
   &--transparent {
     background-color:transparent;
     border-color:var(--extra-dark-gray);
-    color:var(--light-theme, var(--black)) var(--dark-theme, #fff)
-  }
-
-  @include hover {
-    border-color:var(--gold);
-  }
-
-  &:focus-visible {
-    border-color: var(--gold);
+    color:var(--light-theme, var(--black)) var(--dark-theme, #fff);
   }
 
   @include tablet {
