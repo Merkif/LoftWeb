@@ -1,6 +1,6 @@
 <footer class="footer @if (context.simpleFooter) {footer--simple}">
   @if (!context.simpleFooter) {
-    <div class="footer__group">
+    <div class="footer__group footer__group--contacts">
       <h3 class="footer__title">Связаться с нами</h3>
       <ul class="footer__links" role="list">
         <li class="footer__links-item">
@@ -17,10 +17,12 @@
         </li>
       </ul>
     </div>
-    <div class="footer__group">
+    <div class="footer__group footer__group--location">
       <h3 class="footer__title">Офис</h3>
       <p class="footer__adds">Россия, Москва, <br>ул. Троицкая 15, <br>стр. 1</p>
     </div>
+    <img class="footer__img footer__img--circle lazy" data-src="https://placehold.co/120x120/B4B5AF/31343C" alt="" width="120" height="120">
+    <!-- <img class="footer__img footer__img--round lazy" data-src="https://placehold.co/184x96/B4B5AF/31343C" alt="" width="184" height="96"> -->
   }
   <p class="footer__copyright">© 2014 — 2023 LoftWeb</p>
 </footer>
