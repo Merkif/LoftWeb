@@ -523,27 +523,22 @@ function handleTestimonialClick(event) {
 
 //agency
 agencyTl.from('.l-agency__headline--hero .char', {
-  opacity: 0.2,
+  opacity: 0,
   ease: "power4.out",
-  stagger: {
-    each: 0.03,
-    from: "random",
-    grid: "auto",
-  },
+  stagger: 0.01,
   delay: 0.15,
 })
 
 agencyTl.from('.l-agency__desc--hero', {
-  y: 150,
   opacity: 0,
   duration: 0.5,
-})
+}, 1.2)
 
 agencyTl.from('.l-agency__desc--hero .char', {
   opacity: 0,
   ease: "power4.out",
   stagger: 0.01
-}, 1)
+}, 1.2)
 
 /* Проверяем наличие jQuery */
 window.addEventListener('load', () => {
