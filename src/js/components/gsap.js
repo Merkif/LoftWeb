@@ -18,6 +18,7 @@ if (ScrollTrigger.isTouch !== 1 && viewport) {
 }
 
 let mm = gsap.matchMedia();
+const preloader = document?.querySelector('.preloader');
 const sectionHeroTimeLine = gsap.timeline();
 const sectionHeroTitle = gsap.utils.toArray('.section-hero__title *');
 let scrollTween = null;
@@ -43,6 +44,17 @@ const projectCards = gsap.utils.toArray('.project-list__item');
 const archiveTable = gsap.utils.toArray('.projects__archive tr');
 const horizontalServicesSection = document?.querySelector('.horizontal-scroll__section.section-services');
 
+//preloader
+if(preloader) {
+  sectionHeroTimeLine.to(preloader, {
+    opacity:0,
+    display:"none",
+    onComplete() {
+      preloader.remove();
+    }
+  }, 1.6);
+}
+
 //hero-section
 sectionHeroTitle.forEach((item, index) => {
   sectionHeroTimeLine.from(item, {
@@ -50,7 +62,7 @@ sectionHeroTitle.forEach((item, index) => {
     duration: 1,
     ease: "power4.out",
     opacity: 0,
-    delay: 0.8,
+    delay: 2.5,
   }, 0.15 * index);
 });
 
@@ -456,10 +468,10 @@ mm.add(
 
       animateMarquee(marqueeLight, -500, 'from');
       animateMarquee(marqueeDark, -500, 'from');
-    }
 
-    return () => {
-      window.location.reload()
+      return () => {
+        window.location.reload()
+      }
     }
   }
 );
