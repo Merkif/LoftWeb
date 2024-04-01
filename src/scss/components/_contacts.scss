@@ -8,6 +8,8 @@
   @include max-contacts {
     max-width: 738px;
     margin-inline: auto;
+    display: flex;
+    flex-direction: column;
   }
 
   &__list {
@@ -60,5 +62,44 @@
   &__archive {
     --hide-first-and-last-border: var(--ON);
     --show-first-and-last-border: var(--OFF);
+  }
+
+  &__card {
+    margin-block-end: 120px;
+    padding-block-end: 120px;
+    border-bottom: 1px solid var(--extra-dark-gray);
+    @include min-contacts {
+      grid-column: 5/ span 6;
+    }
+    @include max-contacts {
+      order: -1;
+    }
+  }
+}
+
+.contact-card {
+  display: flex;
+  flex-direction: column;
+  row-gap: 40px;
+
+  &__header {
+    display: flex;
+    flex-direction: column;
+    row-gap: 18px;
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    row-gap: 24px;
+    align-items: flex-start;
+  }
+
+  &__subtitle {
+    color:#8C8C8C;
+  }
+
+  &__link {
+    font-size: clamp-calc(470px, 1280px, 20px, 24px);
   }
 }

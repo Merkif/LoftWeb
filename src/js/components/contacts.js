@@ -8,7 +8,7 @@ let mm = gsap.matchMedia();
 
 mm.add(
   {
-    isDesktop: "(min-width:1025px)",
+    isDesktop: "(min-width:1281px)",
   },
 
   (context) => {
@@ -21,7 +21,7 @@ mm.add(
           trigger: '.contacts__list',
           start: 'clamp(0 25%)',
           pinSpacing: false,
-          end: 'clamp(bottom bottom)',
+          end: () => document.querySelector('.contacts').scrollHeight,
         }
       })
     }
