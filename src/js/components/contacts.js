@@ -19,9 +19,9 @@ mm.add(
           pin: true,
           scrub: true,
           trigger: '.contacts__list',
-          start: 'clamp(0 25%)',
+          start: 'clamp(0 20%)',
           pinSpacing: false,
-          end: () => document.querySelector('.contacts').scrollHeight,
+          end: () => document?.querySelector('.contacts')?.scrollHeight,
         }
       })
     }
