@@ -20,6 +20,41 @@
         }
       }
     }
+
+    &__item {
+      &:nth-child(4n+1) {
+        .client-card__testimonial {
+          left: var(--testimonial-position);
+        }
+      }
+
+      &:nth-child(4n+2) {
+        .client-card__testimonial {
+          --item-unit:2;
+          left: var(--testimonial-position);
+        }
+      }
+
+      &:nth-child(4n+3) {
+        .client-card__testimonial {
+          --item-unit:2;
+          right: var(--testimonial-position);
+        }
+      }
+
+      &:nth-child(4n) {
+        .client-card__testimonial {
+          --item-unit:3;
+          right: var(--testimonial-position);
+        }
+      }
+
+      &:nth-last-child(-n+4){
+        .client-card__testimonial {
+          --item-v-unit:2;
+        }
+      }
+    }
   }
 
   @include tablet {
@@ -127,36 +162,6 @@
         border-radius:100px;
         background-color:var(--gold);
       }
-    }
-
-    &--con &__testimonial,
-    &--beko &__testimonial {
-      left: var(--testimonial-position);
-    }
-
-    &--vaillant &__testimonial,
-    &--pandora &__testimonial {
-      --item-unit:2;
-      left: var(--testimonial-position);
-    }
-
-    &--chicco &__testimonial,
-    &--mb &__testimonial {
-      --item-unit:2;
-      right: var(--testimonial-position);
-    }
-
-    &--zolla &__testimonial,
-    &--atol &__testimonial {
-      --item-unit:3;
-      right: var(--testimonial-position);
-    }
-
-    &--beko,
-    &--pandora,
-    &--mb,
-    &--atol {
-      --item-v-unit:2;
     }
 
     &:hover {
