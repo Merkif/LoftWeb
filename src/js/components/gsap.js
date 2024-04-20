@@ -28,11 +28,8 @@ const marqueeLight = gsap.utils.toArray('.marquee__item--light');
 const marqueeDark = gsap.utils.toArray('.marquee__item--dark');
 const cursorWrapper = document?.querySelector('.custom-cursor');
 const cursorFollower = cursorWrapper?.querySelector('.custom-cursor__follower');
-const links = document?.querySelectorAll('a[href], .footer__links, .filter__title, .filter__content');
 const clientCards = gsap.utils.toArray('.client-card');
 const ratingCards = gsap.utils.toArray('.rating-card');
-const caseLinks = document?.querySelectorAll('.case__link, .lead__link, .project-card__link');
-const clientCardBtn = document?.querySelectorAll('.client-card__action');
 const scrollSticker = gsap.utils.toArray('.scroll-sticker');
 const testimonialsContainer = document?.querySelector('.clients-list');
 const agencyFigure = gsap.utils.toArray('.l-agency__figure');
@@ -103,38 +100,33 @@ mm.add(
         cursorWrapper.classList.remove('custom-cursor--hidden');
       })
 
-      links.forEach(a => {
-        a.addEventListener('mousemove', () => {
-          cursorWrapper.classList.add('custom-cursor--hover');
-        })
-        a.addEventListener('mouseleave', () => {
-          cursorWrapper.classList.remove('custom-cursor--hover');
-        })
-      });
+      const cursorClasses = {
+        'a[href], .footer__links, .filter__title, .filter__content': 'custom-cursor--hover',
+        '.case__link, .lead__link, .project-card__link': 'custom-cursor--case',
+        '.client-card__action': 'custom-cursor--testimonial'
+      };
 
-      caseLinks.forEach(link => {
-        link.addEventListener('mousemove', () => {
-          cursorWrapper.classList.add('custom-cursor--case');
-        })
-        link.addEventListener('mouseleave', () => {
-          cursorWrapper.classList.remove('custom-cursor--case');
-        })
-      });
+      document.addEventListener('mousemove', event => {
+        const target = event.target;
+        let found = false;
 
-      clientCardBtn.forEach(btn => {
-        btn.addEventListener('mousemove', () => {
-          cursorWrapper.classList.add('custom-cursor--testimonial');
-          if (btn.closest('.client-card').classList.contains('client-card--active')) {
-            cursorWrapper.classList.add('custom-cursor--testimonial-close');
-          } else {
-            cursorWrapper.classList.remove('custom-cursor--testimonial-close');
+        for (const selector in cursorClasses) {
+          if (target.matches(selector)) {
+            cursorWrapper.classList.add(cursorClasses[selector]);
+            if (selector === '.client-card__action' && target.closest('.client-card').classList.contains('client-card--active')) {
+              cursorWrapper.classList.add('custom-cursor--testimonial-close');
+            } else if (selector === '.client-card__action') {
+              cursorWrapper.classList.remove('custom-cursor--testimonial-close');
+            }
+            found = true;
           }
-        })
-        btn.addEventListener('mouseleave', () => {
-          cursorWrapper.classList.remove('custom-cursor--testimonial');
-          cursorWrapper.classList.remove('custom-cursor--testimonial-close');
-        })
+        }
+
+        if (!found) {
+          cursorWrapper.className = 'custom-cursor';
+        }
       });
+
 
       //horizontal sections
       horizontalSections.forEach(function (sec, i) {
